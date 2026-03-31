@@ -45,6 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             // Handle links
+            const GITHUB_REPO = 'https://github.com/panwyyt/myboo-resume/blob/main/';
+            const imageExts = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'];
+
             content.querySelectorAll('a').forEach(a => {
                 const href = a.getAttribute('href');
                 if (!href) return;
@@ -53,11 +56,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (href.endsWith('.md') && !href.startsWith('http')) {
                     a.addEventListener('click', (e) => {
                         e.preventDefault();
-                        // Resolve relative path from current folder
                         const resolvedPath = folder + href;
                         loadMarkdown(resolvedPath, true);
                     });
                     a.style.cursor = 'pointer';
+                } else if (!href.startsWith('http') && !href.startsWith('mailto') && !href.startsWith('#')) {
+                    // Local file links (e.g. .robot) → rewrite to GitHub repo
+                    const isImage = imageExts.some(ext => href.toLowerCase().endsWith(ext));
+                    if (!isImage) {
+                        a.href = GITHUB_REPO + folder + href;
+                    } else {
+                        a.href = folder + href;
+                    }
+                    a.setAttribute('target', '_blank');
+                    a.setAttribute('rel', 'noopener noreferrer');
                 } else {
                     // External links → new tab
                     a.setAttribute('target', '_blank');
