@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panthawit Chumthong | Software Tester Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="toggle-icon" id="toggleIcon">☀️</span>
+    </button>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <p class="hero-greeting">Hi, I'm</p>
+                <h1 class="hero-name">Panthawit<br>Chumthong</h1>
+                <p class="hero-role">Software Tester & QA Professional</p>
+                <p class="hero-desc">I find bugs before your users do. Specializing in end-to-end quality assurance —
+                    from manual test design to full automation pipelines.</p>
+                <div class="hero-skills">
+                    <span>Manual Testing</span>
+                    <span>Robot Framework</span>
+                    <span>Selenium</span>
+                    <span>Appium</span>
+                    <span>Postman</span>
+                    <span>SQL</span>
+                    <span>Jira</span>
+                    <span>Agile</span>
+                </div>
+                <div class="hero-contact">
+                    <a href="mailto:tocilic@gmail.com" class="btn-contact">✉️ tocilic@gmail.com</a>
+                    <a href="tel:+66825706947" class="btn-contact">📞 +6682-570-6947</a>
+                </div>
+            </div>
+            <div class="hero-photo">
+                <img src="my-image-profile.JPG" alt="Panthawit Chumthong">
+                <div class="photo-badge">
+                    <strong>2+ yrs</strong>
+                    <span>QA Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Portfolio</h2>
+                <p>Click any project to see the full documentation</p>
+            </div>
+            <div class="projects-grid">
+
+                <div class="project-card" data-readme="./manual-testing-boo-portfolio/README.md">
+                    <div class="project-head">
+                        <span class="p-icon">📝</span>
+                        <div class="p-info">
+                            <span class="p-tag">Manual Testing</span>
+                            <h3>Test Scenarios & Cases</h3>
+                            <p>Facebook, Shopee, login & registration flows, defect logging, test reports</p>
+                        </div>
+                        <span class="p-toggle">+</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-readme="./selenium-boo-portfolio-github/README.md">
+                    <div class="project-head">
+                        <span class="p-icon">🌐</span>
+                        <div class="p-info">
+                            <span class="p-tag">Web Automation</span>
+                            <h3>Robot Framework + Selenium</h3>
+                            <p>Complex form-filling, date-picker edge cases, 100% pass rate</p>
+                        </div>
+                        <span class="p-toggle">+</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-readme="./appium-boo-portfolio-githup/README.md">
+                    <div class="project-head">
+                        <span class="p-icon">📱</span>
+                        <div class="p-info">
+                            <span class="p-tag">Mobile Automation</span>
+                            <h3>Appium Ecosystem</h3>
+                            <p>iOS & Android testing, Appium Inspector, simulated devices</p>
+                        </div>
+                        <span class="p-toggle">+</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-readme="./postman-boo-portfolio-github/README.md">
+                    <div class="project-head">
+                        <span class="p-icon">⚡</span>
+                        <div class="p-info">
+                            <span class="p-tag">API Testing</span>
+                            <h3>Postman API Suites</h3>
+                            <p>Endpoint validation, response times, pre/post-request scripts</p>
+                        </div>
+                        <span class="p-toggle">+</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-readme="./sql-boo-portfolio-github/README.md">
+                    <div class="project-head">
+                        <span class="p-icon">🗄️</span>
+                        <div class="p-info">
+                            <span class="p-tag">Database</span>
+                            <h3>SQL Database Testing</h3>
+                            <p>Schema design, CRUD operations, data extraction, ER diagrams</p>
+                        </div>
+                        <span class="p-toggle">+</span>
+                    </div>
+                </div>
+
+                <a href="https://panwyyt.github.io/GAY-DAR/" target="_blank" class="project-card card-special">
+                    <div class="project-head">
+                        <span class="p-icon">🚀</span>
+                        <div class="p-info">
+                            <span class="p-tag tag-special">Side Project</span>
+                            <h3 class="text-special">GAY-DAR App</h3>
+                            <p class="text-special">Viral web app — 6.2M reaches on X</p>
+                        </div>
+                        <span class="p-toggle text-special">↗</span>
+                    </div>
+                </a>
+
+                <div class="project-card card-soon">
+                    <div class="project-head">
+                        <span class="p-icon">🎭</span>
+                        <div class="p-info">
+                            <span class="p-tag tag-soon">Coming Soon</span>
+                            <h3>Playwright</h3>
+                            <p>Next-gen browser automation framework</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card-soon">
+                    <div class="project-head">
+                        <span class="p-icon">📊</span>
+                        <div class="p-info">
+                            <span class="p-tag tag-soon">Coming Soon</span>
+                            <h3>JMeter</h3>
+                            <p>Performance & load testing at scale</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE & EDUCATION ===== -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience & Education</h2>
+            </div>
+            <div class="exp-list">
+
+                <div class="exp-card">
+                    <div class="exp-left">
+                        <span class="exp-date">2025 – 2026</span>
+                        <span class="exp-type type-edu">Course</span>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Software Testing Full Course</h3>
+                        <h4>Software Testing By P'Beam</h4>
+                        <p>Comprehensive training in manual testing, automation (Robot Framework, Selenium, Appium), API
+                            testing (Postman), and database testing (SQL).</p>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-left">
+                        <span class="exp-date">2024 – 2025</span>
+                        <span class="exp-type type-work">Work</span>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Quality Analyst</h3>
+                        <h4>Gearinc Services · Thailand</h4>
+                        <p>Developed QC frameworks, coached moderators, refined operational policies addressing platform
+                            gaps and regulatory compliance.</p>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-left">
+                        <span class="exp-date">2022 – 2024</span>
+                        <span class="exp-type type-work">Work</span>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Technical Advertising Support</h3>
+                        <h4>Concentrix · Malaysia</h4>
+                        <p>Troubleshot website & software bugs, escalated critical issues, resolved complex platform
+                            problems. Optimized campaign performance.</p>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-left">
+                        <span class="exp-date">2022</span>
+                        <span class="exp-type type-edu">Course</span>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Certified Professional Data Analyst</h3>
+                        <h4>DataRockie School & Coursera</h4>
+                        <p>Professional certification in data analysis — data wrangling, visualization, dashboards, and
+                            analytical reporting.</p>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-left">
+                        <span class="exp-date">2022</span>
+                        <span class="exp-type type-cert">Cert</span>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Customer Service Certification</h3>
+                        <h4>Skillsoft</h4>
+                        <p>Professional certification for customer service methodologies and communication.</p>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-left">
+                        <span class="exp-date">2021</span>
+                        <span class="exp-type type-cert">Cert</span>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Digital Marketing Certification</h3>
+                        <h4>Google Digital Garage</h4>
+                        <p>Fundamentals of digital marketing including SEO, SEM, analytics, and campaign management.</p>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-left">
+                        <span class="exp-date">2018 – 2021</span>
+                        <span class="exp-type type-edu">Edu</span>
+                    </div>
+                    <div class="exp-right">
+                        <h3>Sociology and Anthropology</h3>
+                        <h4>Thammasat University</h4>
+                        <p>Bachelor's degree — understanding human behavior, research methodology, and analytical
+                            thinking.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-cta">Interested in working together?</p>
+            <div class="footer-links">
+                <a href="mailto:tocilic@gmail.com">Email</a>
+                <span>·</span>
+                <a href="https://linkedin.com/in/tocilic" target="_blank">LinkedIn</a>
+                <span>·</span>
+                <a href="https://github.com/panwyyt" target="_blank">GitHub</a>
+            </div>
+            <p class="footer-copy">© 2026 Panthawit Chumthong</p>
+        </div>
+    </footer>
+
+    <!-- ===== FULLSCREEN README OVERLAY ===== -->
+    <div class="readme-overlay" id="readmeOverlay">
+        <div class="readme-panel">
+            <button class="readme-close" id="readmeClose">✕ Close</button>
+            <div class="readme-content" id="readmeContent">
+                <p class="loading-text">Loading...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+# Ignore all files and folders by default (this is a PostgreSQL system directory!)
+/*
+
+# BUT explicitly allow these files and folders to be pushed to GitHub:
+!/boo-data/
+!/README.md
+!/.gitignore

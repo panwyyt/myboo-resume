@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.14.3 on darwin)" generated="2026-03-29T22:09:37.227343" rpa="false" schemaversion="5">
+<suite id="s1" name="Ios Basic Test" source="/Users/tocilic/Documents/appium-boo-portfolio-githup/ios/ios_basic_test.robot">
+<test id="s1-t1" name="Test Reminders App" line="26">
+<kw name="Open Reminders App">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${PLATFORM}</arg>
+<arg>platformVersion=${PLATFORM_VER}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>automationName=${AUTOMATION}</arg>
+<arg>bundleId=${BUNDLE_ID}</arg>
+<arg>noReset=true</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2026-03-29T22:09:37.373525" elapsed="12.173295"/>
+</kw>
+<status status="PASS" start="2026-03-29T22:09:37.373135" elapsed="12.174541"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>accessibility_id=New Reminder</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-29T22:09:49.548362" elapsed="0.343041"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:09:49.893737" level="INFO">Clicking element 'accessibility_id=New Reminder'.</msg>
+<arg>accessibility_id=New Reminder</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:09:49.891767" elapsed="1.945689"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>accessibility_id=Quick Entry Title Field</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-29T22:09:51.840435" elapsed="0.681769"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2026-03-29T22:09:52.524979" level="INFO">Typing text 'ทดสอบการสร้าง Reminder by Boo' into text field 'accessibility_id=Quick Entry Title Field'</msg>
+<arg>accessibility_id=Quick Entry Title Field</arg>
+<arg>ทดสอบการสร้าง Reminder by Boo</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:09:52.522558" elapsed="1.389706"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:09:53.914982" level="INFO">Clicking element 'chain=**/XCUIElementTypeSwitch[`name == "Date"`]'.</msg>
+<arg>chain=**/XCUIElementTypeSwitch[`name == "Date"`]</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:09:53.912948" elapsed="2.420584"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:09:56.337354" level="INFO">Clicking element 'DatePicker.Show'.</msg>
+<msg time="2026-03-29T22:09:57.515574" level="INFO">criteria is DatePicker.Show</msg>
+<arg>DatePicker.Show</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:09:56.334696" elapsed="1.181023"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>class=XCUIElementTypePicker</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-29T22:09:57.516006" elapsed="0.210180"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2026-03-29T22:09:57.727914" level="INFO">Typing text 'March' into text field 'xpath=(//XCUIElementTypePickerWheel)[1]'</msg>
+<msg time="2026-03-29T22:09:58.159580" level="INFO">xpath criteria: (//XCUIElementTypePickerWheel)[1]</msg>
+<arg>xpath=(//XCUIElementTypePickerWheel)[1]</arg>
+<arg>March</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:09:57.726475" elapsed="0.433222"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2026-03-29T22:09:58.161424" level="INFO">Typing text '2541 BE' into text field 'xpath=(//XCUIElementTypePickerWheel)[2]'</msg>
+<msg time="2026-03-29T22:09:59.614073" level="INFO">xpath criteria: (//XCUIElementTypePickerWheel)[2]</msg>
+<arg>xpath=(//XCUIElementTypePickerWheel)[2]</arg>
+<arg>2541 BE</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:09:58.160002" elapsed="1.454189"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<arg>accessibility_id=DatePicker.Hide</arg>
+<arg>10s</arg>
+<doc>Waits until the element specified by the ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-03-29T22:09:59.614563" elapsed="0.216535"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:09:59.833029" level="INFO">Clicking element 'accessibility_id=DatePicker.Hide'.</msg>
+<arg>accessibility_id=DatePicker.Hide</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:09:59.831364" elapsed="0.787537"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:10:00.619686" level="INFO">Clicking element 'accessibility_id=20'.</msg>
+<arg>accessibility_id=20</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:10:00.619098" elapsed="0.936695"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:10:01.557858" level="INFO">Clicking element 'accessibility_id=Done'.</msg>
+<arg>accessibility_id=Done</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:10:01.556327" elapsed="1.766303"/>
+</kw>
+<status status="PASS" start="2026-03-29T22:09:37.372690" elapsed="25.950960"/>
+</test>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2026-03-29T22:10:03.325489" elapsed="0.053525"/>
+</kw>
+<status status="PASS" start="2026-03-29T22:09:37.229232" elapsed="26.149899"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Ios Basic Test" id="s1" pass="1" fail="0" skip="0">Ios Basic Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

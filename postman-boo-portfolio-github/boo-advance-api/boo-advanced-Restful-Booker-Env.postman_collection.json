@@ -1,0 +1,321 @@
+{
+  "info": {
+    "_postman_id": "852b0e6a-020e-445d-bc24-1fc5e190b109",
+    "name": "boo-advanced-Restful-Booker-Env",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53109804",
+    "_collection_link": "https://go.postman.co/collection/53109804-852b0e6a-020e-445d-bc24-1fc5e190b109?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Admin Services",
+      "item": [
+        {
+          "name": "Remove aditionalNeeds",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// 1. เช็คว่าเซิร์ฟเวอร์ยอมให้แก้ไหม (200 OK)",
+                  "pm.test(\"PATCH ผ่านฉลุย! (200 OK)\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "// 2. เช็คว่าค่าโดนลบจริงหรือเปล่า",
+                  "const responseData = pm.response.json();",
+                  "pm.test(\"ล้างข้อมูล additionalneeds เรียบร้อยแล้ว\", function () {",
+                  "    pm.expect(responseData.additionalneeds).to.equal(\"\");",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token={{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"additionalneeds\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/booking/{{latest_booking_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "booking",
+                "{{latest_booking_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete By Latest BookingID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "//เช็ค Status Code (สำหรับ API เจ้านี้ ถ้าลบสำเร็จเขาจะตอบกลับมาว่า 201 Created ครับ)",
+                  "pm.test(\"ลบข้อมูลสำเร็จ! (201 Created)\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "//เคลียร์ค่า ID ในถัง environment",
+                  "pm.environment.unset(\"latest_booking_id\");",
+                  "",
+                  "console.log(\"🗑️ ลบข้อมูล ID ล่าสุดทิ้งเรียบร้อยแล้ว!\");"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token={{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/booking/{{latest_booking_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "booking",
+                "{{latest_booking_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              "const authRequest = {                               //ใช้ POST ไปดึง Token มาก่อน",
+              "    url: pm.environment.get(\"base_url\") + \"/auth\",   //Endpoint เพื่อขอ toke",
+              "    method: 'POST', ",
+              "    header: {",
+              "        'Content-Type': 'application/json'",
+              "    },",
+              "    body: {                                         // ใส่รหัสผ่านลงในตัวเครื่อง (Body) โดยแปลงจาก Object เป็น String ก่อนส่งจริง",
+              "        mode: 'raw',",
+              "        raw: JSON.stringify({                       ",
+              "            \"username\": \"admin\",                     // ยูสเซอร์เนมตามที่ API กำหนด",
+              "            \"password\": \"password123\"                 // รหัสผ่านตามที่ API กำหนด",
+              "        })",
+              "    }",
+              "};",
+              "",
+              "pm.sendRequest(authRequest, (error, response) => {      //ใช้คำสั่ง pm.sendRequest เพื่อแอบไปล็อกอินให้เราก่อนที่จะเริ่มรัน Request จริงๆ",
+              "    if (error) {                    ",
+              "        console.error(\"ขอ Token ไม่สำเร็จ:\", error);       // เช็ค Error",
+              "        return;",
+              "    }",
+              "    if (response.code === 200) {",
+              "        const result = response.json();                    // แปลงข้อมูลที่เซิร์ฟเวอร์ส่งกลับมาให้กลายเป็น JSON เพื่อให้อ่านง่าย",
+              "        pm.environment.set(\"token\", result.token);              //บันทึกกุญแจลงถัง (Environment Variable)",
+              "        console.log(\"กุญแจทีไ่ด้มารหัสคือ: \" + result.token);",
+              "    } else {",
+              "        console.warn(\"ล็อกอินไม่ผ่าน! เช็ค Username/Password อีกทีนะ รหัสตอบกลับคือ: \" + response.code);          // กรณีใส่ไม่ใช่ 200",
+              "    }",
+              "});"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Public Services",
+      "item": [
+        {
+          "name": "Get Latest BookingID",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/booking/{{latest_booking_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "booking",
+                "{{latest_booking_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Booking By Guest Info",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// สุ่มชื่อและราคา เพื่อให้เทสเคสหลากหลาย",
+                  "const firstnames = [\"Somsak\", \"Wichai\", \"Ananda\", \"Lisa\", \"Boo\"];",
+                  "const lastnames = [\"Deepak\", \"Rambo\", \"Blackpink\", \"Advanced\", \"Testing\"];",
+                  "pm.variables.set(\"random_firstname\", firstnames[Math.floor(Math.random() * firstnames.length)]);",
+                  "pm.variables.set(\"random_lastname\", lastnames[Math.floor(Math.random() * lastnames.length)]);",
+                  "pm.variables.set(\"random_price\", Math.floor(Math.random() * 5000) + 1000);",
+                  "console.log(\"สุ่มชื่อแขกเป็น: \" + pm.variables.get(\"random_firstname\"));"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "//เช็คว่าสร้างสำเร็จไหม (200 OK)",
+                  "pm.test(\"Status code is 200 - Create Success\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "//ดึงค่า bookingid มาเก็บไว้ในถัง Environment",
+                  "const jsonData = pm.response.json();",
+                  "const bookingId = jsonData.bookingid;",
+                  "pm.environment.set(\"latest_booking_id\", bookingId);",
+                  "console.log(\"เก็บ Booking ID ไว้แล้ว: \" + bookingId);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstname\" : \"{{random_firstname}}\",\n    \"lastname\" : \"{{random_lastname}}\",\n    \"totalprice\" : {{random_price}},\n    \"depositpaid\" : true,\n    \"bookingdates\" : {\n        \"checkin\" : \"2026-01-01\",\n        \"checkout\" : \"2026-01-05\"\n    },\n    \"additionalneeds\" : \"Breakfast\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/booking",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "booking"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All BookingID",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/booking",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "booking"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

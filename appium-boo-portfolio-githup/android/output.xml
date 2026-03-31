@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.14.3 on darwin)" generated="2026-03-29T22:53:54.497957" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Mobile" source="/Users/tocilic/Documents/appium-boo-portfolio-githup/android/test_mobile.robot">
+<test id="s1-t1" name="Open App Test" line="27">
+<kw name="Open App Dialer">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>platformName=${PLATFORM}</arg>
+<arg>platformVersion=${PLATFORM_VER}</arg>
+<arg>automationName=${AUTOMATION}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>appPackage=${PACKAGE}</arg>
+<arg>appActivity=${ACTIVITY}</arg>
+<arg>noReset=false</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2026-03-29T22:53:54.637035" elapsed="4.515476"/>
+</kw>
+<status status="PASS" start="2026-03-29T22:53:54.636696" elapsed="4.518856"/>
+</kw>
+<doc>ทดสอบเปิดแอป Dialer</doc>
+<status status="PASS" start="2026-03-29T22:53:54.636265" elapsed="4.521083"/>
+</test>
+<test id="s1-t2" name="Verify IMEI Display Success" line="31">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>accessibility_id=key pad</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-29T22:53:59.161542" elapsed="1.462545"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:54:00.634940" level="INFO">Clicking element 'accessibility_id=key pad'.</msg>
+<arg>accessibility_id=key pad</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:54:00.631754" elapsed="0.412196"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>accessibility_id=*</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-29T22:54:01.044377" elapsed="1.317674"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:54:02.366434" level="INFO">Clicking element 'accessibility_id=*'.</msg>
+<arg>accessibility_id=*</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:54:02.364649" elapsed="0.719758"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:54:03.087713" level="INFO">Clicking element 'accessibility_id=#'.</msg>
+<arg>accessibility_id=#</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:54:03.084987" elapsed="0.594551"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:54:03.682494" level="INFO">Clicking element 'accessibility_id=0'.</msg>
+<arg>accessibility_id=0</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:54:03.679872" elapsed="0.594178"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:54:04.275845" level="INFO">Clicking element 'accessibility_id=6,MNO'.</msg>
+<arg>accessibility_id=6,MNO</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:54:04.274336" elapsed="0.687962"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:54:04.964017" level="INFO">Clicking element 'accessibility_id=#'.</msg>
+<arg>accessibility_id=#</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:54:04.962550" elapsed="0.101925"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Device information</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-03-29T22:54:05.064762" elapsed="0.245047"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2026-03-29T22:54:05.742827" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="imei_result.png"&gt;&lt;img src="imei_result.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>imei_result.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2026-03-29T22:54:05.310392" elapsed="0.432859"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-03-29T22:54:05.745598" level="INFO">Clicking element 'id=android:id/button1'.</msg>
+<msg time="2026-03-29T22:54:06.797508" level="INFO">criteria is android:id/button1</msg>
+<arg>id=android:id/button1</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-29T22:54:05.743899" elapsed="1.053743"/>
+</kw>
+<status status="PASS" start="2026-03-29T22:53:59.158165" elapsed="7.639875"/>
+</test>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2026-03-29T22:54:06.799313" elapsed="0.445711"/>
+</kw>
+<status status="PASS" start="2026-03-29T22:53:54.498612" elapsed="12.746871"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Mobile" id="s1" pass="2" fail="0" skip="0">Test Mobile</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
