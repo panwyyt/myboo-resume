@@ -6,52 +6,94 @@ document.addEventListener("DOMContentLoaded", () => {
     const content = document.getElementById('readmeContent');
     const closeBtn = document.getElementById('readmeClose');
 
-    // ===== Fullscreen README Overlay =====
-    document.querySelectorAll('.project-card[data-readme]').forEach(card => {
-        card.addEventListener('click', async () => {
-            const path = card.getAttribute('data-readme');
+    // History stack for back navigation
+    let history = [];
 
-            // Show overlay
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            content.innerHTML = '<p class="loading-text">Loading README...</p>';
+    // Reusable function to load and render any .md file
+    async function loadMarkdown(path, pushHistory = true) {
+        if (pushHistory && history.length > 0) {
+            // save current scroll position isn't needed, we scroll to top anyway
+        }
+        if (pushHistory) {
+            history.push(path);
+        }
 
-            // Scroll overlay to top
-            overlay.scrollTop = 0;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        content.innerHTML = '<p class="loading-text">Loading...</p>';
+        overlay.scrollTop = 0;
 
-            try {
-                const res = await fetch(path);
-                if (!res.ok) throw new Error('File not found');
-                content.innerHTML = marked.parse(await res.text());
+        // Update close button to show Back if we have history
+        if (history.length > 1) {
+            closeBtn.innerHTML = '← Back';
+        } else {
+            closeBtn.innerHTML = '✕ Close';
+        }
 
-                // Fix relative image paths
-                const folder = path.substring(0, path.lastIndexOf('/') + 1);
-                content.querySelectorAll('img').forEach(img => {
-                    const src = img.getAttribute('src');
-                    if (src && !src.startsWith('http') && !src.startsWith('/')) {
-                        img.src = folder + src;
-                    }
-                });
+        try {
+            const res = await fetch(path);
+            if (!res.ok) throw new Error('File not found');
+            content.innerHTML = marked.parse(await res.text());
 
-                // External links in new tab
-                content.querySelectorAll('a').forEach(a => {
+            // Fix relative image paths
+            const folder = path.substring(0, path.lastIndexOf('/') + 1);
+            content.querySelectorAll('img').forEach(img => {
+                const src = img.getAttribute('src');
+                if (src && !src.startsWith('http') && !src.startsWith('/')) {
+                    img.src = folder + src;
+                }
+            });
+
+            // Handle links
+            content.querySelectorAll('a').forEach(a => {
+                const href = a.getAttribute('href');
+                if (!href) return;
+
+                // Internal .md links → open in same overlay
+                if (href.endsWith('.md') && !href.startsWith('http')) {
+                    a.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Resolve relative path from current folder
+                        const resolvedPath = folder + href;
+                        loadMarkdown(resolvedPath, true);
+                    });
+                    a.style.cursor = 'pointer';
+                } else {
+                    // External links → new tab
                     a.setAttribute('target', '_blank');
                     a.setAttribute('rel', 'noopener noreferrer');
-                });
-            } catch (e) {
-                content.innerHTML = `<p class="loading-text">⚠️ Could not load — ${e.message}</p>`;
-            }
+                }
+            });
+        } catch (e) {
+            content.innerHTML = `<p class="loading-text">⚠️ Could not load — ${e.message}</p>`;
+        }
+    }
+
+    // ===== Project Card Click =====
+    document.querySelectorAll('.project-card[data-readme]').forEach(card => {
+        card.addEventListener('click', () => {
+            history = []; // Reset history for new project
+            loadMarkdown(card.getAttribute('data-readme'), true);
         });
     });
 
-    // Close overlay
-    function closeOverlay() {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
+    // Close / Back
+    function handleClose() {
+        if (history.length > 1) {
+            // Go back
+            history.pop();
+            const prev = history[history.length - 1];
+            loadMarkdown(prev, false);
+        } else {
+            // Close overlay
+            history = [];
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     }
 
-    closeBtn.addEventListener('click', closeOverlay);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
+    closeBtn.addEventListener('click', handleClose);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') handleClose(); });
 
     // ===== Theme Toggle =====
     const toggle = document.getElementById('themeToggle');
