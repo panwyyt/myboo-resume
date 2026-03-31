@@ -125,11 +125,11 @@ body {
 .photo-badge {
     position: absolute; bottom: -12px; left: -16px;
     background: var(--badge-bg); color: #fff;
-    padding: 8px 14px; border-radius: 10px; text-align: center;
+    padding: 4px 14px; border-radius: 10px; text-align: center;
     box-shadow: 0 8px 24px rgba(59,130,246,0.3);
 }
-.photo-badge strong { display: block; font-size: 1rem; }
-.photo-badge span { font-size: 0.65rem; opacity: 0.85; }
+.photo-badge strong { display: block; font-size: 0.85rem; }
+.photo-badge span { font-size: 0.6rem; opacity: 0.85; }
 
 /* ========================================
    SECTION HEADERS
