@@ -8,347 +8,327 @@
     <link rel="icon" href="https://avatars.githubusercontent.com/u/86871974?v=4" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
+    <!-- Environmental Effects Layer -->
+    <div class="env-layer grid-bg"></div>
+    <div class="env-layer scanlines"></div>
+    <div class="env-layer vignette"></div>
 
     <!-- Theme Toggle -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <span class="toggle-icon" id="toggleIcon">☀️</span>
+        <span class="toggle-text">SYS.THEME</span>
+        <span class="corner c-tl"></span><span class="corner c-br"></span>
     </button>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero">
-        <div class="hero-inner">
-            <div class="hero-text">
-                <p class="hero-greeting">Hi, I'm</p>
-                <h1 class="hero-name">Panthawit<br>Chumthong</h1>
-                <p class="hero-role">Software Tester & QA Professional</p>
-                <p class="hero-desc">I find bugs before the users do. Specializing in end-to-end quality assurance —
-                    from manual test design to full automation pipelines.</p>
-                <div class="skills-marquee-wrapper">
-                    <!-- Row 1: scrolls left -->
-                    <div class="skills-marquee">
-                        <div class="skills-track">
-                            <span class="skill-pill c1">Manual Testing</span>
-                            <span class="skill-pill c2">Robot Framework</span>
-                            <span class="skill-pill c3">Selenium</span>
-                            <span class="skill-pill c4">Appium</span>
-                            <span class="skill-pill c5">Playwright</span>
-                            <span class="skill-pill c6">Postman</span>
-                            <span class="skill-pill c7">SQL</span>
-                            <span class="skill-pill c8">TypeScript</span>
-                            <span class="skill-pill c9">Python</span>
-                            <span class="skill-pill c10">JavaScript</span>
-                            <span class="skill-pill c1">Test Cases</span>
-                            <span class="skill-pill c3">Test Scenarios</span>
-                            <span class="skill-pill c5">Page Object Model</span>
-                            <span class="skill-pill c7">API Testing</span>
-                            <span class="skill-pill c9">Performance Testing</span>
-                            <!-- duplicate for seamless loop -->
-                            <span class="skill-pill c1">Manual Testing</span>
-                            <span class="skill-pill c2">Robot Framework</span>
-                            <span class="skill-pill c3">Selenium</span>
-                            <span class="skill-pill c4">Appium</span>
-                            <span class="skill-pill c5">Playwright</span>
-                            <span class="skill-pill c6">Postman</span>
-                            <span class="skill-pill c7">SQL</span>
-                            <span class="skill-pill c8">TypeScript</span>
-                            <span class="skill-pill c9">Python</span>
-                            <span class="skill-pill c10">JavaScript</span>
-                            <span class="skill-pill c1">Test Cases</span>
-                            <span class="skill-pill c3">Test Scenarios</span>
-                            <span class="skill-pill c5">Page Object Model</span>
-                            <span class="skill-pill c7">API Testing</span>
-                            <span class="skill-pill c9">Performance Testing</span>
-                        </div>
-                    </div>
-                    <!-- Row 2: scrolls right -->
-                    <div class="skills-marquee reverse">
-                        <div class="skills-track">
-                            <span class="skill-pill c2">Defect Logging</span>
-                            <span class="skill-pill c4">Bug Reports</span>
-                            <span class="skill-pill c6">CRUD Operations</span>
-                            <span class="skill-pill c8">Agile</span>
-                            <span class="skill-pill c10">Scrum</span>
-                            <span class="skill-pill c1">Jira</span>
-                            <span class="skill-pill c3">Appium Inspector</span>
-                            <span class="skill-pill c5">Codegen</span>
-                            <span class="skill-pill c7">PostgreSQL</span>
-                            <span class="skill-pill c9">pgAdmin</span>
-                            <span class="skill-pill c2">Docker</span>
-                            <span class="skill-pill c4">HTML/CSS</span>
-                            <span class="skill-pill c6">Data Analysis</span>
-                            <span class="skill-pill c8">CI/CD</span>
-                            <span class="skill-pill c10">Android Studio</span>
-                            <!-- duplicate for seamless loop -->
-                            <span class="skill-pill c2">Defect Logging</span>
-                            <span class="skill-pill c4">Bug Reports</span>
-                            <span class="skill-pill c6">CRUD Operations</span>
-                            <span class="skill-pill c8">Agile</span>
-                            <span class="skill-pill c10">Scrum</span>
-                            <span class="skill-pill c1">Jira</span>
-                            <span class="skill-pill c3">Appium Inspector</span>
-                            <span class="skill-pill c5">Codegen</span>
-                            <span class="skill-pill c7">PostgreSQL</span>
-                            <span class="skill-pill c9">pgAdmin</span>
-                            <span class="skill-pill c2">Docker</span>
-                            <span class="skill-pill c4">HTML/CSS</span>
-                            <span class="skill-pill c6">Data Analysis</span>
-                            <span class="skill-pill c8">CI/CD</span>
-                            <span class="skill-pill c10">Android Studio</span>
-                        </div>
-                    </div>
+    <div class="dashboard-wrapper">
+        <header class="sys-header">
+            <div class="brand">SYS.INIT // PANTHAWIT_CHUMTHONG</div>
+            <div class="sys-status">STATUS: ONLINE <span class="blink">_</span></div>
+        </header>
+
+        <div class="dashboard-grid">
+
+            <!-- Panel 1: Profile & Skills -->
+            <div class="panel profile-panel">
+                <span class="corner c-tl"></span><span class="corner c-tr"></span>
+                <span class="corner c-bl"></span><span class="corner c-br"></span>
+                <div class="panel-header">
+                    <span class="bracket">[</span> OPERATOR_PROFILE <span class="bracket">]</span>
                 </div>
-                <div class="hero-contact">
-                    <a href="mailto:tocilic@gmail.com" class="btn-contact">✉️ tocilic@gmail.com</a>
-                    <a href="tel:+66825706947" class="btn-contact">📞 082-5706947</a>
+                <div class="panel-content col-layout">
+                    
+                    <div class="hero-photo-wrapper">
+                        <img src="my-image-profile.JPG" alt="Panthawit Chumthong" class="hero-photo-img">
+                        <div class="photo-overlay"></div>
+                        <div class="photo-badge">LVL: EXPERIENCED // QA</div>
+                    </div>
+
+                    <div class="operator-data">
+                        <h1 class="hero-name">PANTHAWIT<br>CHUMTHONG</h1>
+                        <p class="hero-role">&gt; ROLE: Software Tester & QA Professional</p>
+                        <p class="hero-desc">
+                            &gt; OBJ: I find bugs before the users do. Specializing in end-to-end quality assurance —
+                            from manual test design to full automation pipelines.
+                        </p>
+                        
+                        <div class="contact-links">
+                            <a href="mailto:tocilic@gmail.com" class="tech-btn">[ ✉️ EMAIL_LINK ]</a>
+                            <a href="tel:+66825706947" class="tech-btn">[ 📞 COM_LINK ]</a>
+                            <a href="https://linkedin.com/in/tocilic" target="_blank" class="tech-btn">[ 🔗 LINKEDIN ]</a>
+                            <a href="https://github.com/panwyyt" target="_blank" class="tech-btn">[ 💻 GITHUB ]</a>
+                        </div>
+                    </div>
+
+                    <div class="skills-module">
+                        <div class="module-title">DATA_STREAM :: SKILLS</div>
+                        <div class="skills-marquee-wrapper scanner-box">
+                            <!-- Overlay effects for skills box -->
+                            <div class="scanner-sweep"></div>
+                            
+                            <div class="skills-marquee">
+                                <div class="skills-track">
+                                    <span class="skill-pill">Manual Testing</span>
+                                    <span class="skill-pill">Robot Framework</span>
+                                    <span class="skill-pill">Selenium</span>
+                                    <span class="skill-pill">Appium</span>
+                                    <span class="skill-pill">Playwright</span>
+                                    <span class="skill-pill">Postman</span>
+                                    <span class="skill-pill">SQL</span>
+                                    <span class="skill-pill">TypeScript</span>
+                                    <span class="skill-pill">Python</span>
+                                    <span class="skill-pill">JavaScript</span>
+                                    <span class="skill-pill">Manual Testing</span>
+                                    <span class="skill-pill">Robot Framework</span>
+                                    <span class="skill-pill">Selenium</span>
+                                    <span class="skill-pill">Appium</span>
+                                    <span class="skill-pill">Playwright</span>
+                                    <span class="skill-pill">Postman</span>
+                                    <span class="skill-pill">SQL</span>
+                                    <span class="skill-pill">TypeScript</span>
+                                    <span class="skill-pill">Python</span>
+                                    <span class="skill-pill">JavaScript</span>
+                                </div>
+                            </div>
+                            <div class="skills-marquee reverse">
+                                <div class="skills-track">
+                                    <span class="skill-pill">Defect Logging</span>
+                                    <span class="skill-pill">Bug Reports</span>
+                                    <span class="skill-pill">CRUD Ops</span>
+                                    <span class="skill-pill">Agile</span>
+                                    <span class="skill-pill">Scrum</span>
+                                    <span class="skill-pill">Jira</span>
+                                    <span class="skill-pill">Appium Inspector</span>
+                                    <span class="skill-pill">Codegen</span>
+                                    <span class="skill-pill">PostgreSQL</span>
+                                    <span class="skill-pill">CI/CD</span>
+                                    <span class="skill-pill">Defect Logging</span>
+                                    <span class="skill-pill">Bug Reports</span>
+                                    <span class="skill-pill">CRUD Ops</span>
+                                    <span class="skill-pill">Agile</span>
+                                    <span class="skill-pill">Scrum</span>
+                                    <span class="skill-pill">Jira</span>
+                                    <span class="skill-pill">Appium Inspector</span>
+                                    <span class="skill-pill">Codegen</span>
+                                    <span class="skill-pill">PostgreSQL</span>
+                                    <span class="skill-pill">CI/CD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-photo">
-                <img src="my-image-profile.JPG" alt="Panthawit Chumthong">
-                <div class="photo-badge">
-                    <strong>Junior QA</strong>
-                    <span>Experienced</span>
+
+            <!-- Panel 2: Projects Database -->
+            <div class="panel projects-panel">
+                <span class="corner c-tl"></span><span class="corner c-tr"></span>
+                <span class="corner c-bl"></span><span class="corner c-br"></span>
+                <div class="panel-header">
+                    <span class="bracket">[</span> DATA_NODES :: PORTFOLIO <span class="bracket">]</span>
+                </div>
+                <div class="panel-content scrollable">
+                    <div class="projects-grid">
+                        <div class="project-card" data-readme="./manual-testing-boo-portfolio/README.md">
+                            <div class="p-glitch-layer"></div>
+                            <div class="project-head">
+                                <span class="p-icon">📝</span>
+                                <div class="p-info">
+                                    <span class="p-tag">SYS.MANUAL</span>
+                                    <h3>Test Scenarios & Cases</h3>
+                                    <p>Facebook, Shopee, login & registration flows...</p>
+                                </div>
+                                <span class="p-toggle">&gt;</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-readme="./selenium-boo-portfolio-github/README.md">
+                            <div class="p-glitch-layer"></div>
+                            <div class="project-head">
+                                <span class="p-icon">🌐</span>
+                                <div class="p-info">
+                                    <span class="p-tag">AUTO.WEB</span>
+                                    <h3>Robot Fw + Selenium</h3>
+                                    <p>Complex form-filling, 100% pass rate</p>
+                                </div>
+                                <span class="p-toggle">&gt;</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-readme="./appium-boo-portfolio-githup/README.md">
+                            <div class="p-glitch-layer"></div>
+                            <div class="project-head">
+                                <span class="p-icon">📱</span>
+                                <div class="p-info">
+                                    <span class="p-tag">AUTO.MOBILE</span>
+                                    <h3>Appium Ecosystem</h3>
+                                    <p>iOS/Android, Simulator testing</p>
+                                </div>
+                                <span class="p-toggle">&gt;</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-readme="./postman-boo-portfolio-github/README.md">
+                            <div class="p-glitch-layer"></div>
+                            <div class="project-head">
+                                <span class="p-icon">⚡</span>
+                                <div class="p-info">
+                                    <span class="p-tag">AUTO.API</span>
+                                    <h3>Postman Suites</h3>
+                                    <p>Endpoint validation, scripts</p>
+                                </div>
+                                <span class="p-toggle">&gt;</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-readme="./sql-boo-portfolio-github/README.md">
+                            <div class="p-glitch-layer"></div>
+                            <div class="project-head">
+                                <span class="p-icon">🗄️</span>
+                                <div class="p-info">
+                                    <span class="p-tag">DATA.DB</span>
+                                    <h3>SQL Database</h3>
+                                    <p>CRUD ops, ER diagrams</p>
+                                </div>
+                                <span class="p-toggle">&gt;</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-readme="./playwright-boo-portfolio-github/README.md">
+                            <div class="p-glitch-layer"></div>
+                            <div class="project-head">
+                                <span class="p-icon">🎭</span>
+                                <div class="p-info">
+                                    <span class="p-tag">AUTO.NEXTGEN</span>
+                                    <h3>Playwright</h3>
+                                    <p>POM, TypeScript, fully automated</p>
+                                </div>
+                                <span class="p-toggle">&gt;</span>
+                            </div>
+                        </div>
+
+                        <a href="https://panwyyt.github.io/GAY-DAR/" target="_blank" class="project-card card-special">
+                            <div class="p-glitch-layer bg-special"></div>
+                            <div class="project-head">
+                                <span class="p-icon">🚀</span>
+                                <div class="p-info">
+                                    <span class="p-tag tag-special">VIRAL.APP</span>
+                                    <h3 class="text-special">GAY-DAR App</h3>
+                                    <p class="text-special">Side Project — 6.2M reaches</p>
+                                </div>
+                                <span class="p-toggle text-special">↗</span>
+                            </div>
+                        </a>
+
+                        <div class="project-card card-soon">
+                            <div class="project-head">
+                                <span class="p-icon">📊</span>
+                                <div class="p-info">
+                                    <span class="p-tag tag-soon">PENDING</span>
+                                    <h3>JMeter</h3>
+                                    <p>Performance & load testing</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ===== PROJECTS ===== -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Portfolio</h2>
-                <p>Click any project to see the full documentation</p>
+            <!-- Panel 3: Experience Logs -->
+            <div class="panel experience-panel">
+                <span class="corner c-tl"></span><span class="corner c-tr"></span>
+                <span class="corner c-bl"></span><span class="corner c-br"></span>
+                <div class="panel-header">
+                    <span class="bracket">[</span> SYSTEM_LOGS :: CHRONOLOGY <span class="bracket">]</span>
+                </div>
+                <div class="panel-content scrollable">
+                    <div class="sys-timeline">
+                        
+                        <div class="timeline-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <div class="node-time">2025 – 2026 // TYPE: EDU</div>
+                                <h3>Software Testing Full Course</h3>
+                                <h4>Software Testing By P'Beam</h4>
+                                <p>Comprehensive training in automation, API, and DB testing.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <div class="node-time">2024 – 2025 // TYPE: WORK</div>
+                                <h3>Quality Analyst</h3>
+                                <h4>Gearinc Services · Thailand</h4>
+                                <p>Developed QC frameworks, coached moderators, refined operational policies.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <div class="node-time">2022 – 2024 // TYPE: WORK</div>
+                                <h3>Technical Advertising Support</h3>
+                                <h4>Concentrix · Malaysia</h4>
+                                <p>Troubleshot bugs, escalated critical issues, resolved complex problems.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <div class="node-time">2022 // TYPE: CERT</div>
+                                <h3>Data Analyst Cert</h3>
+                                <h4>DataRockie School & Coursera</h4>
+                                <p>Data wrangling, visualization, analytical reporting.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <div class="node-time">2021 // TYPE: CERT</div>
+                                <h3>Digital Mktg & CS Certs</h3>
+                                <h4>Google Digital Garage & Skillsoft</h4>
+                                <p>Customer service methodologies and analytical campaign management.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <div class="node-time">2018 – 2021 // TYPE: EDU</div>
+                                <h3>Sociology and Anthropology</h3>
+                                <h4>Thammasat University</h4>
+                                <p>Bachelor's degree — human behavior, research methodology.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="projects-grid">
 
-                <div class="project-card" data-readme="./manual-testing-boo-portfolio/README.md">
-                    <div class="project-head">
-                        <span class="p-icon">📝</span>
-                        <div class="p-info">
-                            <span class="p-tag">Manual Testing</span>
-                            <h3>Test Scenarios & Cases</h3>
-                            <p>Facebook, Shopee, login & registration flows, defect logging, test reports</p>
-                        </div>
-                        <span class="p-toggle">+</span>
-                    </div>
-                </div>
+        </div> <!-- /dashboard-grid -->
+    </div> <!-- /dashboard-wrapper -->
 
-                <div class="project-card" data-readme="./selenium-boo-portfolio-github/README.md">
-                    <div class="project-head">
-                        <span class="p-icon">🌐</span>
-                        <div class="p-info">
-                            <span class="p-tag">Web Automation</span>
-                            <h3>Robot Framework + Selenium</h3>
-                            <p>Complex form-filling, date-picker edge cases, 100% pass rate</p>
-                        </div>
-                        <span class="p-toggle">+</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-readme="./appium-boo-portfolio-githup/README.md">
-                    <div class="project-head">
-                        <span class="p-icon">📱</span>
-                        <div class="p-info">
-                            <span class="p-tag">Mobile Automation</span>
-                            <h3>Appium Ecosystem</h3>
-                            <p>iOS & Android testing, Appium Inspector, simulated devices</p>
-                        </div>
-                        <span class="p-toggle">+</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-readme="./postman-boo-portfolio-github/README.md">
-                    <div class="project-head">
-                        <span class="p-icon">⚡</span>
-                        <div class="p-info">
-                            <span class="p-tag">API Testing</span>
-                            <h3>Postman API Suites</h3>
-                            <p>Endpoint validation, response times, pre/post-request scripts</p>
-                        </div>
-                        <span class="p-toggle">+</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-readme="./sql-boo-portfolio-github/README.md">
-                    <div class="project-head">
-                        <span class="p-icon">🗄️</span>
-                        <div class="p-info">
-                            <span class="p-tag">Database</span>
-                            <h3>SQL Database Testing</h3>
-                            <p>Schema design, CRUD operations, data extraction, ER diagrams</p>
-                        </div>
-                        <span class="p-toggle">+</span>
-                    </div>
-                </div>
-
-                <a href="https://panwyyt.github.io/GAY-DAR/" target="_blank" class="project-card card-special">
-                    <div class="project-head">
-                        <span class="p-icon">🚀</span>
-                        <div class="p-info">
-                            <span class="p-tag tag-special">Side Project</span>
-                            <h3 class="text-special">GAY-DAR App</h3>
-                            <p class="text-special">Viral web app — 6.2M reaches on X</p>
-                        </div>
-                        <span class="p-toggle text-special">↗</span>
-                    </div>
-                </a>
-
-                <div class="project-card" data-readme="./playwright-boo-portfolio-github/README.md">
-                    <div class="project-head">
-                        <span class="p-icon">🎭</span>
-                        <div class="p-info">
-                            <span class="p-tag">Web & API Automation</span>
-                            <h3>Playwright</h3>
-                            <p>Next-gen browser & API testing — POM pattern, TypeScript, full CRUD</p>
-                        </div>
-                        <span class="p-toggle">+</span>
-                    </div>
-                </div>
-
-                <div class="project-card card-soon">
-                    <div class="project-head">
-                        <span class="p-icon">📊</span>
-                        <div class="p-info">
-                            <span class="p-tag tag-soon">Coming Soon</span>
-                            <h3>JMeter</h3>
-                            <p>Performance & load testing at scale</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== EXPERIENCE & EDUCATION ===== -->
-    <section class="experience" id="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2>Experience & Education</h2>
-            </div>
-            <div class="exp-list">
-
-                <div class="exp-card">
-                    <div class="exp-left">
-                        <span class="exp-date">2025 – 2026</span>
-                        <span class="exp-type type-edu">Course</span>
-                    </div>
-                    <div class="exp-right">
-                        <h3>Software Testing Full Course</h3>
-                        <h4>Software Testing By P'Beam</h4>
-                        <p>Comprehensive training in manual testing, automation (Robot Framework, Selenium, Appium), API
-                            testing (Postman), and database testing (SQL).</p>
-                    </div>
-                </div>
-
-                <div class="exp-card">
-                    <div class="exp-left">
-                        <span class="exp-date">2024 – 2025</span>
-                        <span class="exp-type type-work">Work</span>
-                    </div>
-                    <div class="exp-right">
-                        <h3>Quality Analyst</h3>
-                        <h4>Gearinc Services · Thailand</h4>
-                        <p>Developed QC frameworks, coached moderators, refined operational policies addressing platform
-                            gaps and regulatory compliance.</p>
-                    </div>
-                </div>
-
-                <div class="exp-card">
-                    <div class="exp-left">
-                        <span class="exp-date">2022 – 2024</span>
-                        <span class="exp-type type-work">Work</span>
-                    </div>
-                    <div class="exp-right">
-                        <h3>Technical Advertising Support</h3>
-                        <h4>Concentrix · Malaysia</h4>
-                        <p>Troubleshot website & software bugs, escalated critical issues, resolved complex platform
-                            problems. Optimized campaign performance.</p>
-                    </div>
-                </div>
-
-                <div class="exp-card">
-                    <div class="exp-left">
-                        <span class="exp-date">2022</span>
-                        <span class="exp-type type-edu">Course</span>
-                    </div>
-                    <div class="exp-right">
-                        <h3>Certified Professional Data Analyst</h3>
-                        <h4>DataRockie School & Coursera</h4>
-                        <p>Professional certification in data analysis — data wrangling, visualization, dashboards, and
-                            analytical reporting.</p>
-                    </div>
-                </div>
-
-                <div class="exp-card">
-                    <div class="exp-left">
-                        <span class="exp-date">2022</span>
-                        <span class="exp-type type-cert">Cert</span>
-                    </div>
-                    <div class="exp-right">
-                        <h3>Customer Service Certification</h3>
-                        <h4>Skillsoft</h4>
-                        <p>Professional certification for customer service methodologies and communication.</p>
-                    </div>
-                </div>
-
-                <div class="exp-card">
-                    <div class="exp-left">
-                        <span class="exp-date">2021</span>
-                        <span class="exp-type type-cert">Cert</span>
-                    </div>
-                    <div class="exp-right">
-                        <h3>Digital Marketing Certification</h3>
-                        <h4>Google Digital Garage</h4>
-                        <p>Fundamentals of digital marketing including SEO, SEM, analytics, and campaign management.</p>
-                    </div>
-                </div>
-
-                <div class="exp-card">
-                    <div class="exp-left">
-                        <span class="exp-date">2018 – 2021</span>
-                        <span class="exp-type type-edu">Edu</span>
-                    </div>
-                    <div class="exp-right">
-                        <h3>Sociology and Anthropology</h3>
-                        <h4>Thammasat University</h4>
-                        <p>Bachelor's degree — understanding human behavior, research methodology, and analytical
-                            thinking.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="container">
-            <p class="footer-cta">Interested in working together?</p>
-            <div class="footer-links">
-                <a href="mailto:tocilic@gmail.com">Email</a>
-                <span>·</span>
-                <a href="https://linkedin.com/in/tocilic" target="_blank">LinkedIn</a>
-                <span>·</span>
-                <a href="https://github.com/panwyyt" target="_blank">GitHub</a>
-            </div>
-            <p class="footer-copy">© 2026 Panthawit Chumthong</p>
-        </div>
-    </footer>
-
-    <!-- ===== FULLSCREEN README OVERLAY ===== -->
+    <!-- ===== FULLSCREEN README TERMINAL ===== -->
     <div class="readme-overlay" id="readmeOverlay">
-        <div class="readme-panel">
-            <button class="readme-close" id="readmeClose">✕ Close</button>
+        <div class="env-layer scanlines"></div>
+        <div class="terminal-panel">
+            <span class="corner c-tl"></span><span class="corner c-tr"></span>
+            <span class="corner c-bl"></span><span class="corner c-br"></span>
+            <div class="terminal-header">
+                <span>[ TERMINAL // DATA_STREAM_ACTIVE ]</span>
+                <button class="readme-close" id="readmeClose">[ X ] ABORT</button>
+            </div>
             <div class="readme-content" id="readmeContent">
-                <p class="loading-text">Loading...</p>
+                <p class="loading-text">ESTABLISHING CONNECTION... <span class="blink">_</span></p>
             </div>
         </div>
     </div>

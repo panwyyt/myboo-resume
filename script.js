@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Update close button to show Back if we have history
         if (history.length > 1) {
-            closeBtn.innerHTML = '← Back';
+            closeBtn.innerHTML = '[ ← ] RETURN';
         } else {
-            closeBtn.innerHTML = '✕ Close';
+            closeBtn.innerHTML = '[ X ] ABORT';
         }
 
         try {

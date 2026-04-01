@@ -4,6 +4,21 @@ Hey there! 👋 This is my Playwright portfolio — a project I built to practic
 
 ---
 
+## 🌟 Why I Chose Playwright
+
+Before this, I used **Selenium** for UI testing and **Postman** for API testing — two separate tools, two separate workflows. They both work fine, but after trying **Playwright**, I found it much more convenient to handle everything in one project.
+
+**Compared to Selenium** — Playwright has built-in auto-wait so I don't need explicit waits, it runs faster with headless mode and native parallelism, installs all browsers in one command, ships with an HTML report that includes screenshots/videos/traces, and has Codegen that generates test code just by clicking around a webpage.
+
+**Compared to Postman** — Test files are plain `.ts` files that work with Git natively and are easy to review, they run directly in any CI/CD pipeline without needing Newman, and the whole thing is 100% free and open-source.
+
+**That said** — Playwright is code-based, so I need to know TypeScript or JavaScript, which isn't as easy as clicking buttons in Postman. But the lifesaver here is **Codegen** (`npx playwright codegen`) — it opens a browser, I just click around, and Playwright writes the code for me automatically. It speeds up the initial test creation significantly.
+
+![Using Playwright Codegen to auto-generate test code](using-codegen.gif)
+*(Codegen in action — I just interact with the webpage and Playwright writes the code in real-time.)*
+
+---
+
 ## 🧪 The Three Test Suites
 
 ### 📌 Test 1: Login Page — Positive & Negative Testing
@@ -50,20 +65,6 @@ The report comes with **Screenshots** captured after every test, **Videos** reco
 ![All tests running in real-time](running-all-tests.gif)
 *(Watch the actual run — browser automation and API calls executing in parallel.)*
 
----
-
-## 🌟 Why I Chose Playwright
-
-Before this, I used **Selenium** for UI testing and **Postman** for API testing — two separate tools, two separate workflows. They both work fine, but after trying **Playwright**, I found it much more convenient to handle everything in one project.
-
-**Compared to Selenium** — Playwright has built-in auto-wait so I don't need explicit waits, it runs faster with headless mode and native parallelism, installs all browsers in one command, ships with an HTML report that includes screenshots/videos/traces, and has Codegen that generates test code just by clicking around a webpage.
-
-**Compared to Postman** — Test files are plain `.ts` files that work with Git natively and are easy to review, they run directly in any CI/CD pipeline without needing Newman, and the whole thing is 100% free and open-source.
-
-**That said** — Playwright is code-based, so I need to know TypeScript or JavaScript, which isn't as easy as clicking buttons in Postman. But the lifesaver here is **Codegen** (`npx playwright codegen`) — it opens a browser, I just click around, and Playwright writes the code for me automatically. It speeds up the initial test creation significantly.
-
-![Using Playwright Codegen to auto-generate test code](using-codegen.png)
-*(Codegen in action — I just interact with the webpage and Playwright writes the code in real-time.)*
 
 ---
 
