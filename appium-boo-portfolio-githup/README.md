@@ -1,12 +1,8 @@
 # 📱 Mobile App Automation Testing
 
-**Welcome!** If you've arrived here, you might be wondering: *"What is all this code, and what does it actually do?"*
-
-Let me tell you a story about how we teach computers to automatically test mobile applications, saving hours of manual tapping and swiping!
-
 ## 🌟 The Prequel: From Web to Mobile
 
-Previously, I showcased how to automate tests for **Websites** using a combination of Robot Framework and Selenium (you can see that project here: 👉 [**Robot Framework + Selenium Portfolio**](https://github.com/panwyyt/robotframework-selenium-portfolio)).
+Previously, I showcased how to automate tests for **Websites** using a combination of Robot Framework and Selenium.
 
 However, when we move from testing websites on a browser (like Chrome or Safari) to testing **Mobile Applications** (like the apps you download from the App Store or Google Play), things get a bit more challenging.
 
@@ -23,9 +19,9 @@ Let's look at how I solved these challenges across two different platforms.
 
 ---
 
-## 🤖 Act 1: The Android Mission
+## 🤖 Android App
 
-**The Goal:** Automatically open the phone app and dial the keypad to check the device's IMEI number.
+**The Goal:** Automatically testing the phone app and dial the keypad to check the device's IMEI number.
 
 **How it works in action:**
 First, I use **Appium Inspector** connected to an Android Emulator. In the screenshot below, you can see how I inspect the complex UI tree on the right side to find the exact locator for the app elements.
@@ -42,7 +38,7 @@ After the test finishes, Robot Framework generates a beautiful, easy-to-read rep
 
 ---
 
-## 🍏 Act 2: The iOS Mission
+## 🍏 iOS App
 
 **The Goal:** Automatically open the built-in "Reminders" app on an iPhone and interact with it.
 

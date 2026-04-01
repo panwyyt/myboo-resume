@@ -19,7 +19,7 @@ To build this portfolio, I utilized two excellent sandbox environments. I want t
 
 ---
 
-## 🎯 What I Built (My Capabilities)
+## 🎯 What I Test
 
 I created this project to practically demonstrate my day-to-day API testing workflows. Here is a breakdown of what I can do:
 
