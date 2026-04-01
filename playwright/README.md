@@ -89,7 +89,7 @@ Working on this project let me practice and apply skills across several areas:
 **Tech Stack:** Playwright `v1.58.2` + TypeScript + Node.js
 
 ```
-playwright-boo-portfolio-github/
+playwright/
 ├── tests/
 │   ├── practice-login-page.spec.ts   ← Login positive/negative tests
 │   ├── practice-form.spec.ts         ← Complex form with POM pattern
