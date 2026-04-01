@@ -1,4 +1,4 @@
-# 🤖 Software QA Automation Portfolio: Panthawit Chumthong
+# 🤖 Software QA Automation Portfolio
 
 Hello and welcome to my Automation Testing Portfolio! 👋
 
@@ -67,8 +67,8 @@ I have pre-run this test, and it achieved a **100% Pass Rate**.
 
 You don't even need to run the code to see the results. You can view the live, passing execution reports directly in your browser by clicking the links below:
 
-- 🟢 <a href="https://github.com/panwyyt/robotframework-selenium-portfolio/blob/main/form-filling-page/report.html" target="_blank">**View The Full Test Report**</a>
-- 🟢 <a href="https://github.com/panwyyt/robotframework-selenium-portfolio/blob/main/form-filling-page/log.html" target="_blank">**View The Detailed Step-by-Step Log**</a>
+- 🟢 `<a href="https://github.com/panwyyt/robotframework-selenium-portfolio/blob/main/form-filling-page/report.html" target="_blank">`**View The Full Test Report**`</a>`
+- 🟢 `<a href="https://github.com/panwyyt/robotframework-selenium-portfolio/blob/main/form-filling-page/log.html" target="_blank">`**View The Detailed Step-by-Step Log**`</a>`
 
 *(💡 Ctrl/Cmd + Click to open in a new tab)*
 

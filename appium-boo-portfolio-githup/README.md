@@ -1,4 +1,4 @@
-# 📱 Mobile App Automation Testing: Panthawit Chumthong
+# 📱 Mobile App Automation Testing
 
 **Welcome!** If you've arrived here, you might be wondering: *"What is all this code, and what does it actually do?"*
 

@@ -1,4 +1,4 @@
-# 🕵️‍♀️ Manual Testing Portfolio : Panthawit Chumthong
+# 🕵️‍♀️ Manual Testing Portfolio
 
 ## 👋 Introduction: What is Manual Testing?
 

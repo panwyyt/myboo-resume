@@ -1,4 +1,4 @@
-# 🚀 Postman API Testing Portfolio : Panthawit Chumthong
+# 🚀 Postman API Testing Portfolio
 
 Hello and welcome to my API Testing Portfolio!
 

@@ -1,4 +1,4 @@
-# 🗄️ My SQL & Database Testing Journey : Panthawit Chumthong
+# 🗄️ My SQL & Database Testing Journey
 
 Welcome to my database testing portfolio! This repository is a reflection of my journey in learning how to effectively test what goes on "behind the scenes" of an application.
 

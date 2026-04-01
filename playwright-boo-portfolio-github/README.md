@@ -1,4 +1,4 @@
-# 🎭 Playwright Testing Portfolio : Panthawit Chumthong
+# 🎭 Playwright Testing Portfolio
 
 Hey there! 👋 This is my Playwright portfolio — a project I built to practice and showcase my skills in both Web UI and API automated testing, all within a single codebase.
 
@@ -64,7 +64,6 @@ The report comes with **Screenshots** captured after every test, **Videos** reco
 
 ![All tests running in real-time](running-all-tests.gif)
 *(Watch the actual run — browser automation and API calls executing in parallel.)*
-
 
 ---
 
