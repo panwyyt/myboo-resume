@@ -53,6 +53,18 @@ An application that works perfectly for a single user might struggle under a hea
 
 ---
 
+## 💡 Bonus Skill: Working with Swagger
+
+While this portfolio focuses heavily on Postman, a crucial part of my API testing workflow involves **Swagger (OpenAPI)**. During my training, I gained hands-on experience exploring and understanding API structures using Swagger UI with the [Swagger Petstore](https://petstore.swagger.io/).
+
+Although it's not explicitly demonstrated in the automated test suites above, I am highly comfortable reading Swagger documentation to understand endpoints, required parameters, and expected responses.
+
+**Pro Tip:** One of my favorite workflows when dealing with Swagger documentation is to configure a request directly in the UI, execute it, and then **copy the generated cURL command**. You can simply paste this cURL command straight into Postman (using Import > Raw text)—it instantly sets up the entire request with headers, endpoints, and payloads, saving time on manual typing and letting you jump straight into writing test assertions!
+
+![Working with Swagger UI](Swagger.png)
+
+---
+
 ## 📂 Technical Documentation
 
 For a deeper dive into the exact assertions, scripts, and variable configurations I used throughout these tests, please feel free to explore my detailed Visualized JSON documentation:
