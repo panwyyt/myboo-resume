@@ -75,8 +75,8 @@ I've pre-run this test, and it achieved a **100% Pass Rate**.
 
 You can check out the live reports right here:
 
-- 🟢 [**View The Full Test Report**](https://github.com/panwyyt/robotframework-selenium-portfolio/blob/main/form-filling-page/report.html)
-- 🟢 [**View The Detailed Step-by-Step Log**](https://github.com/panwyyt/robotframework-selenium-portfolio/blob/main/form-filling-page/log.html)
+- 🟢 [**View The Full Test Report**](https://github.com/panwyyt/myboo-resume/blob/main/selenium/form-filling-page/report.html)
+- 🟢 [**View The Detailed Step-by-Step Log**](https://github.com/panwyyt/myboo-resume/blob/main/selenium/form-filling-page/log.html)
 
 *(💡 Ctrl/Cmd + Click to open in a new tab)*
 
