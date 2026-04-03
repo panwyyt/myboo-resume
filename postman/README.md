@@ -65,6 +65,14 @@ Although it's not explicitly demonstrated in the automated test suites above, I 
 
 ---
 
+## 🏆 Certification
+
+Here is my certification validating my foundational skills in Postman API testing:
+
+![Postman Basic Certification](certifiation-basic-postman.png)
+
+---
+
 ## 📂 Technical Documentation
 
 For a deeper dive into the exact assertions, scripts, and variable configurations I used throughout these tests, please feel free to explore my detailed Visualized JSON documentation:

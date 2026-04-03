@@ -82,6 +82,14 @@ You can check out the live reports right here:
 
 ---
 
+## 🏆 Certification
+
+Here is my certification validating my foundational skills in automated UI testing:
+
+![Selenium Basic Certification](Certificate%20Automation%20Test%20(Basic)%20-%20%20Panthawit%20Chumthong%20(Boo).png)
+
+---
+
 ## 🛠️ For The Technical Reviewers
 
 If you'd like to dive into the code yourself, here are the technical details.
