@@ -233,8 +233,6 @@ h1, h2, h3, h4 {
 .hero-photo-img {
     width: 100%;
     display: block;
-    filter: url(#monochrome); /* TBD SVg filter or grayscale */
-    mix-blend-mode: luminosity; /* gives it a HUD look */
 }
 [data-theme="light"] .hero-photo-img { opacity: 0.9; }
 
