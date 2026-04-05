@@ -1,122 +1,94 @@
-# 🤖 My Journey with Robot Framework and Selenium Library
+# 🤖 Automation Journey: Robot Framework & Selenium Library
 
-Hello there! 👋 Welcome to a small but special piece of my Automation Testing Portfolio.
+Hello! 👋 Welcome to the automation side of my portfolio. 
 
-If you're reading this, you might be wondering—what exactly goes into automating a web browser, and why do we even do it? Let me share a little story about the tools I used and the project I built.
-
----
-
-## 🧐 What Are Robot Framework & Selenium Library?
-
-Imagine having a tireless digital assistant whose only job is to open a browser, click buttons, and type things precisely as you ask, over and over again. That's essentially what we are doing!
-
-- **Robot Framework**: Think of this as the "brain." It is an open-source automation framework that is surprisingly easy to read. Instead of writing complex, messy code, it allows us to write tests in almost plain English (keyword-driven). *Advantage:* Highly readable, easy for non-programmers to understand, and generates beautiful built-in reports.
-- **Selenium Library**: This is the "hands." It is a web testing library that plugs directly into Robot Framework and takes control of the web browser itself. *Advantage:* It can interact with almost any web element (buttons, dropdowns, text boxes) exactly like a real human would, but at lightning speed!
-
-Together, they take away the tedious, repetitive manual work and replace it with fast, rock-solid automation.
+Have you ever wished you had a personal assistant to do all the boring, repetitive tasks on a website for you? That’s exactly what I’ve built here. Let me take you on a journey through how I turned manual clicking into a rock-solid automated process.
 
 ---
 
-## 📂 The Project: Taming a Complex Web Form
+## 🧐 Meet My "Digital Assistant"
 
-In this repository, you'll find a project called `form-filling-page`.
+Before we jump into the code, let's talk about the tools that make the magic happen:
 
-The mission was simple but challenging: automate the process of filling out a tricky web form packed with text boxes, dropdown menus, checkboxes, file uploads, and a dynamic date picker.
+-   **Robot Framework (The Brain):** An open-source framework that lets us write tests in plain English. No messy code—just clear, readable "keywords."
+-   **Selenium Library (The Hands):** The tool that actually reaches out and interacts with the browser—clicking buttons, typing text, and uploading files exactly like a human would, but much faster!
 
-### 1. The Playground
+---
 
-To a normal user, it looks like a standard registration page. To an automated script, it's an obstacle course of different web elements demanding specific handling.
+## 📂 The Mission: Taming the Tricky Form
+
+The project featured here is a `form-filling` automation. I chose a form designed to be a "QA obstacle course"—full of text boxes, dropdowns, checkboxes, and even a tricky date picker.
+
+### Step 1: Evaluating the Playground
+To a normal user, it’s just a registration page. To me, it’s a series of elements that need to be identified and handled with precision.
 
 ![The Testing Form UI](form-filling-page/other-data/testing-form-ui.png)
 
-### 2. Writing the Code
-
-Before the magic happens, all the instructions must be carefully scripted. Using Robot Framework makes the process incredibly readable, almost like writing a test checklist in plain English. Here is an example of what the code looks like:
+### Step 2: Writing the Instructions
+Using Robot Framework, I scripted the test to read like a simple checklist. It’s clean, professional, and easy for anyone on the team to understand.
 
 ![Test Script Code](form-filling-page/other-data/test-writing-code.png)
 
-### 3. Seeing it in Action!
-
-When the script runs, it takes over the browser, moving and typing flawlessly. It's honestly satisfying to watch!
+### Step 3: Deployment & Action!
+When the script runs, it’s satisfyng to watch the browser move on its own, filling out the entire form in seconds without a single mistake.
 
 ![Test Execution Demo](form-filling-page/other-data/test-execution-demo.gif)
 
 ---
 
-## 💡 A Proud Problem-Solving Moment
+## 💡 The "Aha!" Moment: Solving the Date-Picker Bug
 
-During this project, I hit a roadblock with the **Date-picker field**.
+Automation isn't just about following steps; it's about solving problems. During this project, I hit a snag: **The Date-Picker field.**
 
-Usually, the process is straightforward: tell the bot to "clear" the field and type the new date. But I discovered a strange bug! If the default date was completely deleted, the webpage would crash and go entirely blank.
+I found a bug where "clearing" the default date caused the entire page to go blank. **My fix?** I told the bot to "Select All" (`Ctrl+A`) and immediately type over the text. This bypassed the crash and successfully completed the form. 
 
-I had never encountered this before. After brainstorming, I realized I needed to outsmart the UI. Instead of using the standard "clear" command, I instructed the bot to simulate pressing **`Command/Ctrl + A`** (Select All) and immediately type the new date over it.
-
-This creative workaround completely bypassed the bug, replaced the text smoothly, and successfully completed the form. It was a fantastic reminder that automation often requires outside-the-box thinking!
+**It was a great reminder that a good tester needs to think outside the box!**
 
 ---
 
-## 🧩 Behind the Scenes: How the Code is Organized
+## 🧩 Behind the Scenes: Keeping it Clean (POM)
 
-To keep things neat and professional, I didn't just throw all the code into one messy file. I used a structure called the **Page Object Model (POM)**, dividing the work into three parts:
+I believe that good code should be as organized as a library. I used the **Page Object Model (POM)** structure:
 
-1. 🗺️ **The Map (`locators.resource`)**: This stores the exact "addresses" (HTML IDs or XPaths) of every element on the page. If the page changes later, I only update this one file!
-2. ⚙️ **The Actions (`keywords.resource`)**: This is a dictionary of custom commands. I hide the complex tech details here and create simple actions like `Fill In First Name`.
-3. 📝 **The Blueprint (`test_case.robot`)**: This is the actual test script. Because of the previous two files, this script reads beautifully, almost like a simple checklist.
+1.  🗺️ **Locators:** A "map" of where everything is on the page.
+2.  ⚙️ **Keywords:** A "dictionary" of actions (like "Sign In" or "Upload Photo").
+3.  📝 **Test Cases:** The final "blueprint" that uses the map and dictionary to run the test.
 
 ---
 
-## ✅ The Results
+## ✅ The Results: 100% Success
 
-How do we know it actually worked? The framework automatically generates a detailed report, showing every step took and whether it passed or failed.
+The framework generates beautiful reports that show exactly what happened. In this run, we achieved a **100% Pass Rate!**
 
 ![Test Report Shows 100% Success](form-filling-page/other-data/test-report-success.png)
 
-I've pre-run this test, and it achieved a **100% Pass Rate**.
-
-You can check out the live reports right here:
-
-- 🟢 [**View The Full Test Report**](https://github.com/panwyyt/myboo-resume/blob/main/selenium/form-filling-page/report.html)
-- 🟢 [**View The Detailed Step-by-Step Log**](https://github.com/panwyyt/myboo-resume/blob/main/selenium/form-filling-page/log.html)
-
-*(💡 Ctrl/Cmd + Click to open in a new tab)*
+-   🟢 [**Open the Full Report**](https://github.com/panwyyt/myboo-resume/blob/main/selenium/form-filling-page/report.html)
+-   🟢 [**View Detailed Step-by-Step Log**](https://github.com/panwyyt/myboo-resume/blob/main/selenium/form-filling-page/log.html)
 
 ---
 
-## 🏆 Certification
+## 🏆 Proof of Skill
 
-Here is my certification validating my foundational skills in automated UI testing:
+My foundational knowledge is backed by a professional certification in Automation Testing.
 
 ![Selenium Basic Certification](Certificate%20Automation%20Test%20(Basic)%20-%20%20Panthawit%20Chumthong%20(Boo).png)
 
 ---
 
-## 🛠️ For The Technical Reviewers
+## 🛠️ For the Technical Minds
 
-If you'd like to dive into the code yourself, here are the technical details.
+Want to run this yourself? Here is the tech stack and how to get started:
 
-### Technology Stack
+**Stack:** Robot Framework, SeleniumLibrary, Python.
 
-- **Robot Framework**: Core automation framework
-- **SeleniumLibrary**: Web manipulation library
-- **Python**: Core scripting engine
-
-### How to Run Locally
-
-1. Ensure Python is installed.
-2. Install the necessary libraries:
-   ```bash
-   pip install robotframework
-   pip install robotframework-seleniumlibrary
-   ```
-3. Ensure you have a compatible browser driver (e.g., `chromedriver`) in your system PATH.
-4. Execute the tests:
-   ```bash
-   cd form-filling-page
-   robot test_case.robot
-   ```
-
-   The test results (`log.html` and `report.html`) will be generated inside the project folder.
+1.  **Install:** `pip install robotframework robotframework-seleniumlibrary`
+2.  **Driver:** Ensure `chromedriver` is in your system PATH.
+3.  **Run:** 
+    ```bash
+    cd form-filling-page
+    robot test_case.robot
+    ```
 
 ---
 
-*Thank you for reading my story and exploring my portfolio. I hope it gives you a clear picture of my approach to UI test automation!*
+*Thank you for exploring my automation journey! I hope this gives you a glimpse into how I combine technical logic with creative problem-solving.*

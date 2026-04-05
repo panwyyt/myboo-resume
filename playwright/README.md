@@ -1,117 +1,77 @@
-# 🎭 Playwright Testing Portfolio
+# 🎭 Playwright: The All-in-One Automation Powerhouse
 
-Hey there! 👋 This is my Playwright portfolio — a project I built to practice and showcase my skills in both Web UI and API automated testing, all within a single codebase.
+Welcome to the Playwright section of my portfolio! 👋 
 
----
-
-## 🌟 Why I Chose Playwright
-
-Before this, I used **Selenium** for UI testing and **Postman** for API testing — two separate tools, two separate workflows. They both work fine, but after trying **Playwright**, I found it much more convenient to handle everything in one project.
-
-**Compared to Selenium** — Playwright has built-in auto-wait so I don't need explicit waits, it runs faster with headless mode and native parallelism, installs all browsers in one command, ships with an HTML report that includes screenshots/videos/traces, and has Codegen that generates test code just by clicking around a webpage.
-
-**Compared to Postman** — Test files are plain `.ts` files that work with Git natively and are easy to review, they run directly in any CI/CD pipeline without needing Newman, and the whole thing is 100% free and open-source.
-
-**That said** — Playwright is code-based, so I need to know TypeScript or JavaScript, which isn't as easy as clicking buttons in Postman. But the lifesaver here is **Codegen** (`npx playwright codegen`) — it opens a browser, I just click around, and Playwright writes the code for me automatically. It speeds up the initial test creation significantly.
-
-![Using Playwright Codegen to auto-generate test code](using-codegen.gif)
-*(Codegen in action — I just interact with the webpage and Playwright writes the code in real-time.)*
+This project is a showcase of how I use **Playwright** to handle both Web UI and API automated testing within a single, unified codebase. It’s the ultimate "one-tool army" for modern QA.
 
 ---
 
-## 🧪 The Three Test Suites
+## 🌟 Why Playwright? (One Tool > Two Tools)
 
-### 📌 Test 1: Login Page — Positive & Negative Testing
+Before this, I used **Selenium** for UI and **Postman** for APIs. They are great, but Playwright is a game-changer:
+-   **Speed:** It’s lightning fast with native parallel execution.
+-   **Stability:** Built-in "Auto-wait" means fewer flaky tests.
+-   **Convenience:** No more switching between apps. My UI tests and API tests live together in harmony.
 
-**Target:** [Practice Test Automation — Login Page](https://practicetestautomation.com/practice-test-login/)
+---
 
-I wrote two test cases here — the first is a **Negative test** where I entered wrong credentials and verified that the error message `"Your username is invalid!"` actually showed up. The second is a **Positive test** where I logged in with valid credentials and checked for the `"Logged In Successfully"` heading.
+## 🏗️ The Journey: My Playwright Workflow
 
-Simple stuff, but essential — a system needs to both "let the right people in" and "keep the wrong ones out."
+I’ve structured this project to demonstrate versatility across different testing scenarios.
 
-### 📌 Test 2: Practice Form — Complex UI Automation with POM
+### Step 1: The Magic of Codegen
+Test creation doesn't always have to start from scratch. I use **Playwright Codegen** to record my interactions with the browser and automatically generate the initial test scripts. It’s a massive time-saver!
 
-**Target:** [DemoQA — Automation Practice Form](https://demoqa.com/automation-practice-form)
+![Playwright Codegen in action](using-codegen.gif)
+*(I click, Playwright writes. Simple but powerful.)*
 
-This is the most complex test in this portfolio. I automated a full student registration form covering every common UI element — text inputs, radio buttons, a date picker that requires month/year navigation, autocomplete dropdowns, checkboxes, file upload, cascading dropdowns (State → City), and finally form submission with result verification.
-
-I structured it using the **Page Object Model (POM)** — locators and actions live in a single reusable class, test data is extracted into a separate object, and the test flow reads like plain steps. If the UI changes, I only need to update one place.
+### Step 2: Complex Web UI Automation (POM Pattern)
+I automated a complex student registration form covering every element: radio buttons, date pickers, file uploads, and cascading dropdowns. To keep the code clean and maintainable, I used the **Page Object Model (POM)**.
 
 ![POM-structured code in the test file](pom-code-structure.gif)
-*(The actual code — locators, data, and test logic are clearly separated.)*
+*(Keeping locators and logic separated for rock-solid maintainability.)*
 
-### 📌 Test 3: API Testing — Full CRUD with JSONPlaceholder
-
-**Target:** [JSONPlaceholder API](https://jsonplaceholder.typicode.com/)
-
-I tested all four HTTP methods — **GET** to fetch post #1 and assert status `200` with the correct `id`, **POST** to create a new post and assert status `201`, **PUT** to fully update a post and verify the title changed, and **DELETE** to remove a post and confirm status `200`.
-
-Everything runs through Playwright's built-in `request` context — no external HTTP library needed.
+### Step 3: API Testing (Full CRUD)
+I didn't stop at the UI. I used Playwright's built-in `request` context to perform full CRUD operations (GET, POST, PUT, DELETE) against a mock API. No extra libraries required!
 
 ![API test code in VS Code](api-testing.png)
-*(My API test code — with clear Thai comments explaining each CRUD operation.)*
+*(My API tests with clear English and Thai comments for every step.)*
 
 ---
 
-## ✅ The Results — 7/7 Tests Passed
+## ✅ The Verdict: 100% Success
 
-All three test files ran with **7 test cases, 0 failures**, completed in 21 seconds.
+All tests executed flawlessly. Playwright provides a beautiful HTML report that includes **Screenshots**, **Videos**, and **Traces** for every single run.
 
-![All 7 tests passed — 100% success rate](all-tests-passed.png)
-*(Playwright HTML Report — 7/7 passed, 0 failed, 0 flaky.)*
-
-The report comes with **Screenshots** captured after every test, **Videos** recording each run, and **Traces** that let me step through actions one by one with `npx playwright show-trace`.
-
-![All tests running in real-time](running-all-tests.gif)
-*(Watch the actual run — browser automation and API calls executing in parallel.)*
+<p align="center">
+  <img src="all-tests-passed.png" width="48%" alt="All tests passed" />
+  <img src="running-all-tests.gif" width="48%" alt="All tests running" />
+</p>
+*(7/7 Tests Passed in just 21 seconds!)*
 
 ---
 
-## 🧩 Skills I Gained from This Project
+## 🧩 Under the Hood: Configuration Mastery
 
-Working on this project let me practice and apply skills across several areas:
+I’ve fine-tuned the `playwright.config.ts` to ensure we get the best debugging data without sacrificing performance. I enabled automatic video recording and trace collection for every failure.
 
-**Architecture** — I used Page Object Model to separate locators and actions from test logic, Data-Driven Testing to extract test data into a standalone object, and organized tests into groups with `test.describe`.
-
-**Web UI Interactions** — Form filling, radio buttons, checkboxes, date picker with month/year navigation, autocomplete dropdowns, file upload via `setInputFiles`, cascading dropdowns, and form submission with validation.
-
-**API Testing** — Full CRUD coverage (GET, POST, PUT, DELETE) with status code and response body validation, all using Playwright's built-in `request` context.
-
-**Configuration** — I set up `playwright.config.ts` from scratch — screenshots, video recording, trace collection, HTML reporting, parallel execution, and multi-browser project setup.
-
-![Playwright Config — screenshot, video, and trace settings](playwright-config-settings.png)
-*(My playwright.config.ts — screenshots, videos, and traces enabled on every run for effortless debugging.)*
+![Playwright Config Settings](playwright-config-settings.png)
+*(My custom configuration for high-visibility debugging.)*
 
 ---
 
-## 🛠️ Try It Yourself
+## 🛠️ Tech Stack & Structure
 
-**Tech Stack:** Playwright `v1.58.2` + TypeScript + Node.js
-
-```
-playwright/
-├── tests/
-│   ├── practice-login-page.spec.ts   ← Login positive/negative tests
-│   ├── practice-form.spec.ts         ← Complex form with POM pattern
-│   └── api-test.spec.ts              ← CRUD API testing
-├── boo-data/
-│   └── img-for-test.png              ← Test asset for file upload
-├── playwright.config.ts              ← Fully documented configuration
-└── package.json
-```
+-   **Stack:** Playwright v1.58.2 + TypeScript + Node.js
+-   **Pattern:** Page Object Model (POM) + Data-Driven Testing
 
 ```bash
-# Install
+# How to run it
 npm install
 npx playwright install
-
-# Run all tests
 npx playwright test
-
-# View the report
-npx playwright show-report
 ```
 
 ---
 
-_Thanks for checking out my portfolio — feel free to explore the code!_
+*Thank you for exploring my Playwright journey! I’m ready to build fast, reliable, and all-in-one automation suites for your next project.* 🎭⚡

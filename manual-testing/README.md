@@ -1,26 +1,18 @@
-# 🕵️‍♀️ Manual Testing Portfolio
+# 🕵️‍♂️ Manual Testing: Putting the "User" in User Experience
 
-## 👋 Introduction: What is Manual Testing?
+Welcome to my Manual Testing portfolio! To me, testing isn't just about finding what's broken—it's about understanding how people use technology and ensuring they have a smooth, frustration-free journey.
 
-**Manual Testing** is the process of testing software where a QA professional manually assumes the role of an end-user to execute test cases and verify the application's behavior. Instead of relying on automated scripts or tools, manual testers actively explore the software to identify defects, logical errors, and unexpected behaviors before they reach the customer.
-
-It's essentially putting ourselves in the shoes of the real user, blending an understanding of product requirements with human intuition, logical reasoning, and testing techniques to ensure the software is fully functional, user-friendly, and of the highest quality.
+In this section, I’ll take you through my process, from the first spark of a test idea to the final report that summarizes the quality of a product. Let’s dive in! 🚀
 
 ---
 
-## 🛠️ My Capabilities as a Software Tester
+## 🎨 Step 1: Thinking Big with Test Scenarios
 
-As a Software Tester, my focus goes beyond merely finding bugs. I am passionate about preventing issues at the root cause and collaborating closely with the team to elevate the overall quality of the product.
+Before digging into the details, I always start by looking at the big picture. I ask: *"What are the most important things a user wants to achieve?"* 
 
----
+To sharpen this skill, I’ve analyzed giant platforms like **Facebook** and **Shopee**, mapping out high-level scenarios to ensure no core flow is left behind.
 
-## 📝 Test Scenarios
-
-A **Test Scenario** is a high-level documentation of a specific functionality or feature that can be tested, answering the question *"What needs to be tested?"*
-
-For example, I have designed comprehensive manual test scenarios for real-world platforms like **Facebook** and **Shopee** to cover various happy paths and edge cases at a high level.
-
-👉 **[Click here to view the Facebook &amp; Shopee Test Scenarios Spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=648465421&single=true)**
+👉 **[Take a look at my Facebook & Shopee Scenarios Spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=648465421&single=true)**
 
 <div align="center">
   <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=648465421&single=true" target="_blank">
@@ -30,23 +22,20 @@ For example, I have designed comprehensive manual test scenarios for real-world 
 
 ---
 
-## 🔬 Test Case Design Projects
+## 🔍 Step 2: Precision with Test Case Design
 
-From a scenario, we derive multiple detailed **Test Cases** that provide step-by-step instructions on *"How to test it?"* — ensuring every flow is thoroughly validated. Below are examples of my work where I have demonstrated my analytical skills in breaking down complex requirements into testable chunks.
+Once I have the "what," it's time for the "how." This is where I break things down into clear, repeatable steps. I love the challenge of thinking like a user—even when I don't have a working app yet!
 
-### 📌 Project 1: Login Screen Mockup Testing
+### 📌 Case Study 1: The Power of Mockups
+Can you test a screen that hasn't been built? Definitely. I took a simple UI mockup and "stress-tested" it on paper, finding edge cases and logic gaps before a single line of code was written.
 
-For this project, I created comprehensive test cases derived entirely from a static UI mockup of a Login Page. Despite not having a live, interactive system to test against, I successfully extracted the requirements and identified all potential test cases and edge behaviors based purely on the provided design.
-
-**The Mockup Requirement:**
-
+**The Blueprint:**
 <div align="center">
   <img src="login_mockup_req.png" alt="Login Page Mockup Requirement" width="60%">
 </div>
 
-**The Resulting Test Cases:**
-Because the preview image below is condensed, I highly recommend checking out the full detailed document!
-👉 **[Click here to view the full Login Test Cases Spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=1095342547&single=true)**
+**The Results (Click to expand):**
+👉 **[Full Login Test Case Details](https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=1095342547&single=true)**
 
 <div align="center">
   <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=1095342547&single=true" target="_blank">
@@ -54,41 +43,23 @@ Because the preview image below is condensed, I highly recommend checking out th
   </a>
 </div>
 
-### 📌 Project 2: Kru P'Beam Web - Search & Filter Page
+### 📌 Case Study 2 & 3: Real-World Web Validation
+Working on the **Kru P'Beam Web Project**, I focused on the most critical user touchpoints: **Search, Filters, and Registration.** These sections are the heart of user interaction, and I ensured every click and input behaved exactly as expected.
 
-This project focuses on the **Search and Filter Page** of the "Kru P'Beam" web system, which functions similarly to a restaurant or travel recommendation website. I designed detailed test cases to validate the accuracy of search algorithms, output results, and various combinations of data filters.
-
-👉 **[Click here to view the Search &amp; Filter Page Test Cases Spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=63326685&single=true)**
-
-<div align="center">
-  <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=1305237897&single=true" target="_blank">
-    <img src="test-case-pj2.gif" alt="Test Cases Example - Kru P'Beam Web Search & Filter Page" width="100%">
-  </a>
-</div>
-
-### 📌 Project 3: Kru P'Beam Web - Register Form Testing
-
-For this project, I crafted detailed form testing cases specifically for the **Registration Page**. The focus was on input field validation, error handling, password requirements, and verifying the overall user registration flow.
-
-👉 **[Click here to view the Register Page Test Cases Spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=1305237897&single=true)**
-
-*(💡 Note: The provided link currently points to the same spreadsheet tab as Project 2. If they are in different tabs, feel free to update the `gid=` parameter in the URL later!)*
+👉 **[Search & Filter Accuracy Report](https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=63326685&single=true)** | **[Register Form Validation](https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=1305237897&single=true)**
 
 <div align="center">
-  <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOp_3bO7NPoGAcIENB0GW57Oqk09TYd4_fbdeod5ZB_Ks_UE4QqD8geZDOc4zt0x0bPc5ueseOrEYG/pubhtml?gid=1305237897&single=true" target="_blank">
-    <img src="test-case-pj3.gif" alt="Test Cases Example - Kru P'Beam Web Register Form" width="100%">
-  </a>
+  <img src="test-case-pj2.gif" alt="Kru P'Beam Web Search & Filter Page" width="48%">
+  <img src="test-case-pj3.gif" alt="Kru P'Beam Web Register Form" width="48%">
 </div>
 
 ---
 
-## 🐛 Defect Logging & Bug Reports
+## 🐛 Step 3: Clear and Actionable Bug Hunting
 
-Finding bugs is only half the battle; documenting them effectively is equally important. I have experience in writing clear, actionable, and detailed bug reports that help developers reproduce and fix issues efficiently. A good defect log includes comprehensive steps to reproduce, expected vs. actual results, severity/priority assessments, and visual evidence.
+A bug is only useful if it can be fixed. That’s why I don't just say *"It's broken."* I provide a clear roadmap for developers: clear steps, expected behavior, and proof. My goal is to make the fix as fast and painless as possible for the engineering team.
 
-Below is an example of my structured defect logging documentation:
-
-👉 **[Click here to view the full Defect Logging Spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vSXxP0PToKwjsIauY9rEcxZQP8VS57FG3BZCIPCDk0OIwjvus4trSvVIcivXy5VmHyRy7d9SPhgNJyE/pubhtml)**
+👉 **[Peek into my Bug Logging Style](https://docs.google.com/spreadsheets/d/e/2PACX-1vSXxP0PToKwjsIauY9rEcxZQP8VS57FG3BZCIPCDk0OIwjvus4trSvVIcivXy5VmHyRy7d9SPhgNJyE/pubhtml)**
 
 <div align="center">
   <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXxP0PToKwjsIauY9rEcxZQP8VS57FG3BZCIPCDk0OIwjvus4trSvVIcivXy5VmHyRy7d9SPhgNJyE/pubhtml" target="_blank">
@@ -98,11 +69,9 @@ Below is an example of my structured defect logging documentation:
 
 ---
 
-## 📊 Test Reporting & Data Visualization
+## 📊 Step 4: Visualizing Quality
 
-Writing tests and logging bugs are crucial, but presenting the results clearly to stakeholders is what drives informed decisions. Drawing from my previous experience in roles that heavily utilized spreadsheets, combined with my **Certified Professional Data Analyst** background, I excel at transforming raw testing data into highly visual, easy-to-understand test reports.
-
-My reports provide instant visibility into overall quality, pass/fail metrics, and project health, allowing product owners and developers to quickly grasp the current state of the application.
+Data without context is just noise. Combining my testing experience with my background as a **Certified Professional Data Analyst**, I believe in making quality visible. I use visual reports to show stakeholders exactly where the project stands at a glance.
 
 <div align="center">
   <img src="test-report.png" alt="Test Report and Data Visualization Example" width="100%">
@@ -110,22 +79,19 @@ My reports provide instant visibility into overall quality, pass/fail metrics, a
 
 ---
 
-## 🎓 Certifications
+## 📜 My Professional Milestones
 
-My foundation in quality assurance and data analysis is backed by the following professional certifications:
+I believe in continuous learning. My approach to testing is built on a solid foundation of formal training and industry-recognized certifications.
 
-### 1. Manual Testing
-
-I have successfully completed the comprehensive **Manual Testing** course from **Software Testing By P'Beam**, which certifies my strong foundation in software quality assurance methodologies, test case design, defect logging, and best practices.
+### 1. Manual Testing Excellence
+I completed the **Manual Testing** course from **Software Testing By P'Beam**, where I mastered the core methodologies that I apply everyday.
 
 <div align="center">
   <img src="certificate.png" alt="Manual Testing Certificate - Panthawit Chumthong" width="80%">
 </div>
-<br>
 
-### 2. Certified Professional Data Analyst
-
-This certification reinforces my analytical mindset, ensuring I can structure test data effectively, identify patterns in defects, and create insightful visualizations for test reporting.
+### 2. Analytical Mindset
+My **Certified Professional Data Analyst** background gives me a unique edge—helped me spot patterns in bugs and structure test data for better insights.
 
 <div align="center">
   <img src="CertifiedProfessionalDataAnalyst.png" alt="Certified Professional Data Analyst - Panthawit Chumthong" width="80%">
@@ -133,12 +99,12 @@ This certification reinforces my analytical mindset, ensuring I can structure te
 
 ---
 
-## 🤖 Why Manual Testing Will NEVER Die
+## 💡 A Personal Philosophy: Why Manual Testing?
 
-In an era where **Automated Testing** plays a crucial role in reducing repetitive tasks and accelerating feedback loops, many might wonder: *"Will Manual Testing eventually disappear?"*
+In a world full of automation, why do we still need manual testing?
 
-The answer is: **Absolutely not.**
+Because **software is built for humans.** 
 
-Automated tests are excellent at *checking expectations*—they verify what they are explicitly programmed to verify. However, automation cannot perceive the **User Experience (UX)**. It cannot judge if an interface feels intuitive, understand complex and unpredictable human behaviors, or evaluate nuanced business logic in the way a human brain can.
+Automated scripts are great at checking boxes, but they can't feel frustration if a button is hard to reach. They can't judge if a flow "feels" intuitive. Manual testing is the heartbeat of quality—it’s where human empathy meets technical logic. 
 
-Manual Testing is not an outdated practice; it is the **fundamental foundation of Quality Assurance.** The better we understand the system and the more comprehensive our manual test cases are, the more robust and effective our automated testing framework will become.
+**I don't just test apps; I advocate for the people who will eventually use them.**

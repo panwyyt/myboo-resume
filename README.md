@@ -1,44 +1,46 @@
-# 💻 SYS.INIT // PANTHAWIT_CHUMTHONG PORTFOLIO
+# 💻 PANTHAWIT_CHUMTHONG // QA & AUTOMATION PORTFOLIO
 
-Welcome to the source code of my interactive **Software Tester & QA Portfolio**. This repository contains the code for a high-tech, cyberpunk-inspired operator dashboard used to showcase my automated and manual testing projects, skills, and work experience.
+Welcome to the source code of my **Interactive Software Tester & QA Portfolio**. This repository reflects my journey in mastering the balance between manual precision and automation power.
 
-You can view the live portfolio here: **[Link to your live site, e.g., GitHub Pages]** *(Replace with actual link if deployed)*
+The project has evolved into a **Modern Linear Minimalist** design—focusing on clean typography, balanced layouts, and a "premium dashboard" aesthetic.
+
+---
 
 ## 🚀 Overview
 
-This website is designed to look like an advanced "Operator Dashboard," featuring scanlines, glitch effects, neon glows, and a terminal-based markdown reader. It serves as a central hub for my software testing portfolio, dynamically loading project details (like Selenium, Playwright, Appium, etc.) directly from Markdown (`.md`) files.
+This website serves as a central hub for my testing expertise. It dynamically loads detailed project documentation (Selenium, Playwright, Appium, Maestro, etc.) directly from Markdown (`.md`) files into an interactive terminal-style modal.
 
-## 🛠️ Features
+## ✨ Features
 
-- **Sci-Fi Terminal UI:** A dark-mode first design with custom neon accents, grid backgrounds, scanlines, and a vignette overlay.
-- **Dynamic Project Viewer:** Clicks on project cards open a full-screen terminal overlay that fetches and renders Markdown files using `marked.js`.
-- **Responsive Dashboard:** Built with CSS Grid and Flexbox, ensuring the layout adapts seamlessly to mobile, tablet, and desktop screens.
-- **Skills Marquee:** A continuous scrolling scanner box displaying my technical stack.
+-   **Linear Minimalist UI:** A clean, professional aesthetic with an emphasis on clarity and whitespace.
+-   **Interactive Project Explorer:** Click on any project card to open a beautifully rendered terminal view that fetches and displays real-time documentation using `Marked.js`.
+-   **Dual-Column Experience:** A restructured experience section that utilizes space efficiently with specialized side-panels for Soft Skills and Languages.
+-   **Fully Responsive:** Optimized for everything from wide desktop monitors to mobile devices.
 
-## 📂 Project Structure
+## 📂 Portfolio Structure
 
-Each testing framework has its own directory containing a `README.md` with detailed project documentation. These markdown files are parsed and displayed within the portfolio's terminal interface.
+Each testing framework has its own directory containing comprehensive `README.md` and `README_th.md` files. These stories of technical discovery are displayed within the portfolio's interface.
 
-- `/appium/` - Mobile Automation Testing using Appium & Robot Framework
-- `/jmeter/` - Performance and Load Testing with JMeter
-- `/manual-testing/` - Comprehensive Test Scenarios and Cases
-- `/playwright/` - Next-Gen Web & API Testing using Playwright and TypeScript
-- `/postman/` - API Endpoint Validation and Scripting
-- `/selenium/` - Web Automation using Selenium & Robot Framework
-- `/sql/` - Database Queries, CRUD operations, and ER Diagrams
+-   **/appium/** - Mobile Automation (Android/iOS)
+-   **/jmeter/** - Performance & Load Testing
+-   **/maestro/** - Next-Gen Mobile UI Testing
+-   **/manual-testing/** - Scenarios, Cases, and Bug Reports
+-   **/playwright/** - All-in-one Web & API Testing
+-   **/postman/** - API Functional & Scripted Testing
+-   **/selenium/** - Web UI Automation with Robot Framework
+-   **/sql/** - Database Testing & Data Analytics
 
 ## ⚙️ Tech Stack
 
-- **Structure:** HTML5
-- **Styling:** CSS3 (Custom Properties, Grid, Flexbox, CSS Animations/Transitions)
-- **Logic:** Vanilla JavaScript 
-- **Dependencies:** [Marked.js](https://marked.js.org/) (for rendering Markdown content into HTML)
+-   **Core:** HTML5 & Vanilla JavaScript
+-   **Styling:** Modern CSS3 (Custom Properties, Grid & Flexbox)
+-   **Rendering:** [Marked.js](https://marked.js.org/) for Markdown-to-HTML transformation
 
-## 📞 Contact [ COM_LINK ]
+## 📞 Connect with Me
 
-- **Email:** tocilic@gmail.com
-- **LinkedIn:** [linkedin.com/in/tocilic](https://linkedin.com/in/tocilic)
-- **GitHub:** [github.com/panwyyt](https://github.com/panwyyt)
+-   **Email:** tocilic@gmail.com
+-   **LinkedIn:** [linkedin.com/in/tocilic](https://linkedin.com/in/tocilic)
+-   **GitHub:** [github.com/panwyyt](https://github.com/panwyyt)
 
 ---
 
