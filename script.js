@@ -127,4 +127,52 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('theme', next);
     });
 
+    // ===== Portfolio Pagination =====
+    const itemsPerPage = 6;
+    const projectCards = Array.from(document.querySelectorAll('.projects-grid .project-card'));
+    const paginationContainer = document.getElementById('portfolioPagination');
+    
+    if (projectCards.length > itemsPerPage && paginationContainer) {
+        const totalPages = Math.ceil(projectCards.length / itemsPerPage);
+        
+        // Show specific page
+        const showPage = (pageIndex) => {
+            const start = pageIndex * itemsPerPage;
+            const end = start + itemsPerPage;
+            
+            projectCards.forEach((card, index) => {
+                if (index >= start && index < end) {
+                    card.style.display = '';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.display = 'none';
+                }
+            });
+        };
+
+        // Create cyber buttons
+        for (let i = 0; i < totalPages; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('cyber-pg-btn');
+            dot.textContent = `PAGE_0${i + 1}`;
+            dot.setAttribute('aria-label', `Page ${i + 1}`);
+            if (i === 0) dot.classList.add('active');
+            
+            dot.addEventListener('click', () => {
+                showPage(i);
+                // Update active button
+                document.querySelectorAll('.cyber-pg-btn').forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+            });
+            paginationContainer.appendChild(dot);
+        }
+        
+        // Init first page
+        projectCards.forEach(c => {
+            c.style.transition = 'opacity 0.3s ease';
+        });
+        showPage(0);
+    }
+
 });
