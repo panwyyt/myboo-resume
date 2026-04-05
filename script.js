@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // History stack for back navigation
     let history = [];
 
+    // Check saved lang preference
+    let currentLang = localStorage.getItem('app_lang') || 'en';
+
     // Reusable function to load and render any .md file
     async function loadMarkdown(path, pushHistory = true) {
         if (pushHistory && history.length > 0) {
@@ -31,7 +34,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const res = await fetch(path);
+            let fetchPath = path;
+            let thExists = false;
+            let thPath = '';
+
+            // Handle TH translation fallback
+            if (path.endsWith('.md')) {
+                thPath = path.replace(/\.md$/i, '_th.md');
+                const checkTh = await fetch(thPath).catch(() => null);
+                if (checkTh && checkTh.ok) {
+                    thExists = true;
+                }
+            }
+            
+            const langToggle = document.getElementById('langToggle');
+            if (langToggle) {
+                langToggle.style.display = thExists ? 'inline-block' : 'none';
+                langToggle.innerHTML = currentLang === 'en' ? '[ <span style="color:var(--accent)">EN</span> / TH ]' : '[ EN / <span style="color:var(--accent)">TH</span> ]';
+            }
+
+            if (currentLang === 'th' && thExists) {
+                fetchPath = thPath;
+            } else {
+                fetchPath = path;
+            }
+
+            const res = await fetch(fetchPath);
             if (!res.ok) throw new Error('File not found');
             content.innerHTML = marked.parse(await res.text());
 
@@ -106,6 +134,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeBtn.addEventListener('click', handleClose);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') handleClose(); });
+
+    // ===== Language Toggle =====
+    const langToggle = document.getElementById('langToggle');
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'th' : 'en';
+        localStorage.setItem('app_lang', currentLang);
+        
+        // Reload current page without pushing history
+        if (history.length > 0) {
+            loadMarkdown(history[history.length - 1], false);
+        }
+    });
 
     // ===== Theme Toggle =====
     const toggle = document.getElementById('themeToggle');
