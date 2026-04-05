@@ -2,14 +2,15 @@
 
 ## 1. 🎯 Project Vision
 This repository houses the personal brand website, resume, and technical portfolio for **Panthawit Chumthong** (Software Tester & QA Professional). 
-The goal is to maintain a professional, high-tech, yet highly accessible and friendly personal site. It showcases end-to-end quality assurance skills, ranging from manual test design to complex automation pipelines.
+The goal is to maintain a professional, high-end "Linear Minimalist" aesthetic that is clean, balanced, and premium. It showcases end-to-end quality assurance skills, ranging from manual test design to complex automation pipelines.
 
 ## 2. 🏗 Content Structure
 The site uses a dynamic, client-side approach to render blog/portfolio content without a backend or build step:
 - **Project Directories**: Each portfolio piece or blog post is stored in its own dedicated directory (e.g., `/appium`, `/playwright`, `/maestro`).
 - **Markdown Files**: The core content for each project is written in a standard Markdown file, strictly named `README.md` (or `readme.md`).
 - **Assets**: Images, GIFs, and scripts specific to a post are stored within the project's directory (e.g., `/maestro/assets/`).
-- **Dynamic Rendering**: When a user clicks a project card, `script.js` fetches the respective `README.md` file and renders it into a fullscreen terminal-style overlay using `marked.js`.
+- **Dynamic Rendering**: When a user clicks a project card, `script.js` fetches the respective `README.md` file and renders it into a fullscreen minimalist terminal modal using `marked.js`.
+- **Multi-Language Support**: The site supports Thai translations. If a `README_th.md` exists in a project directory, a language toggle (EN/TH) will automatically appear in the project modal.
 
 ## 3. ⚙️ Tech Stack
 Despite having the feel of a complex static site, **this project does NOT use Next.js, Astro, Hugo, or Tailwind**. It is built with raw, lightweight fundamentals to ensure zero build-time and maximum longevity:
@@ -19,27 +20,27 @@ Despite having the feel of a complex static site, **this project does NOT use Ne
 - **Hosting**: Designed to be hosted on any static file server (e.g., GitHub Pages).
 
 ## 4. 🎨 Design System
-The site employs a "Cyber/Terminal" aesthetic combined with the **Solarized Eye-Care Palette**.
-- **Themes**: Supports dynamic switching between `Solarized Dark` and `Solarized Light` via `data-theme` variables in `style.css`.
-- **Typography**: 
-  - `Share Tech Mono`: Used for headers, terminal text, buttons, and system logs to enforce the sci-fi operator vibe.
-  - `Rajdhani`: Used for body text to maintain readability while keeping a futuristic cut.
+The site follows a **"Linear Minimalist"** design philosophy — focusing on clarity, whitespace, and high-end professional balance.
+- **Typography**: Uses **IBM Plex Sans Thai** (from Google Fonts) as the primary typeface for both English and Thai text, providing a modern and highly readable feel across the entire site.
+- **Color Palette**: Uses a curated, neutral minimalist palette with subtle highlights for interactive elements.
+- **Layout Evolution**: The "Experience" section uses a two-column grid layout:
+  - **Left Column**: Professional timeline (Chrono Logs).
+  - **Right Column (Side Panel)**: Supplementary info including **Languages**, **Soft Skills**, and **Environment** (Tools/OS).
 - **Key UI Components**:
-  - `project-card`: The interactive grid items in the portfolio section. Features hover animations and pulsing icons.
-  - `cyber-pagination`: Terminal-style pagination buttons at the bottom of the portfolio grid (e.g., `[ PAGE_01 ]`).
-  - `skills-marquee`: Infinite horizontal scrolling tape of skills.
-  - `sys-timeline`: Resume/Chronology nodes with vertical lines and markers.
-  - `readme-overlay`: A fullscreen, glassmorphism "Terminal" that pops up to render `.md` contents.
+  - `project-card`: Clean, white-space focused grid items.
+  - `language-toggle`: A dynamic button inside the project modal that switches between EN and TH content.
+  - `readme-overlay`: A fullscreen, glassmorphism modal with a clean terminal-inspired layout.
 
 ## 5. ✍️ Editorial Guidelines ('Voice')
 When generating or modifying content (`README.md` files), future AI agents MUST adhere strictly to the following tone:
-- **Tone**: Casual, friendly, enthusiastic, yet deeply professional. Use conversational English (or Thai if requested).
-- **Perspective**: First-person perspective ("I built this", "I wanted to test...").
-- **Emojis**: Heavily encouraged! Use them in headers and throughout the body to break up text and add personality (e.g., 🚀, 🌟, 📌, 🤖).
+- **Tone**: Casual, friendly, enthusiastic, yet deeply professional ("เป็นกันเองแต่สุภาพ").
+- **Perspective**: First-person narrative ("I built this", "I found a snag...").
+- **Storytelling (Step-by-Step)**: Frame technical achievements as a journey. Break down complex projects into logical steps (e.g., Step 1: Playground, Step 2: Scripting, Step 3: Action).
+- **The "Aha!" Moment**: Highlight specific problem-solving instances (e.g., how a bug was solved or a difficult locator was found) to show technical maturity.
 - **Formatting Constraints**: 
-  - Never write boring "Wikipedia-style" technical manuals.
-  - Frame technical achievements as stories or challenges (e.g., "The iOS Challenge", "Why I Added X to My Toolkit").
-  - Use GitHub-style Markdown. Always caption images using italics (`*(This is a caption)*`).
+  - Use GitHub-style Markdown. 
+  - Images should be organized as single blocks or balanced grids (`<p align="center">`).
+  - Use emojis to add personality and break up white space.
 
 ## 6. 🔍 SEO & Metadata
 - **Global SEO**: Handled entirely inside the `<head>` of `index.html`. Make sure `title` and standard `<meta name="description">` tags are present.
