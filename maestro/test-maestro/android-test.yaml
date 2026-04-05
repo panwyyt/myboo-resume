@@ -1,0 +1,25 @@
+appId: com.wdiodemoapp
+---
+- launchApp:
+    clearState: true
+- tapOn: Forms
+- tapOn: Type something
+- inputText: "i like u, buffalo"
+- tapOn: Form components
+- copyTextFrom:
+    id: "RNE__Input__text-input"
+- evalScript: ${output.myText = maestro.copiedText}
+- assertVisible:
+    text: "input-text-result"
+    text: ${output.myText}
+- tapOn: switch
+- assertVisible: Click to turn the switch OFF
+- tapOn: Dropdown
+- tapOn:
+    text: Appium is awesome
+    above: This app is awesome
+    below: webdriver.io is awesome
+- tapOn: button-Active
+- assertVisible: This button is active
+- tapOn: OK
+- stopApp

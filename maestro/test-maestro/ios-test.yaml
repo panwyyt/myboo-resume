@@ -1,0 +1,32 @@
+appId: org.wdiodemoapp
+---
+- launchApp:
+    clearState: true
+- tapOn: Forms
+- tapOn: Type something
+- inputText: "i like u, buffalo"
+- tapOn: Form components
+- copyTextFrom:
+    id: text-input
+- evalScript: ${output.myText = maestro.copiedText}
+- assertVisible:
+    id: input-text-result
+    text: ${output.myText}
+- tapOn:
+    id: switch
+- assertVisible: 
+    id: switch-text
+    text: Click to turn the switch OFF
+- tapOn:
+    id: dropdown-chevron
+- swipe:
+    start: "50%, 93%"
+    end: "50%, 83%"
+    duration: 500
+- tapOn:
+    id: done_button
+- tapOn:
+    id: button-Active
+- assertVisible: This button is active
+- tapOn: OK
+- stopApp
