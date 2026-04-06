@@ -175,4 +175,43 @@ document.addEventListener("DOMContentLoaded", () => {
         card.style.opacity = '1';
     });
 
+
+    // ===== Certifications Viewer =====
+    const viewer = document.getElementById('imageViewer');
+    const viewerImg = document.getElementById('viewerImage');
+    const viewerCaption = document.getElementById('viewerCaption');
+    const viewerClose = document.getElementById('viewerClose');
+
+    if (viewer && viewerImg && viewerClose) {
+        document.querySelectorAll('.cert-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const imgSrc = card.getAttribute('data-img');
+                const overlaySpan = card.querySelector('.cert-overlay span');
+                const caption = overlaySpan ? overlaySpan.textContent : '';
+                
+                viewerImg.src = imgSrc;
+                viewerCaption.innerText = caption;
+                viewer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeViewer = () => {
+            viewer.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        if (viewerClose) viewerClose.addEventListener('click', closeViewer);
+        viewer.addEventListener('click', (e) => {
+            if (e.target === viewer) closeViewer();
+        });
+
+        // Also close on Escape
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && viewer.classList.contains('active')) {
+                closeViewer();
+            }
+        });
+    }
+
 });
