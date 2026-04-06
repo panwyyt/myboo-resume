@@ -69,9 +69,10 @@ The framework generates beautiful reports that show exactly what happened. In th
 
 ## 🏆 Proof of Skill
 
-My foundational knowledge is backed by a professional certification in Automation Testing.
+My foundational and advanced knowledge is backed by professional certifications in Automation Testing.
 
 ![Selenium Basic Certification](Certificate%20Automation%20Test%20(Basic)%20-%20%20Panthawit%20Chumthong%20(Boo).png)
+![Selenium Advanced Certification](Certificate%20Automation%20Test%20(Advanced)%20-%20Panthawit%20Chumthong%20(Boo).png)
 
 ---
 

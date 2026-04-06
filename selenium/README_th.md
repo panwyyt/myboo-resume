@@ -69,9 +69,10 @@
 
 ## 🏆 เครื่องหมายการันตีฝีมือ
 
-ความรู้พื้นฐานของผมถูกยืนยันด้วยใบประกาศนียบัตรวิชาชีพด้าน Automation Testing ครับ
+ความรู้พื้นฐานและขั้นสูงของผมถูกยืนยันด้วยใบประกาศนียบัตรวิชาชีพด้าน Automation Testing ครับ
 
 ![Selenium Basic Certification](Certificate%20Automation%20Test%20(Basic)%20-%20%20Panthawit%20Chumthong%20(Boo).png)
+![Selenium Advanced Certification](Certificate%20Automation%20Test%20(Advanced)%20-%20Panthawit%20Chumthong%20(Boo).png)
 
 ---
 
