@@ -255,6 +255,13 @@ a {
     flex-shrink: 0;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all var(--transition-speed) ease;
+}
+
+.hero-avatar:hover {
+    transform: scale(1.05);
+    border-color: var(--border-hover);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .avatar-img {
@@ -593,6 +600,13 @@ a {
     border-radius: 8px;
     margin: 1rem 0;
     border: 1px solid var(--border-color);
+    transition: all var(--transition-speed) ease;
+}
+
+.readme-content img:hover {
+    transform: translateY(-4px) scale(1.01);
+    border-color: var(--border-hover);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .readme-content pre {
