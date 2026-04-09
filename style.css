@@ -89,13 +89,63 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 16px;
+    padding: 10px 20px;
     font-size: 0.9rem;
     font-weight: 500;
-    border-radius: 6px;
-    transition: all var(--transition-speed) ease;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
-    border: 1px solid transparent;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+    backdrop-filter: blur(4px);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    color: var(--text-primary);
+}
+
+.btn-email:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.08);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+.btn-phone:hover {
+    border-color: #0ea5e9;
+    color: #0ea5e9;
+    background: rgba(14, 165, 233, 0.08);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+}
+
+.btn-linkedin:hover {
+    border-color: #0077b5;
+    color: #0077b5;
+    background: rgba(0, 119, 181, 0.08);
+    box-shadow: 0 0 20px rgba(0, 119, 181, 0.15);
+}
+
+.btn-github:hover {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+    background: var(--bg-surface-hover);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.btn-resume {
+    border-color: #10b981;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.btn-resume:hover {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: #059669;
+    color: #059669;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
 }
 
 .btn-sm {
@@ -106,23 +156,17 @@ a {
 .btn-primary {
     background: var(--text-primary);
     color: var(--bg-primary);
+    border: none;
 }
 
 .btn-primary:hover {
     opacity: 0.9;
-    transform: translateY(-1px);
 }
 
 .btn-secondary {
     background: var(--bg-surface);
     color: var(--text-secondary);
     border-color: var(--border-color);
-}
-
-.btn-secondary:hover {
-    background: var(--bg-surface-hover);
-    color: var(--text-primary);
-    border-color: var(--border-hover);
 }
 
 .btn-close {
