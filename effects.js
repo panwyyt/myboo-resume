@@ -101,13 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
         class Bug {
             constructor() {
                 const w = canvas.width, h = canvas.height;
-                const side = (Math.random() * 4) | 0;
-                if (side === 0) { this.x = Math.random() * w; this.y = -16; }
-                else if (side === 1) { this.x = w + 16; this.y = Math.random() * h; }
-                else if (side === 2) { this.x = Math.random() * w; this.y = h + 16; }
-                else { this.x = -16; this.y = Math.random() * h; }
+                // Spawn inside the canvas with 20% margin — never at edges
+                const pad = Math.max(w, h) * 0.15 + 40;
+                this.x = pad + Math.random() * (w - pad * 2);
+                this.y = pad + Math.random() * (h - pad * 2);
 
-                const ang = Math.atan2(h / 2 - this.y, w / 2 - this.x) + (Math.random() - 0.5) * 1.4;
+                const ang = Math.random() * Math.PI * 2;
                 const spd = 0.25 + Math.random() * 0.45;
                 this.vx = Math.cos(ang) * spd;
                 this.vy = Math.sin(ang) * spd;
@@ -156,11 +155,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.x += this.vx;
                 this.y += this.vy;
 
-                const m = 28, w = canvas.width, h = canvas.height;
-                if (this.x < -m) this.x = w + m;
-                else if (this.x > w + m) this.x = -m;
-                if (this.y < -m) this.y = h + m;
-                else if (this.y > h + m) this.y = -m;
+                // Soft boundary — push away from edges so bugs never get clipped
+                const edge = this.size * 4.5;
+                const w = canvas.width, h = canvas.height;
+                if (this.x < edge) this.vx += (edge - this.x) * 0.025;
+                else if (this.x > w - edge) this.vx -= (this.x - (w - edge)) * 0.025;
+                if (this.y < edge) this.vy += (edge - this.y) * 0.025;
+                else if (this.y > h - edge) this.vy -= (this.y - (h - edge)) * 0.025;
             }
 
             draw() {
