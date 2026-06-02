@@ -15,7 +15,7 @@
     
     --text-primary: #ededed;
     --text-secondary: #a1a1aa;
-    --text-tertiary: #71717a;
+    --text-tertiary: #7a7a84;
     
     --border-color: rgba(255, 255, 255, 0.1);
     --border-hover: rgba(255, 255, 255, 0.2);
@@ -35,7 +35,7 @@
     
     --text-primary: #171717;
     --text-secondary: #52525b;
-    --text-tertiary: #a1a1aa;
+    --text-tertiary: #6b6b73;
     
     --border-color: rgba(0, 0, 0, 0.1);
     --border-hover: rgba(0, 0, 0, 0.2);
@@ -78,6 +78,28 @@ a {
     text-decoration: none;
 }
 
+[role="button"] {
+    cursor: pointer;
+}
+
+:focus {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.btn:focus-visible,
+.project-card:focus-visible,
+.cert-card:focus-visible,
+.theme-toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--accent-color);
+}
+
 /* Global scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -90,6 +112,7 @@ a {
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
+    min-height: 44px;
     font-size: 0.9rem;
     font-weight: 500;
     border-radius: 10px;
@@ -146,6 +169,19 @@ a {
     border-color: #059669;
     color: #059669;
     box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+[data-theme="light"] .btn-resume {
+    color: #047857;
+    border-color: #047857;
+    background: rgba(4, 120, 87, 0.05);
+}
+
+[data-theme="light"] .btn-resume:hover {
+    color: #065f46;
+    border-color: #065f46;
+    background: rgba(6, 95, 70, 0.1);
+    box-shadow: 0 0 20px rgba(4, 120, 87, 0.2);
 }
 
 .btn-sm {
@@ -228,7 +264,8 @@ a {
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: 20px;
-    padding: 6px 12px;
+    padding: 6px 16px;
+    min-height: 44px;
     cursor: pointer;
     backdrop-filter: blur(8px);
     color: var(--text-secondary);
@@ -250,6 +287,7 @@ a {
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border-color);
+    text-wrap: balance;
 }
 
 /* ===== HERO SECTION ===== */
@@ -265,10 +303,11 @@ a {
 }
 
 .hero-title {
-    font-size: 2.8rem;
+    font-size: clamp(2rem, 5vw, 2.8rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 0.2rem;
+    text-wrap: balance;
 }
 
 .hero-role {
@@ -276,6 +315,7 @@ a {
     font-weight: 500;
     color: var(--text-secondary);
     margin-bottom: 1.2rem;
+    text-wrap: balance;
 }
 
 .hero-desc {
@@ -386,13 +426,22 @@ a {
     color: var(--text-secondary);
 }
 
-/* Special Card */
+/* Special Card — sunset flare, the one gradient in the system */
 .card-special {
-    background: linear-gradient(to bottom right, var(--bg-secondary), var(--bg-surface-hover));
-    border-color: var(--border-hover);
+    background: var(--special-gradient);
+    border-color: transparent;
 }
 .card-special:hover {
-    background: var(--bg-surface-hover);
+    filter: brightness(1.08);
+    border-color: transparent;
+    box-shadow: 0 8px 30px rgba(255, 75, 75, 0.3);
+}
+.text-special {
+    color: #ffffff;
+}
+.card-special .p-icon {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.25);
 }
 
 /* Pagination */
@@ -569,7 +618,7 @@ a {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .cert-image-container {
@@ -826,5 +875,37 @@ a {
         height: 100%;
         max-height: none;
         border-radius: 0;
+    }
+}
+
+/* Reduced motion — respect user preference */
+@media (prefers-reduced-motion: reduce) {
+    html, body {
+        transition: none;
+    }
+    .btn,
+    .project-card,
+    .cert-card,
+    .skill-chip,
+    .hero-avatar,
+    .cert-image-container img,
+    .readme-content img,
+    .theme-toggle {
+        transition: none !important;
+        animation: none !important;
+    }
+    .cert-card:hover,
+    .project-card:hover,
+    .hero-avatar:hover,
+    .btn:hover,
+    .readme-content img:hover {
+        transform: none;
+    }
+    .viewer-container img {
+        animation: none;
+    }
+    @keyframes zoomIn {
+        from { opacity: 1; }
+        to { opacity: 1; }
     }
 }
