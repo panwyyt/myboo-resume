@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panthawit Chumthong | Software Tester Portfolio</title>
     <link rel="icon" href="https://avatars.githubusercontent.com/u/86871974?v=4" type="image/x-icon">
+    <meta name="description" content="Software Tester & QA Professional — Panthawit 'Boo' Chumthong. Specializing in end-to-end quality assurance from manual test design to full automation pipelines.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,354 +15,423 @@
 </head>
 
 <body>
-    <div class="layout-wrapper">
-        <header class="app-header">
-            <div class="brand">
-                <span class="brand-badge">Portfolio</span>
-            </div>
-            <!-- Theme Toggle Placed In Flow To Prevent Overlap -->
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <span class="toggle-icon" id="toggleIcon">☀️</span>
-                <span class="toggle-text">Theme</span>
-            </button>
-        </header>
 
-        <main class="app-main">
-            <!-- Profile Section -->
-            <section class="hero-section">
+<!-- ═══════════════════════════════════════════════════════
+     DESKTOP
+═══════════════════════════════════════════════════════ -->
+<div class="desktop" id="desktop">
+
+    <!-- MENU BAR -->
+    <header class="menu-bar" role="banner">
+        <div class="menu-left">
+            <span class="menu-apple" aria-label="Boo Portfolio">🍎</span>
+            <span class="menu-app-name">Boo.Portfolio</span>
+            <span class="menu-item">File</span>
+            <span class="menu-item">Window</span>
+            <span class="menu-item">Help</span>
+        </div>
+        <div class="menu-right">
+            <span class="menu-status" aria-label="Status">🟢 Ready to test</span>
+            <button class="menu-theme-btn" id="themeToggle" aria-label="Toggle theme">
+                <span id="toggleIcon">☀️</span>
+            </button>
+            <span class="menu-time" id="menuTime" aria-live="polite"></span>
+        </div>
+    </header>
+
+    <!-- ── WINDOW 1: Terminal / Hero ─────────────────────── -->
+    <section class="app-window" id="win-terminal"
+             style="left:40px; top:50px; width:500px; height:390px;"
+             aria-label="Terminal">
+        <div class="window-titlebar" data-win="win-terminal">
+            <div class="traffic-lights">
+                <button class="tl tl-close" data-action="close" data-win="win-terminal" aria-label="Close terminal"></button>
+                <button class="tl tl-min"   data-action="minimize" data-win="win-terminal" aria-label="Minimize terminal"></button>
+                <button class="tl tl-max"   data-action="maximize" data-win="win-terminal" aria-label="Maximize terminal"></button>
+            </div>
+            <span class="window-title">bash — boo@qa:~</span>
+        </div>
+        <div class="window-body terminal-body">
+            <p class="term-line">
+                <span class="term-ps1">boo@qa:~</span><span class="term-sym"> $</span>
+                <span class="term-cmd"> whoami</span>
+            </p>
+            <div class="hero-section">
                 <div class="hero-content">
                     <h1 class="hero-title">Panthawit Chumthong</h1>
-                    <h2 class="hero-role">Software Tester & QA Professional</h2>
+                    <h2 class="hero-role">Software Tester &amp; QA Professional</h2>
                     <p class="hero-desc">
-                        I find bugs before the users do. Specializing in end-to-end quality assurance —
-                        from manual test design to full automation pipelines.
+                        I find bugs before the users do. Specializing in end-to-end
+                        quality assurance — from manual test design to full automation pipelines.
                     </p>
-
-                    <div class="contact-links">
-                        <a href="mailto:tocilic@gmail.com" class="btn btn-email">Email</a>
-                        <a href="tel:+66825706947" class="btn btn-phone">Phone</a>
-                        <a href="https://linkedin.com/in/tocilic" target="_blank" class="btn btn-linkedin">LinkedIn</a>
-                        <a href="https://github.com/panwyyt" target="_blank" class="btn btn-github">GitHub</a>
-                        <a href="Panthawit_Resume.pdf" target="_blank" class="btn btn-resume">Resume</a>
-                    </div>
                 </div>
                 <div class="hero-avatar">
-                    <img src="my-image-profile-trans.png" alt="Panthawit Chumthong" class="avatar-img">
-                </div>
-            </section>
-
-            <!-- Skills Section -->
-            <section class="skills-section">
-                <h2 class="section-title">Technical Expertise</h2>
-                <div class="skills-grid">
-                    <span class="skill-chip">Manual Testing</span>
-                    <span class="skill-chip">Robot Framework</span>
-                    <span class="skill-chip">Selenium</span>
-                    <span class="skill-chip">Appium</span>
-                    <span class="skill-chip">Maestro</span>
-                    <span class="skill-chip">Playwright</span>
-                    <span class="skill-chip">Postman</span>
-                    <span class="skill-chip">SQL</span>
-                    <span class="skill-chip">API</span>
-                    <span class="skill-chip">JMeter</span>
-                    <span class="skill-chip">CI/CD</span>
-                    <span class="skill-chip">Git</span>
-                    <span class="skill-chip">Jira</span>
-                    <span class="skill-chip">AI Coding</span>
-                    <span class="skill-chip">Agile</span>
-                    <span class="skill-chip">Scrum</span>
-                    <span class="skill-chip">Kanban</span>
-                </div>
-            </section>
-
-            <!-- Projects Database -->
-            <section class="projects-section">
-                <h2 class="section-title">Portfolio Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card" data-readme="./manual-testing/README.md" role="button" tabindex="0">
-                        <span class="p-icon">📝</span>
-                        <div class="p-info">
-                            <h3>Manual Testing</h3>
-                            <p>Test Scenarios, Test Cases, and Reports</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-readme="./selenium/README.md" role="button" tabindex="0">
-                        <span class="p-icon">🌐</span>
-                        <div class="p-info">
-                            <h3>Selenium with Robot Framework</h3>
-                            <p>Web UI Automation Testing</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-readme="./appium/README.md" role="button" tabindex="0">
-                        <span class="p-icon">📱</span>
-                        <div class="p-info">
-                            <h3>Appium Library</h3>
-                            <p>iOS/Android simulator testing</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-readme="./maestro/README.md" role="button" tabindex="0">
-                        <span class="p-icon">🎼</span>
-                        <div class="p-info">
-                            <h3>Maestro UI Testing</h3>
-                            <p>Fast iOS/Android E2E</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-readme="./postman/README.md" role="button" tabindex="0">
-                        <span class="p-icon">⚡</span>
-                        <div class="p-info">
-                            <h3>Postman API Testing</h3>
-                            <p>Endpoint validation, scripts</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-readme="./sql/README.md" role="button" tabindex="0">
-                        <span class="p-icon">🗄️</span>
-                        <div class="p-info">
-                            <h3>SQL Database</h3>
-                            <p>CRUD ops, Window functions</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-readme="./playwright/README.md" role="button" tabindex="0">
-                        <span class="p-icon">🎭</span>
-                        <div class="p-info">
-                            <h3>Playwright E2E</h3>
-                            <p>TypeScript, fully automated</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-readme="./jmeter/README.md" role="button" tabindex="0">
-                        <span class="p-icon">📊</span>
-                        <div class="p-info">
-                            <h3>JMeter Performance</h3>
-                            <p>Performance & load simulation</p>
-                        </div>
-                    </div>
-
-                    <a href="https://panwyyt.github.io/GAY-DAR/" target="_blank" class="project-card card-special">
-                        <span class="p-icon">🚀</span>
-                        <div class="p-info">
-                            <h3 class="text-special">GAY-DAR App</h3>
-                            <p class="text-special">Side Project — 6.2M reaches</p>
-                        </div>
-                    </a>
-
-                </div>
-
-                <!-- Custom Pagination ID matching script.js -->
-                <div class="pagination-container" id="portfolioPagination"></div>
-            </section>
-
-            <!-- Experience Logs -->
-            <section class="experience-section">
-                <h2 class="section-title">Chrono Logs & Proficiencies</h2>
-                <div class="experience-grid">
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="tl-date">2025 – 2026</div>
-                            <div class="tl-content">
-                                <h3>Software Testing Full Course</h3>
-                                <p>Software Testing By P'Beam</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="tl-date">2024 – 2025</div>
-                            <div class="tl-content">
-                                <h3>Quality Analyst</h3>
-                                <p>Gearinc Services · Thailand</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="tl-date">2022 – 2024</div>
-                            <div class="tl-content">
-                                <h3>Technical Advertising Support</h3>
-                                <p>Concentrix · Malaysia</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="tl-date">2022</div>
-                            <div class="tl-content">
-                                <h3>Data Analyst Cert</h3>
-                                <p>DataRockie School & Coursera</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="tl-date">2021</div>
-                            <div class="tl-content">
-                                <h3>Digital Mktg & CS Certs</h3>
-                                <p>Google Digital Garage & Skillsoft</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="tl-date">2018 – 2021</div>
-                            <div class="tl-content">
-                                <h3>Sociology and Anthropology</h3>
-                                <p>Thammasat University</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <aside class="side-panel">
-                        <div class="side-block">
-                            <h4 class="side-title">Languages</h4>
-                            <div class="lang-item">
-                                <span class="lang-name">Thai</span>
-                                <span class="lang-level">Native</span>
-                            </div>
-                            <div class="lang-item">
-                                <span class="lang-name">English</span>
-                                <span class="lang-level">Professional</span>
-                            </div>
-                        </div>
-
-                        <div class="side-block">
-                            <h4 class="side-title">Soft Skills</h4>
-                            <ul class="side-list">
-                                <li>Bug Hunter Mindset</li>
-                                <li>Critical Thinking</li>
-                                <li>Attention to Detail</li>
-                                <li>Problem Solving</li>
-                                <li>Effective Communication</li>
-                            </ul>
-                        </div>
-
-                        <div class="side-block">
-                            <h4 class="side-title">Environment</h4>
-                            <div class="side-tags">
-                                <span class="side-tag">macOS</span>
-                                <span class="side-tag">Android Studio</span>
-                                <span class="side-tag">Xcode</span>
-                                <span class="side-tag">Charles Proxy</span>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-            </section>
-            <!-- Certifications Section -->
-            <section class="certifications-section">
-                <h2 class="section-title">Certifications & Badges</h2>
-                <div class="cert-grid">
-                    <div class="cert-card" data-img="all-my-certifications/Automation Test (Basic to Advanced) - Kru P'Beam .png" role="button" tabindex="0" aria-label="View: Automation Test (Advanced)">
-                        <div class="cert-image-container">
-                            <img src="all-my-certifications/Automation Test (Basic to Advanced) - Kru P'Beam .png" alt="Automation Test Advanced" loading="lazy">
-                        </div>
-                        <div class="cert-overlay">
-                            <span>Automation Test (Advanced)</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card" data-img="all-my-certifications/Certificate Automation Test (Basic) -  Panthawit Chumthong (Boo).png" role="button" tabindex="0" aria-label="View: Automation Test (Basic)">
-                        <div class="cert-image-container">
-                            <img src="all-my-certifications/Certificate Automation Test (Basic) -  Panthawit Chumthong (Boo).png" alt="Automation Test Basic" loading="lazy">
-                        </div>
-                        <div class="cert-overlay">
-                            <span>Automation Test (Basic)</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card" data-img="all-my-certifications/Certificate Course API Testing With Postman Basic - Panthawit Chumthong (Boo).png" role="button" tabindex="0" aria-label="View: API Testing with Postman">
-                        <div class="cert-image-container">
-                            <img src="all-my-certifications/Certificate Course API Testing With Postman Basic - Panthawit Chumthong (Boo).png" alt="API Testing Postman" loading="lazy">
-                        </div>
-                        <div class="cert-overlay">
-                            <span>API Testing with Postman</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card" data-img="all-my-certifications/Certification SQL - Panthawit Chumthong (Boo).png" role="button" tabindex="0" aria-label="View: SQL for Data Analytics">
-                        <div class="cert-image-container">
-                            <img src="all-my-certifications/Certification SQL - Panthawit Chumthong (Boo).png" alt="SQL Certification" loading="lazy">
-                        </div>
-                        <div class="cert-overlay">
-                            <span>SQL for Data Analytics</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card" data-img="all-my-certifications/Certified Professional Data Analyst.png" role="button" tabindex="0" aria-label="View: Certified Data Analyst">
-                        <div class="cert-image-container">
-                            <img src="all-my-certifications/Certified Professional Data Analyst.png" alt="Professional Data Analyst" loading="lazy">
-                        </div>
-                        <div class="cert-overlay">
-                            <span>Certified Data Analyst</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card" data-img="all-my-certifications/Course 1-2 Software Testing Manual(VDO) - Panthawit Chumthong .png" role="button" tabindex="0" aria-label="View: Manual Testing (Full Course)">
-                        <div class="cert-image-container">
-                            <img src="all-my-certifications/Course 1-2 Software Testing Manual(VDO) - Panthawit Chumthong .png" alt="Software Testing Manual" loading="lazy">
-                        </div>
-                        <div class="cert-overlay">
-                            <span>Manual Testing (Full Course)</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card" data-img="all-my-certifications/EF SET English Certificate.jpeg" role="button" tabindex="0" aria-label="View: EF SET English (C2 Proficient)">
-                        <div class="cert-image-container">
-                            <img src="all-my-certifications/EF SET English Certificate.jpeg" alt="English Certificate" loading="lazy">
-                        </div>
-                        <div class="cert-overlay">
-                            <span>EF SET English (C2 Proficient)</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card" data-img="all-my-certifications/Google Ads for Beginners - Google.png" role="button" tabindex="0" aria-label="View: Google Ads for Beginners">
-                        <div class="cert-image-container">
-                            <img src="all-my-certifications/Google Ads for Beginners - Google.png" alt="Google Ads" loading="lazy">
-                        </div>
-                        <div class="cert-overlay">
-                            <span>Google Ads for Beginners</span>
-                        </div>
-                    </div>
-
-                    <div class="cert-card" data-img="all-my-certifications/Technical Support Fundamentals - Google.png" role="button" tabindex="0" aria-label="View: IT Support Fundamentals">
-                        <div class="cert-image-container">
-                            <img src="all-my-certifications/Technical Support Fundamentals - Google.png" alt="Technical Support" loading="lazy">
-                        </div>
-                        <div class="cert-overlay">
-                            <span>IT Support Fundamentals</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- Image Viewer Modal -->
-    <div class="image-viewer-overlay" id="imageViewer" role="dialog" aria-modal="true" aria-label="Certificate viewer">
-        <div class="viewer-container">
-            <button class="viewer-close" id="viewerClose" aria-label="Close certificate viewer">&times;</button>
-            <img src="" alt="" id="viewerImage" aria-hidden="true">
-            <div id="viewerCaption" class="viewer-caption"></div>
-        </div>
-    </div>
-
-    <!-- Modal README container matching script.js requirements -->
-    <div class="readme-overlay" id="readmeOverlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal-panel">
-            <div class="modal-header">
-                <span id="modal-title">DOCUMENTATION</span>
-                <div class="modal-controls">
-                    <button class="btn btn-secondary btn-sm" id="langToggle" style="display: none;">[ EN / TH ]</button>
-                    <button class="btn btn-close btn-sm" id="readmeClose">Close</button>
+                    <img src="my-image-profile-trans.png"
+                         alt="Panthawit 'Boo' Chumthong" class="avatar-img">
                 </div>
             </div>
-            <div class="readme-content" id="readmeContent">
-                <p class="loading-text">Loading...</p>
+            <p class="term-line term-gap">
+                <span class="term-ps1">boo@qa:~</span><span class="term-sym"> $</span>
+                <span class="term-cmd"> ./connect --all</span>
+            </p>
+            <div class="contact-links">
+                <a href="mailto:tocilic@gmail.com"
+                   class="btn btn-email">Email</a>
+                <a href="tel:+66825706947"
+                   class="btn btn-phone">Phone</a>
+                <a href="https://linkedin.com/in/tocilic"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn btn-linkedin">LinkedIn</a>
+                <a href="https://github.com/panwyyt"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn btn-github">GitHub</a>
+                <a href="Panthawit_Resume.pdf"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn btn-resume">Resume</a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script src="script.js"></script>
-    <script src="effects.js"></script>
+    <!-- ── WINDOW 2: Projects ─────────────────────────────── -->
+    <section class="app-window projects-section" id="win-projects"
+             style="left:560px; top:40px; width:570px; height:440px;"
+             aria-label="Projects">
+        <div class="window-titlebar" data-win="win-projects">
+            <div class="traffic-lights">
+                <button class="tl tl-close" data-action="close"    data-win="win-projects" aria-label="Close projects"></button>
+                <button class="tl tl-min"   data-action="minimize" data-win="win-projects" aria-label="Minimize projects"></button>
+                <button class="tl tl-max"   data-action="maximize" data-win="win-projects" aria-label="Maximize projects"></button>
+            </div>
+            <span class="window-title">Projects — ~/Boo/portfolio</span>
+        </div>
+        <div class="window-toolbar">
+            <span class="finder-path">📁 ~/Boo/portfolio</span>
+            <span class="finder-count">9 items</span>
+        </div>
+        <div class="window-body projects-body">
+            <div class="projects-grid">
+                <div class="project-card" data-readme="./manual-testing/README.md"
+                     role="button" tabindex="0">
+                    <span class="p-icon">📝</span>
+                    <span class="file-label">Manual Testing</span>
+                </div>
+                <div class="project-card" data-readme="./selenium/README.md"
+                     role="button" tabindex="0">
+                    <span class="p-icon">🌐</span>
+                    <span class="file-label">Selenium</span>
+                </div>
+                <div class="project-card" data-readme="./appium/README.md"
+                     role="button" tabindex="0">
+                    <span class="p-icon">📱</span>
+                    <span class="file-label">Appium</span>
+                </div>
+                <div class="project-card" data-readme="./maestro/README.md"
+                     role="button" tabindex="0">
+                    <span class="p-icon">🎼</span>
+                    <span class="file-label">Maestro</span>
+                </div>
+                <div class="project-card" data-readme="./postman/README.md"
+                     role="button" tabindex="0">
+                    <span class="p-icon">⚡</span>
+                    <span class="file-label">Postman</span>
+                </div>
+                <div class="project-card" data-readme="./sql/README.md"
+                     role="button" tabindex="0">
+                    <span class="p-icon">🗄️</span>
+                    <span class="file-label">SQL</span>
+                </div>
+                <div class="project-card" data-readme="./playwright/README.md"
+                     role="button" tabindex="0">
+                    <span class="p-icon">🎭</span>
+                    <span class="file-label">Playwright</span>
+                </div>
+                <div class="project-card" data-readme="./jmeter/README.md"
+                     role="button" tabindex="0">
+                    <span class="p-icon">📊</span>
+                    <span class="file-label">JMeter</span>
+                </div>
+                <a href="https://panwyyt.github.io/GAY-DAR/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="project-card card-special">
+                    <span class="p-icon">🚀</span>
+                    <span class="file-label text-special">GAY-DAR App</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── WINDOW 3: Skills ───────────────────────────────── -->
+    <section class="app-window skills-section" id="win-skills"
+             style="left:40px; top:462px; width:350px; height:270px;"
+             aria-label="Skills">
+        <div class="window-titlebar" data-win="win-skills">
+            <div class="traffic-lights">
+                <button class="tl tl-close" data-action="close"    data-win="win-skills" aria-label="Close skills"></button>
+                <button class="tl tl-min"   data-action="minimize" data-win="win-skills" aria-label="Minimize skills"></button>
+                <button class="tl tl-max"   data-action="maximize" data-win="win-skills" aria-label="Maximize skills"></button>
+            </div>
+            <span class="window-title">skill-set.sh</span>
+        </div>
+        <div class="window-body">
+            <div class="skills-grid">
+                <span class="skill-chip">Manual Testing</span>
+                <span class="skill-chip">Robot Framework</span>
+                <span class="skill-chip">Selenium</span>
+                <span class="skill-chip">Appium</span>
+                <span class="skill-chip">Maestro</span>
+                <span class="skill-chip">Playwright</span>
+                <span class="skill-chip">Postman</span>
+                <span class="skill-chip">SQL</span>
+                <span class="skill-chip">API</span>
+                <span class="skill-chip">JMeter</span>
+                <span class="skill-chip">CI/CD</span>
+                <span class="skill-chip">Git</span>
+                <span class="skill-chip">Jira</span>
+                <span class="skill-chip">AI Coding</span>
+                <span class="skill-chip">Agile</span>
+                <span class="skill-chip">Scrum</span>
+                <span class="skill-chip">Kanban</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── WINDOW 4: Experience ───────────────────────────── -->
+    <section class="app-window experience-section" id="win-experience"
+             style="left:410px; top:498px; width:440px; height:330px;"
+             aria-label="Experience">
+        <div class="window-titlebar" data-win="win-experience">
+            <div class="traffic-lights">
+                <button class="tl tl-close" data-action="close"    data-win="win-experience" aria-label="Close experience"></button>
+                <button class="tl tl-min"   data-action="minimize" data-win="win-experience" aria-label="Minimize experience"></button>
+                <button class="tl tl-max"   data-action="maximize" data-win="win-experience" aria-label="Maximize experience"></button>
+            </div>
+            <span class="window-title">experience.log</span>
+        </div>
+        <div class="window-body">
+            <div class="experience-grid">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="tl-date">2025 – 2026</div>
+                        <div class="tl-content">
+                            <h3>Software Testing Full Course</h3>
+                            <p>Software Testing By P'Beam</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="tl-date">2024 – 2025</div>
+                        <div class="tl-content">
+                            <h3>Quality Analyst</h3>
+                            <p>Gearinc Services · Thailand</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="tl-date">2022 – 2024</div>
+                        <div class="tl-content">
+                            <h3>Technical Advertising Support</h3>
+                            <p>Concentrix · Malaysia</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="tl-date">2022</div>
+                        <div class="tl-content">
+                            <h3>Data Analyst Cert</h3>
+                            <p>DataRockie School &amp; Coursera</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="tl-date">2021</div>
+                        <div class="tl-content">
+                            <h3>Digital Mktg &amp; CS Certs</h3>
+                            <p>Google Digital Garage &amp; Skillsoft</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="tl-date">2018 – 2021</div>
+                        <div class="tl-content">
+                            <h3>Sociology and Anthropology</h3>
+                            <p>Thammasat University</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="side-panel">
+                    <div class="side-block">
+                        <h4 class="side-title">Languages</h4>
+                        <div class="lang-item">
+                            <span class="lang-name">Thai</span>
+                            <span class="lang-level">Native</span>
+                        </div>
+                        <div class="lang-item">
+                            <span class="lang-name">English</span>
+                            <span class="lang-level">Professional</span>
+                        </div>
+                    </div>
+                    <div class="side-block">
+                        <h4 class="side-title">Soft Skills</h4>
+                        <ul class="side-list">
+                            <li>Bug Hunter Mindset</li>
+                            <li>Critical Thinking</li>
+                            <li>Attention to Detail</li>
+                            <li>Problem Solving</li>
+                        </ul>
+                    </div>
+                    <div class="side-block">
+                        <h4 class="side-title">Environment</h4>
+                        <div class="side-tags">
+                            <span class="side-tag">macOS</span>
+                            <span class="side-tag">Android Studio</span>
+                            <span class="side-tag">Xcode</span>
+                            <span class="side-tag">Charles Proxy</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── WINDOW 5: Certifications ──────────────────────── -->
+    <section class="app-window certifications-section" id="win-certs"
+             style="left:870px; top:40px; width:270px; height:430px;"
+             aria-label="Certifications">
+        <div class="window-titlebar" data-win="win-certs">
+            <div class="traffic-lights">
+                <button class="tl tl-close" data-action="close"    data-win="win-certs" aria-label="Close certifications"></button>
+                <button class="tl tl-min"   data-action="minimize" data-win="win-certs" aria-label="Minimize certifications"></button>
+                <button class="tl tl-max"   data-action="maximize" data-win="win-certs" aria-label="Maximize certifications"></button>
+            </div>
+            <span class="window-title">Certifications</span>
+        </div>
+        <div class="window-body">
+            <div class="cert-grid">
+                <div class="cert-card"
+                     data-img="all-my-certifications/Automation Test (Basic to Advanced) - Kru P'Beam .png"
+                     role="button" tabindex="0" aria-label="View: Automation Test (Advanced)">
+                    <div class="cert-image-container">
+                        <img src="all-my-certifications/Automation Test (Basic to Advanced) - Kru P'Beam .png"
+                             alt="Automation Test Advanced" loading="lazy">
+                    </div>
+                    <div class="cert-overlay"><span>Automation Test (Advanced)</span></div>
+                </div>
+                <div class="cert-card"
+                     data-img="all-my-certifications/Certificate Automation Test (Basic) -  Panthawit Chumthong (Boo).png"
+                     role="button" tabindex="0" aria-label="View: Automation Test (Basic)">
+                    <div class="cert-image-container">
+                        <img src="all-my-certifications/Certificate Automation Test (Basic) -  Panthawit Chumthong (Boo).png"
+                             alt="Automation Test Basic" loading="lazy">
+                    </div>
+                    <div class="cert-overlay"><span>Automation Test (Basic)</span></div>
+                </div>
+                <div class="cert-card"
+                     data-img="all-my-certifications/Certificate Course API Testing With Postman Basic - Panthawit Chumthong (Boo).png"
+                     role="button" tabindex="0" aria-label="View: API Testing with Postman">
+                    <div class="cert-image-container">
+                        <img src="all-my-certifications/Certificate Course API Testing With Postman Basic - Panthawit Chumthong (Boo).png"
+                             alt="API Testing Postman" loading="lazy">
+                    </div>
+                    <div class="cert-overlay"><span>API Testing with Postman</span></div>
+                </div>
+                <div class="cert-card"
+                     data-img="all-my-certifications/Certification SQL - Panthawit Chumthong (Boo).png"
+                     role="button" tabindex="0" aria-label="View: SQL for Data Analytics">
+                    <div class="cert-image-container">
+                        <img src="all-my-certifications/Certification SQL - Panthawit Chumthong (Boo).png"
+                             alt="SQL Certification" loading="lazy">
+                    </div>
+                    <div class="cert-overlay"><span>SQL for Data Analytics</span></div>
+                </div>
+                <div class="cert-card"
+                     data-img="all-my-certifications/Certified Professional Data Analyst.png"
+                     role="button" tabindex="0" aria-label="View: Certified Data Analyst">
+                    <div class="cert-image-container">
+                        <img src="all-my-certifications/Certified Professional Data Analyst.png"
+                             alt="Professional Data Analyst" loading="lazy">
+                    </div>
+                    <div class="cert-overlay"><span>Certified Data Analyst</span></div>
+                </div>
+                <div class="cert-card"
+                     data-img="all-my-certifications/Course 1-2 Software Testing Manual(VDO) - Panthawit Chumthong .png"
+                     role="button" tabindex="0" aria-label="View: Manual Testing (Full Course)">
+                    <div class="cert-image-container">
+                        <img src="all-my-certifications/Course 1-2 Software Testing Manual(VDO) - Panthawit Chumthong .png"
+                             alt="Software Testing Manual" loading="lazy">
+                    </div>
+                    <div class="cert-overlay"><span>Manual Testing (Full Course)</span></div>
+                </div>
+                <div class="cert-card"
+                     data-img="all-my-certifications/EF SET English Certificate.jpeg"
+                     role="button" tabindex="0" aria-label="View: EF SET English (C2 Proficient)">
+                    <div class="cert-image-container">
+                        <img src="all-my-certifications/EF SET English Certificate.jpeg"
+                             alt="English Certificate" loading="lazy">
+                    </div>
+                    <div class="cert-overlay"><span>EF SET English (C2 Proficient)</span></div>
+                </div>
+                <div class="cert-card"
+                     data-img="all-my-certifications/Google Ads for Beginners - Google.png"
+                     role="button" tabindex="0" aria-label="View: Google Ads for Beginners">
+                    <div class="cert-image-container">
+                        <img src="all-my-certifications/Google Ads for Beginners - Google.png"
+                             alt="Google Ads" loading="lazy">
+                    </div>
+                    <div class="cert-overlay"><span>Google Ads for Beginners</span></div>
+                </div>
+                <div class="cert-card"
+                     data-img="all-my-certifications/Technical Support Fundamentals - Google.png"
+                     role="button" tabindex="0" aria-label="View: IT Support Fundamentals">
+                    <div class="cert-image-container">
+                        <img src="all-my-certifications/Technical Support Fundamentals - Google.png"
+                             alt="Technical Support" loading="lazy">
+                    </div>
+                    <div class="cert-overlay"><span>IT Support Fundamentals</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DOCK ───────────────────────────────────────────── -->
+    <nav class="dock" aria-label="Application dock">
+        <button class="dock-icon" data-target="win-terminal"   aria-label="Terminal">🖥️<span class="dock-dot"></span></button>
+        <button class="dock-icon" data-target="win-projects"   aria-label="Projects">📁<span class="dock-dot"></span></button>
+        <div class="dock-sep"></div>
+        <button class="dock-icon" data-target="win-skills"     aria-label="Skills">⚡<span class="dock-dot"></span></button>
+        <button class="dock-icon" data-target="win-experience" aria-label="Experience">📋<span class="dock-dot"></span></button>
+        <button class="dock-icon" data-target="win-certs"      aria-label="Certifications">🏆<span class="dock-dot"></span></button>
+    </nav>
+
+</div><!-- /desktop -->
+
+<!-- ═══════════════════════════════════════════════════════
+     MODALS (outside desktop, above everything)
+═══════════════════════════════════════════════════════ -->
+
+<div class="image-viewer-overlay" id="imageViewer"
+     role="dialog" aria-modal="true" aria-label="Certificate viewer">
+    <div class="viewer-container">
+        <button class="viewer-close" id="viewerClose"
+                aria-label="Close certificate viewer">&times;</button>
+        <img src="" alt="" id="viewerImage" aria-hidden="true">
+        <div id="viewerCaption" class="viewer-caption"></div>
+    </div>
+</div>
+
+<div class="readme-overlay" id="readmeOverlay"
+     role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-panel">
+        <div class="modal-header">
+            <span id="modal-title">DOCUMENTATION</span>
+            <div class="modal-controls">
+                <button class="btn btn-secondary btn-sm" id="langToggle"
+                        style="display: none;">[ EN / TH ]</button>
+                <button class="btn btn-close btn-sm" id="readmeClose">Close</button>
+            </div>
+        </div>
+        <div class="readme-content" id="readmeContent">
+            <p class="loading-text">Loading...</p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="effects.js"></script>
 </body>
 
 </html>

@@ -69,44 +69,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 350);
     }
 
-    // ─── 3. BUG CANVAS ───────────────────────────────────────────────
+    // ─── 3. BUG CANVAS (full-screen desktop) ─────────────────────────
     function initBugCanvas() {
-        const hero = document.querySelector('.hero-section');
-        if (!hero) return;
+        // In OS Desktop layout bugs roam the whole wallpaper
+        const target = document.querySelector('.desktop') || document.querySelector('.hero-section');
+        if (!target) return;
 
         const canvas = document.createElement('canvas');
         canvas.className = 'bug-canvas';
         canvas.setAttribute('aria-hidden', 'true');
-        hero.insertBefore(canvas, hero.firstChild);
+        target.insertBefore(canvas, target.firstChild);
 
         const ctx = canvas.getContext('2d');
         const mouse = { x: -999, y: -999 };
-        const MAX = 14;
+        const MAX = 20;
         let bugs = [];
 
         function resize() {
-            canvas.width = hero.offsetWidth;
-            canvas.height = hero.offsetHeight;
+            canvas.width  = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
         resize();
         window.addEventListener('resize', resize);
 
         document.addEventListener('mousemove', e => {
-            const r = canvas.getBoundingClientRect();
-            mouse.x = e.clientX - r.left;
-            mouse.y = e.clientY - r.top;
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
         });
         document.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
 
         class Bug {
             constructor() {
-                const w = canvas.width, h = canvas.height;
-                // Spawn inside the canvas with 20% margin — never at edges
-                const pad = Math.max(w, h) * 0.15 + 40;
-                this.x = pad + Math.random() * (w - pad * 2);
-                this.y = pad + Math.random() * (h - pad * 2);
+                const w = canvas.width  || window.innerWidth;
+                const h = canvas.height || window.innerHeight;
+                const side = (Math.random() * 4) | 0;
+                if (side === 0) { this.x = Math.random() * w; this.y = -16; }
+                else if (side === 1) { this.x = w + 16; this.y = Math.random() * h; }
+                else if (side === 2) { this.x = Math.random() * w; this.y = h + 16; }
+                else { this.x = -16; this.y = Math.random() * h; }
 
-                const ang = Math.random() * Math.PI * 2;
+                const ang = Math.atan2(h / 2 - this.y, w / 2 - this.x) + (Math.random() - 0.5) * 1.4;
                 const spd = 0.25 + Math.random() * 0.45;
                 this.vx = Math.cos(ang) * spd;
                 this.vy = Math.sin(ang) * spd;
@@ -155,13 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Soft boundary — push away from edges so bugs never get clipped
-                const edge = this.size * 4.5;
-                const w = canvas.width, h = canvas.height;
-                if (this.x < edge) this.vx += (edge - this.x) * 0.025;
-                else if (this.x > w - edge) this.vx -= (this.x - (w - edge)) * 0.025;
-                if (this.y < edge) this.vy += (edge - this.y) * 0.025;
-                else if (this.y > h - edge) this.vy -= (this.y - (h - edge)) * 0.025;
+                const m = 28, w = canvas.width, h = canvas.height;
+                if (this.x < -m) this.x = w + m;
+                else if (this.x > w + m) this.x = -m;
+                if (this.y < -m) this.y = h + m;
+                else if (this.y > h + m) this.y = -m;
             }
 
             draw() {

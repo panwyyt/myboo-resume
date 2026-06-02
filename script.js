@@ -166,10 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('theme', next);
     });
 
-    // Show all portfolio cards
+    // Show all portfolio cards (no pagination in OS layout)
     document.querySelectorAll('.projects-grid .project-card').forEach(card => {
         card.style.display = '';
-        card.style.opacity = '1';
+        card.style.removeProperty('opacity');
     });
 
     // ===== Certifications Viewer =====
@@ -220,3 +220,196 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// ═══════════════════════════════════════════════════════════
+// OS WINDOW MANAGER
+// ═══════════════════════════════════════════════════════════
+(function () {
+    'use strict';
+
+    let zTop = 200;
+
+    function bringToFront(win) {
+        win.style.zIndex = ++zTop;
+        document.querySelectorAll('.app-window').forEach(w => w.classList.remove('is-focused'));
+        win.classList.add('is-focused');
+    }
+
+    // ── Draggable windows ──
+    document.querySelectorAll('.app-window').forEach(win => {
+        const titlebar = win.querySelector('.window-titlebar');
+        if (!titlebar) return;
+
+        let dragging = false, ox = 0, oy = 0;
+
+        titlebar.addEventListener('mousedown', e => {
+            if (e.target.classList.contains('tl')) return;
+            e.preventDefault();
+            dragging = true;
+            const rect = win.getBoundingClientRect();
+            ox = e.clientX - rect.left;
+            oy = e.clientY - rect.top;
+            bringToFront(win);
+            document.body.style.userSelect = 'none';
+        });
+
+        document.addEventListener('mousemove', e => {
+            if (!dragging) return;
+            let nx = e.clientX - ox;
+            let ny = e.clientY - oy;
+            // Clamp: keep titlebar accessible
+            nx = Math.max(-win.offsetWidth + 100, Math.min(window.innerWidth - 60, nx));
+            ny = Math.max(30, Math.min(window.innerHeight - 40, ny));
+            win.style.left   = nx + 'px';
+            win.style.top    = ny + 'px';
+            win.style.right  = 'auto';
+            win.style.bottom = 'auto';
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (dragging) {
+                dragging = false;
+                document.body.style.userSelect = '';
+            }
+        });
+
+        // Touch drag support
+        titlebar.addEventListener('touchstart', e => {
+            if (e.target.classList.contains('tl')) return;
+            const t = e.touches[0];
+            const rect = win.getBoundingClientRect();
+            dragging = true;
+            ox = t.clientX - rect.left;
+            oy = t.clientY - rect.top;
+            bringToFront(win);
+        }, { passive: true });
+
+        document.addEventListener('touchmove', e => {
+            if (!dragging) return;
+            const t = e.touches[0];
+            let nx = Math.max(0, Math.min(window.innerWidth - 60, t.clientX - ox));
+            let ny = Math.max(30, Math.min(window.innerHeight - 40, t.clientY - oy));
+            win.style.left = nx + 'px';
+            win.style.top  = ny + 'px';
+            win.style.right = 'auto';
+        }, { passive: true });
+
+        document.addEventListener('touchend', () => { dragging = false; });
+
+        win.addEventListener('mousedown', () => bringToFront(win));
+    });
+
+    // ── Traffic light actions ──
+    document.querySelectorAll('.tl').forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.stopPropagation();
+            const win    = btn.closest('.app-window');
+            const action = btn.dataset.action;
+            const winId  = win.id;
+            const dot    = document.querySelector(`.dock-icon[data-target="${winId}"] .dock-dot`);
+
+            if (action === 'close' || action === 'minimize') {
+                win.classList.add('is-minimized');
+                if (dot) dot.classList.remove('visible');
+            } else if (action === 'maximize') {
+                if (win.dataset.prevGeom) {
+                    const g = JSON.parse(win.dataset.prevGeom);
+                    win.style.left   = g.l;
+                    win.style.top    = g.t;
+                    win.style.width  = g.w;
+                    win.style.height = g.h;
+                    win.style.right  = 'auto';
+                    win.style.bottom = 'auto';
+                    delete win.dataset.prevGeom;
+                } else {
+                    win.dataset.prevGeom = JSON.stringify({
+                        l: win.style.left   || (win.offsetLeft  + 'px'),
+                        t: win.style.top    || (win.offsetTop   + 'px'),
+                        w: win.style.width  || (win.offsetWidth + 'px'),
+                        h: win.style.height || (win.offsetHeight + 'px'),
+                    });
+                    win.style.left   = '40px';
+                    win.style.top    = '38px';
+                    win.style.right  = '40px';
+                    win.style.bottom = '90px';
+                    win.style.width  = '';
+                    win.style.height = '';
+                }
+            }
+        });
+    });
+
+    // ── Dock icons → show/focus window ──
+    document.querySelectorAll('.dock-icon[data-target]').forEach(btn => {
+        const winId = btn.dataset.target;
+        const dot   = btn.querySelector('.dock-dot');
+
+        // Mark all as visible initially
+        if (dot) dot.classList.add('visible');
+
+        btn.addEventListener('click', () => {
+            const win = document.getElementById(winId);
+            if (!win) return;
+
+            if (win.classList.contains('is-minimized')) {
+                win.classList.remove('is-minimized');
+                if (dot) dot.classList.add('visible');
+            }
+            bringToFront(win);
+        });
+    });
+
+    // ── Dock magnification ──
+    const dock      = document.querySelector('.dock');
+    const dockIcons = document.querySelectorAll('.dock-icon');
+    if (dock) {
+        dock.addEventListener('mousemove', e => {
+            dockIcons.forEach(icon => {
+                const r    = icon.getBoundingClientRect();
+                const cx   = r.left + r.width / 2;
+                const dist = Math.abs(e.clientX - cx);
+                const scale = dist < 90 ? 1 + (1 - dist / 90) * 0.55 : 1;
+                const lift  = dist < 90 ? -(1 - dist / 90) * 16 : 0;
+                icon.style.transform = `scale(${scale.toFixed(3)}) translateY(${lift.toFixed(1)}px)`;
+            });
+        });
+        dock.addEventListener('mouseleave', () => {
+            dockIcons.forEach(icon => { icon.style.transform = ''; });
+        });
+    }
+
+    // ── Window entry animation (staggered) ──
+    const windows = [...document.querySelectorAll('.app-window')];
+    windows.forEach((win, i) => {
+        win.style.zIndex   = 100 + i;
+        win.style.opacity  = '0';
+        win.style.transform = 'scale(0.90) translateY(16px)';
+        win.style.transition = 'none';
+        setTimeout(() => {
+            win.style.transition = 'opacity 0.45s ease-out, transform 0.45s cubic-bezier(0.22,1,0.36,1)';
+            win.style.opacity    = '1';
+            win.style.transform  = 'scale(1) translateY(0)';
+        }, 250 + i * 100);
+    });
+    // Clear inline transforms after all windows open so CSS hover still works
+    setTimeout(() => {
+        windows.forEach(win => {
+            if (!win.classList.contains('is-minimized')) {
+                win.style.transform  = '';
+                win.style.transition = '';
+            }
+        });
+    }, 250 + windows.length * 100 + 500);
+
+    // ── Menu bar clock ──
+    const clockEl = document.getElementById('menuTime');
+    function tick() {
+        if (!clockEl) return;
+        clockEl.textContent = new Date().toLocaleTimeString('en-US', {
+            hour: '2-digit', minute: '2-digit'
+        });
+    }
+    tick();
+    setInterval(tick, 1000);
+
+}());
