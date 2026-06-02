@@ -113,9 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.vy = Math.sin(ang) * spd;
                 this.angle = ang;
                 this.legPhase = Math.random() * Math.PI * 2;
-                this.size = 3.5 + Math.random() * 2.5;
+                this.size = 9 + Math.random() * 6;
                 this.alpha = 0;
-                this.targetAlpha = 0.13 + Math.random() * 0.15;
+                this.targetAlpha = 0.55 + Math.random() * 0.3;
                 this.dead = false;
                 this.deathAlpha = 0;
             }
@@ -127,9 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dx = this.x - mouse.x, dy = this.y - mouse.y;
                 const dist = Math.hypot(dx, dy);
 
-                if (dist < 14) {
+                if (dist < 20) {
                     this.dead = true;
-                    this.deathAlpha = Math.max(0.5, this.alpha * 3.5);
+                    this.deathAlpha = 1.0;
                     return;
                 }
                 if (dist < 95) {
@@ -187,8 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const s = this.size;
                 const ls = Math.sin(this.legPhase);
 
-                ctx.fillStyle = ctx.strokeStyle = '#ffffff';
-                ctx.lineWidth = 0.65;
+                const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+                const bugColor = isDark ? '#ffffff' : '#1a1a2e';
+                ctx.fillStyle = ctx.strokeStyle = bugColor;
+                ctx.lineWidth = isDark ? 0.9 : 1.1;
                 ctx.lineCap = 'round';
 
                 // Abdomen
