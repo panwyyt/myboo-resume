@@ -1,359 +1,186 @@
+/* ═══════════════════════════════════════════════════════════════
+   Light, Apple-flavoured micro-interactions.
+   Reveals + magnetic CTAs + soft cursor + sticky nav. No canvas.
+   All motion is opt-out via prefers-reduced-motion; content is
+   visible by default and reveals only enhance it.
+═══════════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer  = window.matchMedia('(pointer: fine)').matches;
 
-    // ─── 1. CURSOR GLOW ──────────────────────────────────────────────
+    // Non-motion enhancements always run.
+    initNavScroll();
+    initActiveLink();
+
+    if (reduceMotion) return;
+
+    // Motion enhancements.
+    initHeroReveal();
+    revealEach('.section-head');
+    revealGroup('.projects-section', '.project-card', { stagger: 55, y: 22 });
+    revealGroup('.experience-section .timeline', '.timeline-item', { stagger: 70, y: 22 });
+    revealEach('.side-block', { y: 22 });
+    revealGroup('.certifications-section', '.cert-card', { stagger: 45, y: 22 });
+
+    if (finePointer) {
+        initMagneticButtons();
+        initCursorGlow();
+    }
+
+    revealSafety();
+
+    // ─── Sticky nav: frosted on scroll ───────────────────────────
+    function initNavScroll() {
+        const nav = document.getElementById('nav');
+        if (!nav) return;
+        const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    // ─── Active nav link follows the section in view ──────────────
+    function initActiveLink() {
+        const links = [...document.querySelectorAll('.nav-link')];
+        const map = new Map();
+        links.forEach(link => {
+            const id = (link.getAttribute('href') || '').slice(1);
+            const sec = id && document.getElementById(id);
+            if (sec) map.set(sec, link);
+        });
+        if (!map.size) return;
+
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                links.forEach(l => l.classList.remove('is-active'));
+                map.get(e.target)?.classList.add('is-active');
+            });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+        map.forEach((_, sec) => obs.observe(sec));
+    }
+
+    // ─── Reveal helpers ───────────────────────────────────────────
+    function prep(el, y) {
+        el.style.opacity = '0';
+        el.style.transform = `translateY(${y}px)`;
+        el.style.willChange = 'opacity, transform';
+    }
+    function play(el) {
+        el.style.transition = 'opacity 0.7s var(--ease), transform 0.7s var(--ease)';
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.addEventListener('transitionend', () => {
+            el.style.transition = '';
+            el.style.transform = '';
+            el.style.willChange = '';
+        }, { once: true });
+    }
+
+    // Reveal each matching element independently as it scrolls in.
+    function revealEach(selector, { y = 20 } = {}) {
+        const els = [...document.querySelectorAll(selector)];
+        if (!els.length) return;
+        els.forEach(el => prep(el, y));
+        const obs = new IntersectionObserver((entries, o) => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                play(e.target);
+                o.unobserve(e.target);
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+        els.forEach(el => obs.observe(el));
+    }
+
+    // Reveal a group's children in a stagger when the container enters.
+    function revealGroup(containerSel, childSel, { stagger = 55, y = 20 } = {}) {
+        document.querySelectorAll(containerSel).forEach(container => {
+            const kids = [...container.querySelectorAll(childSel)];
+            if (!kids.length) return;
+            kids.forEach(k => prep(k, y));
+            const obs = new IntersectionObserver(([e], o) => {
+                if (!e.isIntersecting) return;
+                kids.forEach((k, i) => setTimeout(() => play(k), i * stagger));
+                o.disconnect();
+            }, { threshold: 0.08 });
+            obs.observe(container);
+        });
+    }
+
+    function initHeroReveal() {
+        const kids = [...document.querySelectorAll('.hero-inner > *')];
+        if (!kids.length) return;
+        kids.forEach(k => prep(k, 22));
+        requestAnimationFrame(() => {
+            kids.forEach((k, i) => setTimeout(() => {
+                k.style.transition = 'opacity 0.8s var(--ease), transform 0.8s var(--ease)';
+                k.style.opacity = '1';
+                k.style.transform = 'none';
+                k.addEventListener('transitionend', () => {
+                    k.style.transition = '';
+                    k.style.transform = '';
+                    k.style.willChange = '';
+                }, { once: true });
+            }, 100 + i * 85));
+        });
+    }
+
+    // Safety net: never leave content hidden if an observer never fires.
+    function revealSafety() {
+        setTimeout(() => {
+            document.querySelectorAll(
+                '.hero-inner > *, .section-head, .project-card, .skills-ticker, .timeline-item, .side-block, .cert-card'
+            ).forEach(el => {
+                if (el.style.opacity === '0') {
+                    el.style.transition = 'none';
+                    el.style.opacity = '';
+                    el.style.transform = '';
+                    el.style.willChange = '';
+                }
+            });
+        }, 1300);
+    }
+
+    // ─── Magnetic primary CTAs ────────────────────────────────────
+    function initMagneticButtons() {
+        const strength = 0.28;
+        document.querySelectorAll('.btn-primary, .btn-resume').forEach(el => {
+            el.addEventListener('pointermove', e => {
+                if (e.pointerType && e.pointerType !== 'mouse') return;
+                const r = el.getBoundingClientRect();
+                const mx = e.clientX - (r.left + r.width / 2);
+                const my = e.clientY - (r.top + r.height / 2);
+                el.style.transform = `translate(${(mx * strength).toFixed(1)}px, ${(my * strength - 2).toFixed(1)}px)`;
+            });
+            el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+        });
+    }
+
+    // ─── Soft cursor glow ─────────────────────────────────────────
     function initCursorGlow() {
         const glow = document.createElement('div');
         glow.className = 'cursor-glow';
         glow.setAttribute('aria-hidden', 'true');
         document.body.appendChild(glow);
 
-        let cx = window.innerWidth / 2;
-        let cy = window.innerHeight / 2;
-        let tx = cx, ty = cy;
+        let x = window.innerWidth / 2, y = window.innerHeight / 2;
+        let tx = x, ty = y, on = false;
 
-        document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+        window.addEventListener('pointermove', e => {
+            if (e.pointerType && e.pointerType !== 'mouse') return;
+            tx = e.clientX; ty = e.clientY;
+            if (!on) { on = true; glow.classList.add('is-on'); }
+        }, { passive: true });
+
+        document.addEventListener('mouseleave', () => { on = false; glow.classList.remove('is-on'); });
 
         (function loop() {
-            cx += (tx - cx) * 0.09;
-            cy += (ty - cy) * 0.09;
-            glow.style.transform = `translate(${cx - 200}px, ${cy - 200}px)`;
+            x += (tx - x) * 0.12;
+            y += (ty - y) * 0.12;
+            glow.style.transform = `translate(${(x - 260).toFixed(1)}px, ${(y - 260).toFixed(1)}px)`;
             requestAnimationFrame(loop);
         })();
     }
-
-    // ─── 2. TYPEWRITER HERO ──────────────────────────────────────────
-    function initTypewriter() {
-        const titleEl = document.querySelector('.hero-title');
-        const roleEl = document.querySelector('.hero-role');
-        if (!titleEl || !roleEl) return;
-
-        const titleText = titleEl.textContent.trim();
-        const roleText = roleEl.textContent.trim();
-
-        // Preserve text for screen readers
-        titleEl.setAttribute('aria-label', titleText);
-        roleEl.setAttribute('aria-label', roleText);
-
-        titleEl.innerHTML = '<span class="tw-chars" aria-hidden="true"></span><span class="tw-cursor" aria-hidden="true">█</span>';
-        roleEl.innerHTML = '';
-
-        const titleChars = titleEl.querySelector('.tw-chars');
-
-        function typeOut(container, text, done) {
-            let i = 0;
-            const chars = [...text];
-            function tick() {
-                if (i >= chars.length) { if (done) done(); return; }
-                const s = document.createElement('span');
-                s.className = 'tw-char';
-                s.textContent = chars[i++];
-                container.appendChild(s);
-                setTimeout(tick, 35 + Math.random() * 75);
-            }
-            tick();
-        }
-
-        setTimeout(() => {
-            typeOut(titleChars, titleText, () => {
-                const cur = titleEl.querySelector('.tw-cursor');
-                if (cur) cur.remove();
-                setTimeout(() => {
-                    roleEl.innerHTML = '<span class="tw-chars" aria-hidden="true"></span><span class="tw-cursor" aria-hidden="true">█</span>';
-                    typeOut(roleEl.querySelector('.tw-chars'), roleText, null);
-                }, 320);
-            });
-        }, 350);
-    }
-
-    // ─── 3. BUG CANVAS (full-screen desktop) ─────────────────────────
-    function initBugCanvas() {
-        // In OS Desktop layout bugs roam the whole wallpaper
-        const target = document.querySelector('.desktop') || document.querySelector('.hero-section');
-        if (!target) return;
-
-        const canvas = document.createElement('canvas');
-        canvas.className = 'bug-canvas';
-        canvas.setAttribute('aria-hidden', 'true');
-        target.insertBefore(canvas, target.firstChild);
-
-        const ctx = canvas.getContext('2d');
-        const mouse = { x: -999, y: -999 };
-        const MAX = 20;
-        let bugs = [];
-
-        function resize() {
-            canvas.width  = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
-
-        document.addEventListener('mousemove', e => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-        document.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
-
-        class Bug {
-            constructor() {
-                const w = canvas.width  || window.innerWidth;
-                const h = canvas.height || window.innerHeight;
-                const side = (Math.random() * 4) | 0;
-                if (side === 0) { this.x = Math.random() * w; this.y = -16; }
-                else if (side === 1) { this.x = w + 16; this.y = Math.random() * h; }
-                else if (side === 2) { this.x = Math.random() * w; this.y = h + 16; }
-                else { this.x = -16; this.y = Math.random() * h; }
-
-                const ang = Math.atan2(h / 2 - this.y, w / 2 - this.x) + (Math.random() - 0.5) * 1.4;
-                const spd = 0.25 + Math.random() * 0.45;
-                this.vx = Math.cos(ang) * spd;
-                this.vy = Math.sin(ang) * spd;
-                this.angle = ang;
-                this.legPhase = Math.random() * Math.PI * 2;
-                this.size = 9 + Math.random() * 6;
-                this.alpha = 0;
-                this.targetAlpha = 0.55 + Math.random() * 0.3;
-                this.dead = false;
-                this.deathAlpha = 0;
-            }
-
-            update() {
-                if (this.dead) { this.deathAlpha = Math.max(0, this.deathAlpha - 0.055); return; }
-                if (this.alpha < this.targetAlpha) this.alpha = Math.min(this.targetAlpha, this.alpha + 0.006);
-
-                const dx = this.x - mouse.x, dy = this.y - mouse.y;
-                const dist = Math.hypot(dx, dy);
-
-                if (dist < 20) {
-                    this.dead = true;
-                    this.deathAlpha = 1.0;
-                    return;
-                }
-                if (dist < 95) {
-                    const f = Math.pow(1 - dist / 95, 2) * 1.5;
-                    this.vx += (dx / dist) * f;
-                    this.vy += (dy / dist) * f;
-                }
-
-                const spd = Math.hypot(this.vx, this.vy);
-                if (spd > 3.2) { this.vx = this.vx / spd * 3.2; this.vy = this.vy / spd * 3.2; }
-
-                this.vx = this.vx * 0.974 + (Math.random() - 0.5) * 0.065;
-                this.vy = this.vy * 0.974 + (Math.random() - 0.5) * 0.065;
-
-                if (spd > 0.06) {
-                    const tA = Math.atan2(this.vy, this.vx);
-                    let d = tA - this.angle;
-                    while (d > Math.PI) d -= Math.PI * 2;
-                    while (d < -Math.PI) d += Math.PI * 2;
-                    this.angle += d * 0.13;
-                }
-
-                this.legPhase += 0.14 + spd * 0.05;
-                this.x += this.vx;
-                this.y += this.vy;
-
-                const m = 28, w = canvas.width, h = canvas.height;
-                if (this.x < -m) this.x = w + m;
-                else if (this.x > w + m) this.x = -m;
-                if (this.y < -m) this.y = h + m;
-                else if (this.y > h + m) this.y = -m;
-            }
-
-            draw() {
-                const a = this.dead ? this.deathAlpha : this.alpha;
-                if (a < 0.005) return;
-                ctx.save();
-                ctx.globalAlpha = a;
-                ctx.translate(this.x, this.y);
-
-                if (this.dead) {
-                    ctx.strokeStyle = '#ff6060';
-                    ctx.lineWidth = 1.5;
-                    ctx.lineCap = 'round';
-                    const s = this.size * 1.8;
-                    ctx.beginPath();
-                    ctx.moveTo(-s, -s); ctx.lineTo(s, s);
-                    ctx.moveTo(s, -s); ctx.lineTo(-s, s);
-                    ctx.stroke();
-                    ctx.restore();
-                    return;
-                }
-
-                ctx.rotate(this.angle + Math.PI / 2);
-                const s = this.size;
-                const ls = Math.sin(this.legPhase);
-
-                const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-                const bugColor = isDark ? '#ffffff' : '#1a1a2e';
-                ctx.fillStyle = ctx.strokeStyle = bugColor;
-                ctx.lineWidth = isDark ? 0.9 : 1.1;
-                ctx.lineCap = 'round';
-
-                // Abdomen
-                ctx.beginPath();
-                ctx.ellipse(0, s * 0.38, s * 0.44, s * 0.72, 0, 0, Math.PI * 2);
-                ctx.fill();
-                // Thorax
-                ctx.beginPath();
-                ctx.ellipse(0, -s * 0.38, s * 0.36, s * 0.44, 0, 0, Math.PI * 2);
-                ctx.fill();
-                // Head
-                ctx.beginPath();
-                ctx.arc(0, -s * 1.08, s * 0.27, 0, Math.PI * 2);
-                ctx.fill();
-                // Antennae
-                ctx.beginPath();
-                ctx.moveTo(-s * 0.12, -s * 1.25);
-                ctx.lineTo(-s * 0.58, -s * 1.9);
-                ctx.moveTo(s * 0.12, -s * 1.25);
-                ctx.lineTo(s * 0.58, -s * 1.9);
-                ctx.stroke();
-                // 3 leg pairs
-                [-s * 0.44, -s * 0.08, s * 0.24].forEach((ly, i) => {
-                    const sw = ls * (i % 2 === 0 ? 0.4 : -0.4) * s;
-                    ctx.beginPath();
-                    ctx.moveTo(-s * 0.38, ly);
-                    ctx.lineTo(-s * 1.65, ly + s * 0.55 + sw);
-                    ctx.moveTo(s * 0.38, ly);
-                    ctx.lineTo(s * 1.65, ly + s * 0.55 - sw);
-                    ctx.stroke();
-                });
-                ctx.restore();
-            }
-
-            isDone() { return this.dead && this.deathAlpha < 0.005; }
-        }
-
-        // Stagger-spawn initial crew
-        for (let i = 0; i < MAX; i++) {
-            setTimeout(() => bugs.push(new Bug()), i * 220 + 800);
-        }
-
-        let lastSpawn = 0;
-        requestAnimationFrame(function tick(ts) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            bugs = bugs.filter(b => !b.isDone());
-            if (bugs.filter(b => !b.dead).length < MAX && ts - lastSpawn > 900) {
-                bugs.push(new Bug());
-                lastSpawn = ts;
-            }
-            bugs.forEach(b => { b.update(); b.draw(); });
-            requestAnimationFrame(tick);
-        });
-    }
-
-    // ─── 4. SKILL CHIPS FLY-IN ───────────────────────────────────────
-    function initChipsFlyIn() {
-        const chips = [...document.querySelectorAll('.skill-chip')];
-        if (!chips.length) return;
-
-        const dirs = [[-65,-38],[65,-38],[-65,38],[65,38],[0,-72],[0,72],[-38,-62],[38,-62]];
-        chips.forEach((c, i) => {
-            const [dx, dy] = dirs[i % dirs.length];
-            c.style.opacity = '0';
-            c.style.transform = `translate(${dx}px,${dy}px) scale(0.65)`;
-            c.style.transition = 'none';
-        });
-
-        const obs = new IntersectionObserver(([e]) => {
-            if (!e.isIntersecting) return;
-            chips.forEach((c, i) => {
-                setTimeout(() => {
-                    c.style.transition = `opacity 0.5s ease-out, transform 0.65s cubic-bezier(0.22,1,0.36,1)`;
-                    c.style.opacity = '1';
-                    c.style.transform = 'translate(0,0) scale(1)';
-                    // Clean up inline styles so CSS hover takes over
-                    c.addEventListener('transitionend', () => {
-                        c.style.opacity = '';
-                        c.style.transform = '';
-                        c.style.transition = '';
-                    }, { once: true });
-                }, i * 40);
-            });
-            obs.disconnect();
-        }, { threshold: 0.18 });
-
-        const sec = document.querySelector('.skills-section');
-        if (sec) obs.observe(sec);
-    }
-
-    // ─── 5. PROJECT CARDS STAGGER ────────────────────────────────────
-    function initCardStagger() {
-        const cards = [...document.querySelectorAll('.project-card')];
-        if (!cards.length) return;
-
-        // Run after script.js DOMContentLoaded sets opacity:1
-        cards.forEach(c => {
-            c.style.opacity = '0';
-            c.style.transform = 'translateY(22px) scale(0.97)';
-            c.style.transition = 'none';
-        });
-
-        const obs = new IntersectionObserver(([e]) => {
-            if (!e.isIntersecting) return;
-            cards.forEach((c, i) => {
-                setTimeout(() => {
-                    c.style.transition = 'opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.22,1,0.36,1)';
-                    c.style.opacity = '1';
-                    c.style.transform = 'translateY(0) scale(1)';
-                    c.addEventListener('transitionend', () => {
-                        c.style.opacity = '';
-                        c.style.transform = '';
-                        c.style.transition = '';
-                    }, { once: true });
-                }, i * 55);
-            });
-            obs.disconnect();
-        }, { threshold: 0.05 });
-
-        const sec = document.querySelector('.projects-section');
-        if (sec) obs.observe(sec);
-    }
-
-    // ─── 6. SECTION + TIMELINE + CERT REVEALS ────────────────────────
-    function initReveals() {
-        const items = [
-            ...document.querySelectorAll('.experience-section'),
-            ...document.querySelectorAll('.certifications-section'),
-            ...document.querySelectorAll('.timeline-item'),
-            ...document.querySelectorAll('.cert-card'),
-            ...document.querySelectorAll('.side-block'),
-        ];
-
-        items.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(26px)';
-            el.style.transition = 'none';
-        });
-
-        const obs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (!e.isIntersecting) return;
-                e.target.style.transition = 'opacity 0.65s ease-out, transform 0.65s cubic-bezier(0.22,1,0.36,1)';
-                e.target.style.opacity = '1';
-                e.target.style.transform = 'translateY(0)';
-                e.target.addEventListener('transitionend', () => {
-                    e.target.style.opacity = '';
-                    e.target.style.transform = '';
-                    e.target.style.transition = '';
-                }, { once: true });
-                obs.unobserve(e.target);
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-        items.forEach(el => obs.observe(el));
-    }
-
-    // ─── INIT ALL ─────────────────────────────────────────────────────
-    initCursorGlow();
-    initTypewriter();
-    initBugCanvas();
-    initChipsFlyIn();
-    initCardStagger();
-    initReveals();
 });

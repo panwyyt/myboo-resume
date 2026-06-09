@@ -1,95 +1,18 @@
-# 🤖 บันทึกการเดินทางสู่ Automation: Robot Framework & Selenium Library
+# Selenium
 
-สวัสดีครับ! 👋 ยินดีต้อนรับสู่ฝั่งการทดสอบอัตโนมัติ (Automation Testing) ของพอร์ตงานผมครับ
+Web UI Automation ด้วย Robot Framework และ SeleniumLibrary
 
-เคยรู้สึกไหมครับว่าอยากจะมี "ผู้ช่วยส่วนตัว" สักคนที่พร้อมจะทำงานซ้ำๆ บนหน้าเว็บไซต์ให้เราตลอดเวลา? นั่นคือสิ่งที่ผมสร้างขึ้นที่นี่ครับ ผมจะพาคุณเดินทางไปดูเบื้องหลังว่า ผมเปลี่ยนขั้นตอนการกดมือที่น่าเบื่อ ให้กลายเป็นระบบอัตโนมัติที่แข็งแกร่งได้อย่างไร!
+## สิ่งที่ทำได้
 
----
+- เขียนเทสแบบ keyword-driven ด้วย Robot Framework และ SeleniumLibrary (Python) ควบคุม Selenium WebDriver
+- ออกแบบโครงสร้างแบบ Page Object Model (POM) ด้วย user keywords และ resource files เพื่อให้ดูแลและขยายต่อง่าย
+- ใช้ locator ได้หลายแบบ: id, name, XPath, CSS, link, class
+- ทำงานกับ element ครบทุกชนิด: text field, dropdown, checkbox/radio, file upload และ date-picker
+- จัดการ alert, iframe และ dynamic element พร้อมใช้ explicit/implicit wait เพื่อลดปัญหา flaky test (เช่น แก้ date-picker ที่ค้างด้วยการเขียนทับค่า)
+- ทำ data-driven testing ด้วย Test Template และข้อมูลจากภายนอก
+- รันแบบ cross-browser (Chrome, Firefox, Edge) และตั้งค่า headless ได้
+- รองรับการรันขนานและกระจายงานด้วย Selenium Grid และ Pabot
+- อ่าน report.html / log.html ที่มี screenshot ตอน fail และต่อเข้ากับ CI/CD (Jenkins, GitHub Actions)
 
-## 🧐 รู้จัก "ผู้ช่วยดิจิทัล" ของผมกันก่อน
-
-ก่อนจะไปดูโค้ด มาทำความรู้จักกับเครื่องมือที่ทำให้เกิด "ปาฏิหาริย์" นี้กันครับ:
-
--   **Robot Framework (สมอง):** เฟรมเวิร์กสาย Open-source ที่ทำให้เราเขียนคำสั่งเป็นภาษาอังกฤษง่ายๆ ไม่ยุ่งเหยิง แต่อ่านออกได้ทันที
--   **Selenium Library (มือ):** เครื่องมือที่ทำหน้าที่ลงมือทำจริงๆ—ทั้งกดปุ่ม พิมพ์ข้อความ แขวนไฟล์ เหมือนคนเป๊ะ! แต่รวดเร็วและแม่นยำกว่ามาก
-
----
-
-## 📂 ภารกิจ: พิชิตหน้าฟอร์มที่แสนซับซ้อน
-
-โปรเจกต์ที่ผมโชว์อยู่นี้คือการทำ `form-filling` อัตโนมัติ ผมเลือกใช้แบบฟอร์มที่ออกแบบมาให้เป็น "ฐานทดสอบ QA" โดยเฉพาะ เพราะมันเต็มไปด้วยช่องกรอกข้อมูล, ดรอปดาวน์, เช็คบ็อกซ์ และจุดที่ยากที่สุดอย่าง "ตัวเลือกวันที่"
-
-### Step 1: สำรวจสนามทดลอง
-สำหรับคนทั่วไป มันคือหน้าลงทะเบียนปกติ แต่สำหรับผม มันคือจุดเชื่อมต่อหลายๆ อย่างที่ต้องระบุพิกัดและสั่งการให้แม่นยำที่สุดครับ
-
-![The Testing Form UI](form-filling-page/other-data/testing-form-ui.png)
-
-### Step 2: เขียนคำสั่งควบคุม
-ด้วย Robot Framework ผมเขียนสคริปต์ให้เหมือนกับ "Checklist" ง่ายๆ ที่ใครในทีมก็อ่านเข้าใจได้ทันที ไม่ต้องเป็นโปรแกรมเมอร์ก็รู้ว่าระบบกำลังทำอะไรอยู่
-
-![Test Script Code](form-filling-page/other-data/test-writing-code.png)
-
-### Step 3: ปล่อยบอตลงสนาม!
-ในตอนที่สคริปต์ทำงาน มันน่าประทับใจมากที่เห็นเบราว์เซอร์ขยับและกรอกข้อมูลเองจนจบหน้าต่างภายในพริบตา โดยไม่มีข้อผิดพลาดแม้แต่จุดเดียว
-
-![Test Execution Demo](form-filling-page/other-data/test-execution-demo.gif)
-
----
-
-## 💡 โมเมนต์ "ร้องอ๋อ!": การแก้บั๊กนอกกรอบ
-
-การทำ Automation ไม่ใช่แค่การเขียนคำสั่งตามสเต็ป แต่มันคือการ "แก้ปัญหา" ครับ ในโปรเจกต์นี้ผมเจอตอเข้าจังๆ ที่ **ช่องเลือกวันที่ (Date-Picker)**
-
-ผมเจอจุดบั๊กที่ว่า ถ้าเรา "ลบวันที่เดิม" ออกจนหมด หน้าเว็บจะค้างและเละไปเลยทันที **ทางแก้ของผมคืออะไร?** ผมสั่งให้บอต "รวบเลือกทั้งหมด" (`Ctrl+A`) แล้วพิมพ์วันที่ใหม่ "ทับ" ลงไปทันที วิธีนี้ช่วยข้ามผ่านบั๊กไปได้และทำให้ระบบทำงานต่อได้จนจบ! 
-
-**เรื่องนี้สอนให้ผมรู้ว่า เทสเตอร์ที่ดีต้องรู้จัก "คิดนอกกรอบ" เพื่อให้งานเดินต่อได้ครับ!**
-
----
-
-## 🧩 เบื้องหลัง: ความเป็นระเบียบของโค้ด (POM)
-
-ผมเชื่อว่าโค้ดที่ดีต้องสะอาดเหมือนห้องสมุด ผมจึงใช้โครงสร้างแบบ **Page Object Model (POM)**:
-
-1.  🗺️ **แผนที่ (Locators):** เก็บที่อยู่ของปุ่มและช่องต่างๆ ไว้ที่เดียว
-2.  ⚙️ **พจนานุกรมคำสั่ง (Keywords):** สร้างชุดคำสั่งง่ายๆ เช่น "สมัครสมาชิก" หรือ "แนบรูปโปรไฟล์"
-3.  📝 **แผนผังการเทส (Test Cases):** นำแผนที่และคำสั่งมาประกอบร่างกันเป็นแผนปฏิบัติการจริง
-
----
-
-## ✅ ผลลัพธ์: ความสำเร็จ 100%
-
-ตัวเฟรมเวิร์กพ่นรายงานออกมาสวยงามมาก และในการรันครั้งนี้... เราทำได้ **สอบผ่าน 100% (Pass Rate)** ครับ!
-
-![Test Report Shows 100% Success](form-filling-page/other-data/test-report-success.png)
-
--   🟢 [**เปิดส่องรายงานสรุปผลตัวเต็ม**](https://github.com/panwyyt/myboo-resume/blob/main/selenium/form-filling-page/report.html)
--   🟢 [**ดูบันทึกล็อกแบบก้าวต่อก้าว**](https://github.com/panwyyt/myboo-resume/blob/main/selenium/form-filling-page/log.html)
-
----
-
-## 🏆 เครื่องหมายการันตีฝีมือ
-
-ความรู้พื้นฐานและขั้นสูงของผมถูกยืนยันด้วยใบประกาศนียบัตรวิชาชีพด้าน Automation Testing ครับ
-
-![Selenium Basic Certification](Certificate%20Automation%20Test%20(Basic)%20-%20%20Panthawit%20Chumthong%20(Boo).png)
-![Selenium Advanced Certification](Certificate%20Automation%20Test%20(Advanced)%20-%20Panthawit%20Chumthong%20(Boo).png)
-
----
-
-## 🛠️ สำหรับสายเทคนิคที่อยากลอง
-
-ถ้าอยากรู้งัดแงะโค้ดเอง ผมเตรียมข้อมูลไว้ให้แล้ว:
-
-**Stack:** Robot Framework, SeleniumLibrary, Python.
-
-1.  **ติดตั้ง:** `pip install robotframework robotframework-seleniumlibrary`
-2.  **ไดรเวอร์:** อย่าลืมเอา `chromedriver` ไปวางใน PATH ของเครื่องล่ะ!
-3.  **รันเลย:** 
-    ```bash
-    cd form-filling-page
-    robot test_case.robot
-    ```
-
----
-
-*ขอบคุณที่ติดตามการเดินทางในโลก Automation ของผมนะครับ! หวังว่าพอร์ตชิ้นนี้จะช่วยให้คุณเห็นภาพการรวมตรรกะทางเทคนิคเข้ากับความสร้างสรรค์ในการแก้ปัญหาของผมครับ*
+**Stack:** Robot Framework, SeleniumLibrary, Python
+**ใบรับรอง:** Automation Test (Basic), Automation Test (Advanced)

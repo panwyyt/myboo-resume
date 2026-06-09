@@ -4,258 +4,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panthawit Chumthong | Software Tester Portfolio</title>
+    <title>Panthawit Chumthong | Software Tester &amp; QA Professional</title>
     <link rel="icon" href="https://avatars.githubusercontent.com/u/86871974?v=4" type="image/x-icon">
-    <meta name="description" content="Software Tester & QA Professional — Panthawit 'Boo' Chumthong. Specializing in end-to-end quality assurance from manual test design to full automation pipelines.">
+    <meta name="description" content="Panthawit 'Boo' Chumthong — Software Tester &amp; QA Professional. End-to-end quality assurance, from manual test design to full automation pipelines.">
+    <meta name="theme-color" content="#08070d">
+
+    <!-- Prevent theme flash: apply saved theme before first paint -->
+    <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
 
+<a class="skip-link" href="#work">Skip to content</a>
+
 <!-- ═══════════════════════════════════════════════════════
-     DESKTOP
+     NAV
 ═══════════════════════════════════════════════════════ -->
-<div class="desktop" id="desktop">
-
-    <!-- MENU BAR -->
-    <header class="menu-bar" role="banner">
-        <div class="menu-left">
-            <span class="menu-apple" aria-label="Boo Portfolio">🍎</span>
-            <span class="menu-app-name">Boo.Portfolio</span>
-            <span class="menu-item">File</span>
-            <span class="menu-item">Window</span>
-            <span class="menu-item">Help</span>
-        </div>
-        <div class="menu-right">
-            <span class="menu-status" aria-label="Status">🟢 Ready to test</span>
-            <button class="menu-theme-btn" id="themeToggle" aria-label="Toggle theme">
-                <span id="toggleIcon">☀️</span>
+<header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+        <a class="nav-brand" href="#top" aria-label="Boo — back to top">
+            <span class="nav-mark" aria-hidden="true"><img src="https://avatars.githubusercontent.com/u/86871974?v=4" alt="" width="28" height="28" loading="eager"></span>
+            <span class="nav-word">Boo</span>
+        </a>
+        <nav class="nav-links" aria-label="Sections">
+            <a class="nav-link" href="#work">Work</a>
+            <a class="nav-link" href="#experience">Experience</a>
+            <a class="nav-link" href="#certs">Certifications</a>
+            <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark theme">
+                <span id="toggleIcon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
             </button>
-            <span class="menu-time" id="menuTime" aria-live="polite"></span>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- ── WINDOW 1: Terminal / Hero ─────────────────────── -->
-    <section class="app-window" id="win-terminal"
-             style="left:40px; top:50px; width:500px; height:390px;"
-             aria-label="Terminal">
-        <div class="window-titlebar" data-win="win-terminal">
-            <div class="traffic-lights">
-                <button class="tl tl-close" data-action="close" data-win="win-terminal" aria-label="Close terminal"></button>
-                <button class="tl tl-min"   data-action="minimize" data-win="win-terminal" aria-label="Minimize terminal"></button>
-                <button class="tl tl-max"   data-action="maximize" data-win="win-terminal" aria-label="Maximize terminal"></button>
+<main id="top">
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════════════ -->
+    <section class="hero" aria-label="Introduction">
+        <div class="hero-inner">
+            <div class="hero-avatar">
+                <img src="my-image-profile-trans.png"
+                     alt="Portrait of Panthawit 'Boo' Chumthong"
+                     class="avatar-img" width="160" height="160">
             </div>
-            <span class="window-title">bash — boo@qa:~</span>
+            <p class="hero-eyebrow">Software Tester &amp; QA Professional</p>
+            <h1 class="hero-title">Panthawit<br><span class="hero-nick">&ldquo;Boo&rdquo;</span> Chumthong</h1>
+            <p class="hero-desc">
+                <strong class="hero-hook">I find bugs before your users do.</strong>
+                <span class="hero-sub">From manual test design to full automation pipelines, I cover quality assurance end to end.</span>
+            </p>
         </div>
-        <div class="window-body terminal-body">
-            <p class="term-line">
-                <span class="term-ps1">boo@qa:~</span><span class="term-sym"> $</span>
-                <span class="term-cmd"> whoami</span>
-            </p>
-            <div class="hero-section">
-                <div class="hero-content">
-                    <h1 class="hero-title">Panthawit Chumthong</h1>
-                    <h2 class="hero-role">Software Tester &amp; QA Professional</h2>
-                    <p class="hero-desc">
-                        I find bugs before the users do. Specializing in end-to-end
-                        quality assurance — from manual test design to full automation pipelines.
-                    </p>
-                </div>
-                <div class="hero-avatar">
-                    <img src="my-image-profile-trans.png"
-                         alt="Panthawit 'Boo' Chumthong" class="avatar-img">
+        <!-- full-width ticker replaces hero-focus -->
+        <div class="hero-ticker">
+            <div class="ticker-row">
+                <div class="ticker-track">
+                    <div class="ticker-half">
+                        <span class="skill-chip">Manual Testing</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Robot Framework</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Selenium</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Appium</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Maestro</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Playwright</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Postman</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">SQL</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">API</span><span class="ticker-sep" aria-hidden="true">·</span>
+                    </div>
+                    <div class="ticker-half" aria-hidden="true">
+                        <span class="skill-chip">Manual Testing</span><span class="ticker-sep">·</span><span class="skill-chip">Robot Framework</span><span class="ticker-sep">·</span><span class="skill-chip">Selenium</span><span class="ticker-sep">·</span><span class="skill-chip">Appium</span><span class="ticker-sep">·</span><span class="skill-chip">Maestro</span><span class="ticker-sep">·</span><span class="skill-chip">Playwright</span><span class="ticker-sep">·</span><span class="skill-chip">Postman</span><span class="ticker-sep">·</span><span class="skill-chip">SQL</span><span class="ticker-sep">·</span><span class="skill-chip">API</span><span class="ticker-sep">·</span>
+                    </div>
                 </div>
             </div>
-            <p class="term-line term-gap">
-                <span class="term-ps1">boo@qa:~</span><span class="term-sym"> $</span>
-                <span class="term-cmd"> ./connect --all</span>
-            </p>
-            <div class="contact-links">
-                <a href="mailto:tocilic@gmail.com"
-                   class="btn btn-email">Email</a>
-                <a href="tel:+66825706947"
-                   class="btn btn-phone">Phone</a>
-                <a href="https://linkedin.com/in/tocilic"
-                   target="_blank" rel="noopener noreferrer"
-                   class="btn btn-linkedin">LinkedIn</a>
-                <a href="https://github.com/panwyyt"
-                   target="_blank" rel="noopener noreferrer"
-                   class="btn btn-github">GitHub</a>
-                <a href="Panthawit_Resume.pdf"
-                   target="_blank" rel="noopener noreferrer"
-                   class="btn btn-resume">Resume</a>
+            <div class="ticker-row ticker-row--reverse">
+                <div class="ticker-track">
+                    <div class="ticker-half">
+                        <span class="skill-chip">JMeter</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">CI/CD</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Git</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Jira</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">AI Coding</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Agile</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Scrum</span><span class="ticker-sep" aria-hidden="true">·</span><span class="skill-chip">Kanban</span><span class="ticker-sep" aria-hidden="true">·</span>
+                    </div>
+                    <div class="ticker-half" aria-hidden="true">
+                        <span class="skill-chip">JMeter</span><span class="ticker-sep">·</span><span class="skill-chip">CI/CD</span><span class="ticker-sep">·</span><span class="skill-chip">Git</span><span class="ticker-sep">·</span><span class="skill-chip">Jira</span><span class="ticker-sep">·</span><span class="skill-chip">AI Coding</span><span class="ticker-sep">·</span><span class="skill-chip">Agile</span><span class="ticker-sep">·</span><span class="skill-chip">Scrum</span><span class="ticker-sep">·</span><span class="skill-chip">Kanban</span><span class="ticker-sep">·</span>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="hero-cta">
+            <a href="#work" class="btn btn-primary">See my work</a>
+            <a href="Panthawit_Resume.pdf" target="_blank" rel="noopener noreferrer"
+               class="btn btn-ghost">Download résumé</a>
         </div>
     </section>
 
-    <!-- ── WINDOW 2: Projects ─────────────────────────────── -->
-    <section class="app-window projects-section" id="win-projects"
-             style="left:560px; top:40px; width:570px; height:440px;"
-             aria-label="Projects">
-        <div class="window-titlebar" data-win="win-projects">
-            <div class="traffic-lights">
-                <button class="tl tl-close" data-action="close"    data-win="win-projects" aria-label="Close projects"></button>
-                <button class="tl tl-min"   data-action="minimize" data-win="win-projects" aria-label="Minimize projects"></button>
-                <button class="tl tl-max"   data-action="maximize" data-win="win-projects" aria-label="Maximize projects"></button>
-            </div>
-            <span class="window-title">Projects — ~/Boo/portfolio</span>
-        </div>
-        <div class="window-toolbar">
-            <span class="finder-path">📁 ~/Boo/portfolio</span>
-            <span class="finder-count">9 items</span>
-        </div>
-        <div class="window-body projects-body">
+    <!-- ═══════════════════════════════════════════════════════
+         WORK
+    ═══════════════════════════════════════════════════════ -->
+    <section class="section projects-section" id="work" aria-labelledby="work-title">
+        <div class="section-inner">
+            <header class="section-head">
+                <h2 class="section-title" id="work-title">Selected work</h2>
+                <p class="section-sub">Case studies from the tools I test with. Open any card to read the write-up, in English or Thai.</p>
+            </header>
             <div class="projects-grid">
                 <div class="project-card" data-readme="./manual-testing/README.md"
-                     role="button" tabindex="0">
-                    <span class="p-icon">📝</span>
+                     role="button" tabindex="0" aria-label="Open Manual Testing case study">
+                    <span class="p-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 12 2 2 4-4"/></svg></span>
                     <span class="file-label">Manual Testing</span>
+                    <span class="file-sub">Test design &amp; cases</span>
                 </div>
                 <div class="project-card" data-readme="./selenium/README.md"
-                     role="button" tabindex="0">
-                    <span class="p-icon">🌐</span>
+                     role="button" tabindex="0" aria-label="Open Selenium case study">
+                    <span class="p-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
                     <span class="file-label">Selenium</span>
+                    <span class="file-sub">Web automation</span>
                 </div>
                 <div class="project-card" data-readme="./appium/README.md"
-                     role="button" tabindex="0">
-                    <span class="p-icon">📱</span>
+                     role="button" tabindex="0" aria-label="Open Appium case study">
+                    <span class="p-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M12 18h.01"/></svg></span>
                     <span class="file-label">Appium</span>
+                    <span class="file-sub">Mobile automation</span>
                 </div>
                 <div class="project-card" data-readme="./maestro/README.md"
-                     role="button" tabindex="0">
-                    <span class="p-icon">🎼</span>
+                     role="button" tabindex="0" aria-label="Open Maestro case study">
+                    <span class="p-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
                     <span class="file-label">Maestro</span>
+                    <span class="file-sub">Mobile UI flows</span>
                 </div>
                 <div class="project-card" data-readme="./postman/README.md"
-                     role="button" tabindex="0">
-                    <span class="p-icon">⚡</span>
+                     role="button" tabindex="0" aria-label="Open Postman case study">
+                    <span class="p-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg></span>
                     <span class="file-label">Postman</span>
+                    <span class="file-sub">API testing</span>
                 </div>
                 <div class="project-card" data-readme="./sql/README.md"
-                     role="button" tabindex="0">
-                    <span class="p-icon">🗄️</span>
+                     role="button" tabindex="0" aria-label="Open SQL case study">
+                    <span class="p-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
                     <span class="file-label">SQL</span>
+                    <span class="file-sub">Data validation</span>
                 </div>
                 <div class="project-card" data-readme="./playwright/README.md"
-                     role="button" tabindex="0">
-                    <span class="p-icon">🎭</span>
+                     role="button" tabindex="0" aria-label="Open Playwright case study">
+                    <span class="p-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20"/><path d="m10 13 4 2.5-4 2.5z"/></svg></span>
                     <span class="file-label">Playwright</span>
+                    <span class="file-sub">End-to-end automation</span>
                 </div>
                 <div class="project-card" data-readme="./jmeter/README.md"
-                     role="button" tabindex="0">
-                    <span class="p-icon">📊</span>
+                     role="button" tabindex="0" aria-label="Open JMeter case study">
+                    <span class="p-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
                     <span class="file-label">JMeter</span>
+                    <span class="file-sub">Performance testing</span>
+                </div>
+                <div class="project-card" data-readme="./ai-engineering/README.md"
+                     role="button" tabindex="0" aria-label="Open AI Engineering case study">
+                    <span class="p-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></span>
+                    <span class="file-label">AI Engineering</span>
+                    <span class="file-sub">Agents, MCP &amp; workflows</span>
                 </div>
                 <a href="https://panwyyt.github.io/GAY-DAR/"
                    target="_blank" rel="noopener noreferrer"
-                   class="project-card card-special">
-                    <span class="p-icon">🚀</span>
+                   class="project-card card-special" aria-label="Visit the GAY-DAR side project (opens in new tab)">
+                    <span class="p-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span>
                     <span class="file-label text-special">GAY-DAR App</span>
+                    <span class="file-sub">Side project &#8599;</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ── WINDOW 3: Skills ───────────────────────────────── -->
-    <section class="app-window skills-section" id="win-skills"
-             style="left:40px; top:462px; width:350px; height:270px;"
-             aria-label="Skills">
-        <div class="window-titlebar" data-win="win-skills">
-            <div class="traffic-lights">
-                <button class="tl tl-close" data-action="close"    data-win="win-skills" aria-label="Close skills"></button>
-                <button class="tl tl-min"   data-action="minimize" data-win="win-skills" aria-label="Minimize skills"></button>
-                <button class="tl tl-max"   data-action="maximize" data-win="win-skills" aria-label="Maximize skills"></button>
-            </div>
-            <span class="window-title">skill-set.sh</span>
-        </div>
-        <div class="window-body">
-            <div class="skills-grid">
-                <span class="skill-chip">Manual Testing</span>
-                <span class="skill-chip">Robot Framework</span>
-                <span class="skill-chip">Selenium</span>
-                <span class="skill-chip">Appium</span>
-                <span class="skill-chip">Maestro</span>
-                <span class="skill-chip">Playwright</span>
-                <span class="skill-chip">Postman</span>
-                <span class="skill-chip">SQL</span>
-                <span class="skill-chip">API</span>
-                <span class="skill-chip">JMeter</span>
-                <span class="skill-chip">CI/CD</span>
-                <span class="skill-chip">Git</span>
-                <span class="skill-chip">Jira</span>
-                <span class="skill-chip">AI Coding</span>
-                <span class="skill-chip">Agile</span>
-                <span class="skill-chip">Scrum</span>
-                <span class="skill-chip">Kanban</span>
-            </div>
-        </div>
-    </section>
+    <!-- ═══════════════════════════════════════════════════════
+         SKILLS
+    ═══════════════════════════════════════════════════════ -->
 
-    <!-- ── WINDOW 4: Experience ───────────────────────────── -->
-    <section class="app-window experience-section" id="win-experience"
-             style="left:410px; top:498px; width:440px; height:330px;"
-             aria-label="Experience">
-        <div class="window-titlebar" data-win="win-experience">
-            <div class="traffic-lights">
-                <button class="tl tl-close" data-action="close"    data-win="win-experience" aria-label="Close experience"></button>
-                <button class="tl tl-min"   data-action="minimize" data-win="win-experience" aria-label="Minimize experience"></button>
-                <button class="tl tl-max"   data-action="maximize" data-win="win-experience" aria-label="Maximize experience"></button>
-            </div>
-            <span class="window-title">experience.log</span>
-        </div>
-        <div class="window-body">
+    <!-- ═══════════════════════════════════════════════════════
+         EXPERIENCE
+    ═══════════════════════════════════════════════════════ -->
+    <section class="section experience-section" id="experience" aria-labelledby="exp-title">
+        <div class="section-inner">
+            <header class="section-head">
+                <h2 class="section-title" id="exp-title">Experience</h2>
+                <p class="section-sub">Where I have been, and how I got into testing.</p>
+            </header>
             <div class="experience-grid">
-                <div class="timeline">
-                    <div class="timeline-item">
+                <ol class="timeline">
+                    <li class="timeline-item">
                         <div class="tl-date">2025 – 2026</div>
                         <div class="tl-content">
                             <h3>Software Testing Full Course</h3>
-                            <p>Software Testing By P'Beam</p>
+                            <p>Software Testing by P&rsquo;Beam</p>
                         </div>
-                    </div>
-                    <div class="timeline-item">
+                    </li>
+                    <li class="timeline-item">
                         <div class="tl-date">2024 – 2025</div>
                         <div class="tl-content">
                             <h3>Quality Analyst</h3>
                             <p>Gearinc Services · Thailand</p>
                         </div>
-                    </div>
-                    <div class="timeline-item">
+                    </li>
+                    <li class="timeline-item">
                         <div class="tl-date">2022 – 2024</div>
                         <div class="tl-content">
                             <h3>Technical Advertising Support</h3>
                             <p>Concentrix · Malaysia</p>
                         </div>
-                    </div>
-                    <div class="timeline-item">
+                    </li>
+                    <li class="timeline-item">
                         <div class="tl-date">2022</div>
                         <div class="tl-content">
-                            <h3>Data Analyst Cert</h3>
+                            <h3>Data Analyst Certificate</h3>
                             <p>DataRockie School &amp; Coursera</p>
                         </div>
-                    </div>
-                    <div class="timeline-item">
+                    </li>
+                    <li class="timeline-item">
                         <div class="tl-date">2021</div>
                         <div class="tl-content">
-                            <h3>Digital Mktg &amp; CS Certs</h3>
+                            <h3>Digital Marketing &amp; CS Certificates</h3>
                             <p>Google Digital Garage &amp; Skillsoft</p>
                         </div>
-                    </div>
-                    <div class="timeline-item">
+                    </li>
+                    <li class="timeline-item">
                         <div class="tl-date">2018 – 2021</div>
                         <div class="tl-content">
                             <h3>Sociology and Anthropology</h3>
                             <p>Thammasat University</p>
                         </div>
-                    </div>
-                </div>
-                <aside class="side-panel">
+                    </li>
+                </ol>
+                <aside class="side-panel" aria-label="At a glance">
                     <div class="side-block">
-                        <h4 class="side-title">Languages</h4>
+                        <h3 class="side-title">Languages</h3>
                         <div class="lang-item">
                             <span class="lang-name">Thai</span>
                             <span class="lang-level">Native</span>
@@ -266,16 +241,16 @@
                         </div>
                     </div>
                     <div class="side-block">
-                        <h4 class="side-title">Soft Skills</h4>
+                        <h3 class="side-title">Soft skills</h3>
                         <ul class="side-list">
-                            <li>Bug Hunter Mindset</li>
-                            <li>Critical Thinking</li>
-                            <li>Attention to Detail</li>
-                            <li>Problem Solving</li>
+                            <li>Bug hunter mindset</li>
+                            <li>Critical thinking</li>
+                            <li>Attention to detail</li>
+                            <li>Problem solving</li>
                         </ul>
                     </div>
                     <div class="side-block">
-                        <h4 class="side-title">Environment</h4>
+                        <h3 class="side-title">Environment</h3>
                         <div class="side-tags">
                             <span class="side-tag">macOS</span>
                             <span class="side-tag">Android Studio</span>
@@ -288,98 +263,103 @@
         </div>
     </section>
 
-    <!-- ── WINDOW 5: Certifications ──────────────────────── -->
-    <section class="app-window certifications-section" id="win-certs"
-             style="left:870px; top:40px; width:270px; height:430px;"
-             aria-label="Certifications">
-        <div class="window-titlebar" data-win="win-certs">
-            <div class="traffic-lights">
-                <button class="tl tl-close" data-action="close"    data-win="win-certs" aria-label="Close certifications"></button>
-                <button class="tl tl-min"   data-action="minimize" data-win="win-certs" aria-label="Minimize certifications"></button>
-                <button class="tl tl-max"   data-action="maximize" data-win="win-certs" aria-label="Maximize certifications"></button>
-            </div>
-            <span class="window-title">Certifications</span>
-        </div>
-        <div class="window-body">
+    <!-- ═══════════════════════════════════════════════════════
+         CERTIFICATIONS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="section certifications-section" id="certs" aria-labelledby="certs-title">
+        <div class="section-inner">
+            <header class="section-head">
+                <h2 class="section-title" id="certs-title">Certifications</h2>
+                <p class="section-sub">Tap any certificate to view it full size.</p>
+            </header>
             <div class="cert-grid">
                 <div class="cert-card"
+                     data-img="all-my-certifications/Certificate QA Basic Knowledge - Doppio Tech.png"
+                     role="button" tabindex="0" aria-label="View certificate: QA Basic Knowledge Training — Doppio Tech">
+                    <div class="cert-image-container">
+                        <img src="all-my-certifications/Certificate QA Basic Knowledge - Doppio Tech.png"
+                             alt="QA Basic Knowledge Training certificate from Doppio Tech" loading="lazy">
+                    </div>
+                    <div class="cert-overlay"><span>QA Basic Knowledge — Doppio Tech</span></div>
+                </div>
+                <div class="cert-card"
                      data-img="all-my-certifications/Automation Test (Basic to Advanced) - Kru P'Beam .png"
-                     role="button" tabindex="0" aria-label="View: Automation Test (Advanced)">
+                     role="button" tabindex="0" aria-label="View certificate: Automation Test (Advanced)">
                     <div class="cert-image-container">
                         <img src="all-my-certifications/Automation Test (Basic to Advanced) - Kru P'Beam .png"
-                             alt="Automation Test Advanced" loading="lazy">
+                             alt="Automation Test Basic to Advanced certificate" loading="lazy">
                     </div>
                     <div class="cert-overlay"><span>Automation Test (Advanced)</span></div>
                 </div>
                 <div class="cert-card"
                      data-img="all-my-certifications/Certificate Automation Test (Basic) -  Panthawit Chumthong (Boo).png"
-                     role="button" tabindex="0" aria-label="View: Automation Test (Basic)">
+                     role="button" tabindex="0" aria-label="View certificate: Automation Test (Basic)">
                     <div class="cert-image-container">
                         <img src="all-my-certifications/Certificate Automation Test (Basic) -  Panthawit Chumthong (Boo).png"
-                             alt="Automation Test Basic" loading="lazy">
+                             alt="Automation Test Basic certificate" loading="lazy">
                     </div>
                     <div class="cert-overlay"><span>Automation Test (Basic)</span></div>
                 </div>
                 <div class="cert-card"
                      data-img="all-my-certifications/Certificate Course API Testing With Postman Basic - Panthawit Chumthong (Boo).png"
-                     role="button" tabindex="0" aria-label="View: API Testing with Postman">
+                     role="button" tabindex="0" aria-label="View certificate: API Testing with Postman">
                     <div class="cert-image-container">
                         <img src="all-my-certifications/Certificate Course API Testing With Postman Basic - Panthawit Chumthong (Boo).png"
-                             alt="API Testing Postman" loading="lazy">
+                             alt="API Testing with Postman certificate" loading="lazy">
                     </div>
                     <div class="cert-overlay"><span>API Testing with Postman</span></div>
                 </div>
                 <div class="cert-card"
                      data-img="all-my-certifications/Certification SQL - Panthawit Chumthong (Boo).png"
-                     role="button" tabindex="0" aria-label="View: SQL for Data Analytics">
+                     role="button" tabindex="0" aria-label="View certificate: SQL for Data Analytics">
                     <div class="cert-image-container">
                         <img src="all-my-certifications/Certification SQL - Panthawit Chumthong (Boo).png"
-                             alt="SQL Certification" loading="lazy">
+                             alt="SQL certification" loading="lazy">
                     </div>
                     <div class="cert-overlay"><span>SQL for Data Analytics</span></div>
                 </div>
                 <div class="cert-card"
                      data-img="all-my-certifications/Certified Professional Data Analyst.png"
-                     role="button" tabindex="0" aria-label="View: Certified Data Analyst">
+                     role="button" tabindex="0" aria-label="View certificate: Certified Data Analyst">
                     <div class="cert-image-container">
                         <img src="all-my-certifications/Certified Professional Data Analyst.png"
-                             alt="Professional Data Analyst" loading="lazy">
+                             alt="Certified Professional Data Analyst certificate" loading="lazy">
                     </div>
                     <div class="cert-overlay"><span>Certified Data Analyst</span></div>
                 </div>
                 <div class="cert-card"
                      data-img="all-my-certifications/Course 1-2 Software Testing Manual(VDO) - Panthawit Chumthong .png"
-                     role="button" tabindex="0" aria-label="View: Manual Testing (Full Course)">
+                     role="button" tabindex="0" aria-label="View certificate: Manual Testing (Full Course)">
                     <div class="cert-image-container">
                         <img src="all-my-certifications/Course 1-2 Software Testing Manual(VDO) - Panthawit Chumthong .png"
-                             alt="Software Testing Manual" loading="lazy">
+                             alt="Software Testing Manual full course certificate" loading="lazy">
                     </div>
                     <div class="cert-overlay"><span>Manual Testing (Full Course)</span></div>
                 </div>
                 <div class="cert-card"
                      data-img="all-my-certifications/EF SET English Certificate.jpeg"
-                     role="button" tabindex="0" aria-label="View: EF SET English (C2 Proficient)">
+                     role="button" tabindex="0" aria-label="View certificate: EF SET English (C2 Proficient)">
                     <div class="cert-image-container">
                         <img src="all-my-certifications/EF SET English Certificate.jpeg"
-                             alt="English Certificate" loading="lazy">
+                             alt="EF SET English certificate" loading="lazy">
                     </div>
                     <div class="cert-overlay"><span>EF SET English (C2 Proficient)</span></div>
                 </div>
                 <div class="cert-card"
                      data-img="all-my-certifications/Google Ads for Beginners - Google.png"
-                     role="button" tabindex="0" aria-label="View: Google Ads for Beginners">
+                     role="button" tabindex="0" aria-label="View certificate: Google Ads for Beginners">
                     <div class="cert-image-container">
                         <img src="all-my-certifications/Google Ads for Beginners - Google.png"
-                             alt="Google Ads" loading="lazy">
+                             alt="Google Ads for Beginners certificate" loading="lazy">
                     </div>
                     <div class="cert-overlay"><span>Google Ads for Beginners</span></div>
                 </div>
                 <div class="cert-card"
                      data-img="all-my-certifications/Technical Support Fundamentals - Google.png"
-                     role="button" tabindex="0" aria-label="View: IT Support Fundamentals">
+                     role="button" tabindex="0" aria-label="View certificate: IT Support Fundamentals">
                     <div class="cert-image-container">
                         <img src="all-my-certifications/Technical Support Fundamentals - Google.png"
-                             alt="Technical Support" loading="lazy">
+                             alt="Technical Support Fundamentals certificate" loading="lazy">
                     </div>
                     <div class="cert-overlay"><span>IT Support Fundamentals</span></div>
                 </div>
@@ -387,20 +367,51 @@
         </div>
     </section>
 
-    <!-- ── DOCK ───────────────────────────────────────────── -->
-    <nav class="dock" aria-label="Application dock">
-        <button class="dock-icon" data-target="win-terminal"   aria-label="Terminal">🖥️<span class="dock-dot"></span></button>
-        <button class="dock-icon" data-target="win-projects"   aria-label="Projects">📁<span class="dock-dot"></span></button>
-        <div class="dock-sep"></div>
-        <button class="dock-icon" data-target="win-skills"     aria-label="Skills">⚡<span class="dock-dot"></span></button>
-        <button class="dock-icon" data-target="win-experience" aria-label="Experience">📋<span class="dock-dot"></span></button>
-        <button class="dock-icon" data-target="win-certs"      aria-label="Certifications">🏆<span class="dock-dot"></span></button>
-    </nav>
+    <!-- ═══════════════════════════════════════════════════════
+         CONTACT
+    ═══════════════════════════════════════════════════════ -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="section-inner section-inner--narrow">
+            <header class="section-head section-head--center">
+                <h2 class="section-title" id="contact-title">Let&rsquo;s connect</h2>
+                <p class="section-sub">This page is the hub. Reach me wherever works for you.</p>
+            </header>
+            <div class="contact-links">
+                <a href="mailto:tocilic@gmail.com" class="btn btn-email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    Email
+                </a>
+                <a href="tel:+66825706947" class="btn btn-phone">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Phone
+                </a>
+                <a href="https://linkedin.com/in/tocilic" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/panwyyt" target="_blank" rel="noopener noreferrer" class="btn btn-github">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+                    GitHub
+                </a>
+                <a href="Panthawit_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-resume">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+                    Résumé
+                </a>
+            </div>
+        </div>
+    </section>
 
-</div><!-- /desktop -->
+</main>
+
+<footer class="footer">
+    <div class="section-inner">
+        <span class="footer-mark">Boo</span>
+        <p class="footer-note">© 2026 Panthawit Chumthong · Built from scratch, no templates.</p>
+    </div>
+</footer>
 
 <!-- ═══════════════════════════════════════════════════════
-     MODALS (outside desktop, above everything)
+     MODALS
 ═══════════════════════════════════════════════════════ -->
 
 <div class="image-viewer-overlay" id="imageViewer"
@@ -417,7 +428,7 @@
      role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-panel">
         <div class="modal-header">
-            <span id="modal-title">DOCUMENTATION</span>
+            <span id="modal-title">Documentation</span>
             <div class="modal-controls">
                 <button class="btn btn-secondary btn-sm" id="langToggle"
                         style="display: none;">[ EN / TH ]</button>
@@ -425,7 +436,7 @@
             </div>
         </div>
         <div class="readme-content" id="readmeContent">
-            <p class="loading-text">Loading...</p>
+            <p class="loading-text">Loading…</p>
         </div>
     </div>
 </div>

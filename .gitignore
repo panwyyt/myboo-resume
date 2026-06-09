@@ -1,2 +1,24 @@
+# OS
 .DS_Store
-*.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel
+
+# Dev tooling (Claude Code / impeccable skill — not part of the deployed site)
+.claude/
+.impeccable/
+
+# Playwright (has its own package — keep node_modules out of root git)
+playwright/node_modules/
+playwright/test-results/
+playwright/playwright-report/
+
+# Temp / scratch scripts
+/tmp/
+
+# Editor
+.vscode/settings.json
+*.swp
+*.swo
