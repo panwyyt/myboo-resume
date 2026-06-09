@@ -10,6 +10,12 @@ Thumbs.db
 .claude/
 .impeccable/
 
+# Project meta docs (kept locally, not for the public repo)
+CLAUDE.md
+DESIGN.md
+PRODUCT.md
+MEMORY.md
+
 # Playwright (has its own package — keep node_modules out of root git)
 playwright/node_modules/
 playwright/test-results/
